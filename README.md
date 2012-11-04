@@ -22,3 +22,5 @@ Wie sind wir wandermüde--
 Ist dies etwa der Tod?  
 
 http://de.wikipedia.org/wiki/Vier_letzte_Lieder
+
+http://www.youtube.com/watch?v=co61XmUu-tc
