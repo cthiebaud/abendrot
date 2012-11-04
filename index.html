@@ -21,6 +21,14 @@
       font-weight: 400;
       src: local('Inconsolata'), url('assets/fonts/BjAYBlHtW3CJxDcjzrnZCIbN6UDyHWBl620a-IRfuBk.woff') format('woff');
     }
+    .jumbotron {
+      background-image:url('images/abendrot-2-2.jpg');
+      background-repeat:no-repeat;
+      background-position:left top;       
+    }
+    h1.brand {
+      letter-spacing:40px;
+    }
     </style>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -32,6 +40,13 @@
 
   <body data-spy="scroll" data-target=".bs-docs-sidebar" data-twttr-rendered="true">
 
+<!-- Subhead
+================================================== -->
+<header class="jumbotron subhead" id="overview">
+  <div class="container">
+    <h1 class="brand">abendrot</h1>
+  </div>
+</header>
 
   <div class="container">
 
@@ -42,8 +57,8 @@
         <ul class="nav nav-list bs-docs-sidenav affix-top">
           <li class="active"><a href="#setup-nwcloud"><i class="icon-chevron-right"></i> Setup SAP NetWeaver Cloud</a></li>
           <li class=""><a href="#install-maven-and-git"><i class="icon-chevron-right"></i> Install Maven and Git</a></li>
-          <li class=""><a href="#setup-github"><i class="icon-chevron-right"></i> Create a Github Repository</a></li>
-          <li class=""><a href="#create-project"><i class="icon-chevron-right"></i> Create Project</a></li>
+          <li class=""><a href="#setup-github"><i class="icon-chevron-right"></i> Create Github Repository</a></li>
+          <li class=""><a href="#create-project"><i class="icon-chevron-right"></i> Create Eclipse Project</a></li>
 
           <li class=""><a href="#coming-soon"><i class="icon-chevron-right"></i> Coming Soon ...</a></li>
         </ul>
@@ -79,7 +94,7 @@
 
             <p><strong>Maven Integration for WTP</strong> (m2e-wtp) : go to <a href="https://www.eclipse.org/m2e-wtp/">https://www.eclipse.org/m2e-wtp/</a>. Follow the installation procedure at <a href="https://www.eclipse.org/m2e-wtp/download/">https://www.eclipse.org/m2e-wtp/download/</a>. Install the latest release.</p>
 
-            <p><strong>Command line maven</strong> (optional, but strongly encouraged> : go to <a href="http://maven.apache.org/">http://maven.apache.org/</a>. Follow the installation procedure at <a href="http://maven.apache.org/download.html">http://maven.apache.org/download.html</a>. Install the latest release.</p>
+            <p><strong>Command line maven</strong> (optional, but strongly encouraged) : go to <a href="http://maven.apache.org/">http://maven.apache.org/</a>. Follow the installation procedure at <a href="http://maven.apache.org/download.html">http://maven.apache.org/download.html</a>. Install the latest release.</p>
   
             <p><strong>Eclipse Git</strong> (egit): go to <a href="http://www.eclipse.org/egit/">http://www.eclipse.org/egit/</a>. Follow the installation procedure at <a href="http://www.eclipse.org/egit/download/">http://www.eclipse.org/egit/download/</a>. Install the latest release.</p>
         </div>
@@ -98,8 +113,7 @@
             <p>Create an empty github repository. The place to do so is not obvious for a github beginner, it is this icon on the top right toolbar.
             <img src="./images/create_github_repo.png" alt="">
             </p>
-            <p>Check 'Initialize this repository with a README' for the very reason that github gives you : 'This will allow you to git clone the repository immediately.'</p>
-            <p>Choose a maven .gitignore.</p> 
+            <p>Check 'Initialize this repository with a README' for the very reason that github gives you : <i>'This will allow you to git clone the repository immediately'</i> and choose the maven .gitignore.</p> 
             <img src="./images/create_github_repo_suite.png" alt="">
             <p>Create and clone immediately your repository. You'll get something like this on your box:</p>
 <pre class="prettyprint">
@@ -115,7 +129,7 @@ $ cd abendrot
 $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
 </pre>
 
-            <p>'Beyond-Comparing" the two directories will show something like :</p>
+            <p>"Beyond-Comparing" the two directories will show something like :</p>
             <img src="./images/diff.png" alt="">
 
           </div>
@@ -125,10 +139,14 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
         ================================================== -->
         <section id="create-project">
           <div class="page-header">
-            <h1>3. Create Project in Eclipse</h1>
+            <h1>3. Create Eclipse Project</h1>
           </div>
           <div class="row-fluid">
             <p class="lead">There are ~12 different flavors of '<a href="http://stackoverflow.com/search?q=how+to+create+a+maven+aware+eclipse+project">how-to-create-a-maven-aware-eclipse-project</a>'. This one has my preference :</p>
+
+            <p>Open eclipse, switch to 'java' perspective</p>
+            <img src="./images/java_perspective.png" alt="">
+
           </div>
         </section>
 
