@@ -21,4 +21,4 @@ So tief im Abendrot.
 Wie sind wir wandermüde--  
 Ist dies etwa der Tod?  
 
-http://en.wikipedia.org/wiki/Four_Last_Songs
+http://de.wikipedia.org/wiki/Vier_letzte_Lieder
