@@ -1,6 +1,7 @@
 abendrot
 ========
 
+
 Wir sind durch Not und Freude  
 gegangen Hand in Hand;  
 vom Wandern ruhen wir  
