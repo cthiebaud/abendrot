@@ -25,3 +25,5 @@ Ist dies etwa der Tod?
 http://de.wikipedia.org/wiki/Vier_letzte_Lieder
 
 http://www.youtube.com/watch?v=co61XmUu-tc
+
+![abendrot](http://cthiebaud.github.com/abendrot/images/abendrot-2-small.jpg)
