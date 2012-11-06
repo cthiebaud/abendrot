@@ -45,9 +45,6 @@
 						</goals>
 					</execution>
 				</executions>
-				<configuration>
-					<sdk.args>--java-version</sdk.args>
-				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>pl.project13.maven</groupId>
