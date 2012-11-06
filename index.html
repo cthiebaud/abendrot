@@ -30,7 +30,7 @@
       margin-top : 20px;
     }
     h1.brand {
-      letter-spacing:40px;
+      letter-spacing:30px;
     }
     ul.breadcrumb li .divider i {
       opacity: .5;
@@ -47,6 +47,10 @@
     }
     .accordion-heading .accordion-toggle {
       display:inline;
+    }
+    .thumbnails li {
+      margin-right:  1em;
+      margin-bottom:  0;
     }
     </style>
 
@@ -78,12 +82,14 @@
           <li class=""><a href="#install-maven-and-git"><i class="icon-chevron-right"></i> Install Maven and Git</a></li>
           <li class=""><a href="#setup-github">         <i class="icon-chevron-right"></i> Create Github Repository</a></li>
           <li class=""><a href="#create-project">       <i class="icon-chevron-right"></i> Create Eclipse Project</a></li>
+          <li class=""><a href="#create-content">       <i class="icon-chevron-right"></i> Create Content</a></li>
           <li class=""><a href="#run-it-tc">            <i class="icon-chevron-right"></i> Run on local Tomcat</a></li>
           <li class=""><a href="#run-it-nw">            <i class="icon-chevron-right"></i> Run on NetWeaver Cloud</a></li>
           <li class=""><a href="#egit">                 <i class="icon-chevron-right"></i> Submit to Github</a></li>
           <li class=""><a href="#travis-ci">            <i class="icon-chevron-right"></i> Continously integrate</a></li>
-          <li class=""><a href="#deployment">           <i class="icon-chevron-right"></i> Deploy</a></li>
-          <li class=""><a href="#release">              <i class="icon-chevron-right"></i> Release</a></li>
+          <li class=""><a href="#deploy">               <i class="icon-chevron-right"></i> Automate Deploy</a></li>
+          <li class=""><a href="#ribbon">               <i class="icon-chevron-right"></i> Add Github Ribbon</a></li>
+          <li class=""><a href="#conclusion">           <i class="icon-chevron-right"></i> Conclusion</a></li>
 
           <!-- li class=""><a href="#coming-soon"><i class="icon-chevron-right"></i> Coming soon ...</a></li -->
         </ul>
@@ -96,11 +102,18 @@
         ================================================== -->
         <section id="setup-nwcloud">
           <div class="page-header">
-            <h1>1. Setup SAP NetWeaver Cloud</h1>
+            <h1>Setup SAP NetWeaver Cloud</h1>
           </div>
-          <p class="lead">Open <a href="http://scn.sap.com/community/developer-center/cloud-platform">SAP NetWeaver Cloud Developer Center</a>, get your <strong>free</strong> developer license (in 5 minutes), and perform all the steps covered under the "Step by step" section.</p>
-
           <div class="row-fluid">
+            <ul class="thumbnails">
+              <li class="span1">
+                <a href="#" class="thumbnail" style="none;">
+                    <img src="icons/1.png" alt="" >
+                </a>
+              </li>
+              <div class="lead">Open <a href="http://scn.sap.com/community/developer-center/cloud-platform">SAP NetWeaver Cloud Developer Center</a>, get your <strong>free</strong> developer license (in 5 minutes), and perform all the steps covered under the "Step by step" section.</div>
+            </ul>              
+
             <div class="accordion" id="accordion-setup-nwcloud">
               <div class="accordion-group">
                 <div class="accordion-heading">
@@ -123,10 +136,17 @@
         ================================================== -->
         <section id="install-maven-and-git">
           <div class="page-header">
-            <h1>2. Install Maven and Git in Eclipse</h1>
+            <h1>Install Maven and Git in Eclipse</h1>
           </div>
           <div class="row-fluid">
-            <p class="lead">SAP NetWeaver Cloud is <em>build technology</em> and <em>source code management system</em> agnostic, hence these two topics are not covered in the SAP step by step guide from section 1. <a her="" >Abenrot</a> uses <strong>maven</strong> as build technology and <strong>git</strong> as source code management system; Update your eclipse environment to support maven and git:</p>
+            <ul class="thumbnails">
+              <li class="span1">
+                <a href="#" class="thumbnail" style="none;">
+                    <img src="icons/2.png" alt="" >
+                </a>
+              </li>
+              <div class="lead">SAP NetWeaver Cloud is <em>build technology</em> and <em>source code management system</em> agnostic, hence these two topics are not covered in the SAP step by step guide from section 1. <a her="" >Abenrot</a> uses <strong>maven</strong> as build technology and <strong>git</strong> as source code management system; Update your eclipse environment to support maven and git:</div>
+            </ul>              
 
             <p><strong>Maven Integration for WTP</strong> (m2e-wtp) : open <a href="https://www.eclipse.org/m2e-wtp/">https://www.eclipse.org/m2e-wtp/</a>. Follow the installation procedure at <a href="https://www.eclipse.org/m2e-wtp/download/">https://www.eclipse.org/m2e-wtp/download/</a>. Install the latest release.</p>
 
@@ -140,37 +160,48 @@
         ================================================== -->
         <section id="setup-github">
           <div class="page-header">
-            <h1>3. Create a Github Repository</h1>
+            <h1>Create a Github Repository</h1>
           </div>
           <div class="row-fluid">
-            <p class="lead"><strong>abendrot</strong> is a tutorial on how to write a SAP NetWeaver Cloud application. You will use a github repository to host and monitor your work. You will also clone <strong>abendrot</strong> itself to another directory. And you will use a <a href="http://www.scootersoftware.com/">good compare tool</a> to diff the two directories at various stages of the tutorial. </p>
+            <ul class="thumbnails">
+              <li class="span1">
+                <a href="#" class="thumbnail" style="none;">
+                    <img src="icons/3.png" alt="" >
+                </a>
+              </li>
+              <div class="lead"><strong>abendrot</strong> is a tutorial on how to write a SAP NetWeaver Cloud application. You will use a github repository to host and monitor your work. You will also clone <strong>abendrot</strong> itself to another directory. And you will use a <a href="http://www.scootersoftware.com/">good compare tool</a> to diff the two directories at various stages of the tutorial.</div>
+            </ul>              
 
             <div class="accordion" id="accordion-setup-github">
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
                     <span><a href="https://github.com/signup/free">Setup a <strong>free</strong> github account</a>, if you have not already one</span>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-setup-github" href="#collapse-setup-github-1"><i class="icon-chevron-right"></i></a>
+                    <!-- a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-setup-github" href="#collapse-setup-github-1"><i class="icon-chevron-right"></i></a -->
                   </p>
                 </div>
+                <!--
                 <div id="collapse-setup-github-1" class="accordion-body collapse out">
                   <div class="accordion-inner">
                     <img src="./images/sign_up_for_github.png" alt="">
                   </div>
                 </div>
+                -->
               </div>
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
                     <span>Log to your account at <a id="your_account" href="#">https://github.com/&lt;your account&gt;</a></span>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-setup-github" href="#collapse-setup-github-2"><i class="icon-chevron-right"></i></a>
+                    <!-- a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-setup-github" href="#collapse-setup-github-2"><i class="icon-chevron-right"></i></a -->
                   </p>
                 </div>
+                <!--
                 <div id="collapse-setup-github-2" class="accordion-body collapse out">
                   <div class="accordion-inner">
                     <img src="./images/your_account.png" alt="">
                   </div>
                 </div>
+                -->
               </div>
               <div class="accordion-group">
                 <div class="accordion-heading">
@@ -189,7 +220,7 @@
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    <span>Check 'Initialize this repository with a README' and choose the maven .gitignore.</span>
+                    <span>Name the repository abendrot-test, check <i>'Initialize this repository with a README'</i> and select maven .gitignore.</span>
                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-setup-github" href="#collapse-setup-github-4"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
@@ -202,16 +233,20 @@
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    <span>Create and clone immediately your repository</span>
+                    <span>Create and clone immediately your repository. </span>
+                    <span>I assume that you know how to. If not, <a href="https://help.github.com/categories/54/articles">Github Bootcamp</a>.</span>
                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-setup-github" href="#collapse-setup-github-5"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
                 <div id="collapse-setup-github-5" class="accordion-body collapse out">
                   <div class="accordion-inner">
-                    <p>I assume you've read Github docs such as <a href="https://help.github.com/categories/54/articles">Bootcamp</a>, and that you know how to clone the repo.</p>
+                    <p>E.g., using the git command line :</p>
+<pre>
+$ git clone https://github.com/&lt;your_github_account_name&gt;/abendrot-test.git
+</pre>
                     <p>You'll get something like this on your box:</p>
 <pre class="prettyprint">
-  &lt;repository name&gt;/
+  abendrot-test
   ├── .gitignore
   └── README.md
 </pre>         
@@ -227,7 +262,13 @@
                 </div>
                 <div id="collapse-setup-github-6" class="accordion-body collapse out">
                   <div class="accordion-inner">
-                    <p>E.g., using the git command line, changing the default directory name from abendrot to abendrot-clone :</p>
+                    <p>E.g., using the git command line :</p>
+<pre>
+$ git clone https://github.com/cthiebaud/abendrot.git
+$ cd abendrot
+$ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
+</pre>
+                    <p>Or, to set the directory name to something else than the default :</p>
 <pre>
 $ git clone https://github.com/cthiebaud/abendrot.git abendrot-clone 
 $ cd abendrot-clone
@@ -259,11 +300,17 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
         ================================================== -->
         <section id="create-project">
           <div class="page-header">
-            <h1>3. Create Eclipse Project</h1>
+            <h1>Create Eclipse Project</h1>
           </div>
           <div class="row-fluid">
-            <p class="lead">There are ~12 different flavors of '<a href="http://stackoverflow.com/search?q=how+to+create+a+maven+aware+eclipse+project">how-to-create-a-maven-aware-eclipse-project</a>'. This one has my preference :</p>
-
+            <ul class="thumbnails">
+              <li class="span1">
+                <a href="#" class="thumbnail" style="none;">
+                    <img src="icons/4.png" alt="" >
+                </a>
+              </li>
+              <div class="lead">There are ~12 different flavors of '<a href="http://stackoverflow.com/search?q=how+to+create+a+maven+aware+eclipse+project">how-to-create-a-maven-aware-eclipse-project</a>'. This one has my preference .</div>
+            </ul>              
 
             <div class="accordion" id="accordion-create-project">
               <div class="accordion-group">
@@ -282,12 +329,7 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    <span>Start the wizard to create a new dynamic Web project</span>
-                    <a class="accordion-toggle" data-toggle="collapse" Data-parent="#accordion-create-project" href="#collapse-create-project-2"><I class="icon-chevron-right"></i></a>
-                  </p>
-                </div>
-                <div id="collapse-create-project-2" class="accordion-body collapse out">
-                  <div class="accordion-inner">
+                    <span>Create a new dynamic Web project :</span>
                     <ul class="breadcrumb">
                       <li>File                  <span class="divider"><i class="icon-play"></i></span></li>
                       <li>New                   <span class="divider"><i class="icon-play"></i></span></li>
@@ -296,13 +338,20 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
                       <li>Dynamic Web Project   <span class="divider"><i class="icon-play"></i></span></li>
                       <li>click <span class="underlined">N</span>ext &gt;<span class="divider"><i class="icon-play"></i></span></li>
                     </ul> 
+                    <!-- a class="accordion-toggle" data-toggle="collapse" Data-parent="#accordion-create-project" href="#collapse-create-project-2"><I class="icon-chevron-right"></i></a--> 
+                  </p>
+                </div>
+                <!--
+                <div id="collapse-create-project-2" class="accordion-body collapse out">
+                  <div class="accordion-inner">
                   </div>
                 </div>
+                  -->
               </div>
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    <span>Fill the project name (e.g. 'abendrot-test'), set project location to your Github clone, accept all other defaults, click <span class="underlined">N</span>ext &gt;</span>
+                    <span>Set project name to abendrot-test, change project location from default to where you cloned from Github, accept all other defaults, click <span class="underlined">N</span>ext &gt;</span>
                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-create-project" href="#collapse-create-project-3"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
@@ -343,7 +392,7 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    <span>Change the webapp folder from eclipse default <code>webContent</code> to maven default <code>src/main/webapp</Code>, click Finish</span>
+                    <span>Change the webapp folder from eclipse default <code>WebContent</code> to maven default <code>src/main/webapp</Code>, click Finish</span>
                     <a class="accordion-toggle" dAta-toggle="collapse" data-parent="#accordion-create-project" href="#collapse-create-project-6"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
@@ -369,32 +418,48 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    <span>Convert to maven Project. Set a groupID (mine is net.aequologica), artifactID (suggested 'abendrot-test'), and packaging type 'war'.</span>
+                    <span>Convert to maven Project. 
+                    <span>Right-click on the project name in the package explorer to open the context menu, select </span>
+                    <ul class="breadcrumb">
+                      <li>Configure <span class="divider"><i class="icon-play"></i></span></li>
+                      <li>Convert to Maven Project<span class="divider"><i class="icon-play"></i></span></li>
+                    </ul> 
+                    <span>A dialog pops up. Set your groupID, set artifactID to 'abendrot-test', and change packaging type to 'war'.</span>
                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-create-project" hrEf="#collapse-create-project-8"><I class="icon-chevron-right"></i></a>
                   </p>
                 </div>
                 <div id="collapse-create-project-8" class="accordion-body collapse out">
                   <div class="accordion-inner">
-                    <p>Right-click on the project name in the package explorer to open the context menu, select </p>
-                    <ul class="breadcrumb">
-                      <li>Configure <span class="divider"><i class="icon-play"></i></span></li>
-                      <li>Convert to Maven Project<span class="divider"><i class="icon-play"></i></span></li>
-                    </ul> 
                     <img src="./images/convert_to_maven_project.png" alt="">
                     <hr>
                     <img src="./images/convert_to_maven_project2.png" alt="">
                   </div>
                 </div>
               </div>
+          </div>
+        </section>
+
+        <!-- Run on local Tomcat
+        ================================================== -->
+        <section id="create-content">
+          <div class="page-header">
+            <h1>Create Content</h1>
+          </div>
+          <div class="row-fluid">
+            <ul class="thumbnails">
+              <li class="span1">
+                <a href="#" class="thumbnail" style="none;">
+                    <img src="icons/5.png" alt="" >
+                </a>
+              </li>
+              <div class="lead">Create a HTML5 page</div>
+            </ul>
+            <p class="lead"></p>
+            <div class="accordion" id="accordion-run-it-tc">
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    <span>Start the wizard to create a HTML page</span>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#aaccordion3" href="#collapse-create-project-9"><i class="icon-chevron-right"></i></a>
-                  </p>
-                </div>
-                <div id="collapse-create-project-9" class="accordion-body collapse out">
-                  <div class="accordion-inner">
+                    From Eclipse, 
                     <ul class="breadcrumb">
                       <li>File                  <span class="divider"><i class="icon-play"></i></span></li>
                       <li>New                   <span class="divider"><i class="icon-play"></i></span></li>
@@ -403,13 +468,20 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
                       <li>HTML File   <span class="divider"><i class="icon-play"></i></span></li>
                       <li>click <span class="underlined">N</span>ext &gt;<span class="divider"><i class="icon-play"></i></span></li>
                     </ul> 
+                    <!-- a class="accordion-toggle" data-toggle="collapse" data-parent="#aaccordion3" href="#collapse-create-project-9"><i class="icon-chevron-right"></i></a -->
+                  </p>
+                </div>
+                <!--
+                <div id="collapse-create-project-9" class="accordion-body collapse out">
+                  <div class="accordion-inner">
                   </div>
                 </div>
+              -->
               </div>
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    <span>Select the directory 'abendrot-test/src/main/webapp, name it index.html (fancy, isn't it?), click <span class="underlined">N</span>ext &gt;</span></span>
+                    <span>Select parent folder 'abendrot-test/src/main/webapp', name your page index.html (fancy, isn't it?), click <span class="underlined">N</span>ext &gt;</span></span>
                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-create-project" href="#collapse-create-project-10"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
@@ -440,10 +512,17 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
         ================================================== -->
         <section id="run-it-tc">
           <div class="page-header">
-            <h1>4. Run on local Tomcat</h1>
+            <h1>Run on local Tomcat</h1>
           </div>
           <div class="row-fluid">
-            <p class="lead">We will run the 'Hello World' index.html page on three different servers: 1. a plain Tomcat, 2. a local test server for SAP NetWeaver Cloud, and 3. the actual SAP NetWeaver Cloud on the internet.</p>
+            <ul class="thumbnails">
+              <li class="span1">
+                <a href="#" class="thumbnail" style="none;">
+                    <img src="icons/6.png" alt="" >
+                </a>
+              </li>
+              <div class="lead">We will run the 'Hello World' index.html page on three different servers: 1. a plain Tomcat, 2. a local test server for SAP NetWeaver Cloud, and 3. the actual SAP NetWeaver Cloud on the internet.</div>
+            </ul>
             <div class="alert alert-block media unstyled">
               <img src="images/infoicon70.png" class="pull-left">
               <div class="media-body">
@@ -534,10 +613,17 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
         ================================================== -->
         <section id="run-it-nw">
           <div class="page-header">
-            <h1>5. Run on NetWeaver Cloud</h1>
+            <h1>Run on NetWeaver Cloud</h1>
           </div>
           <div class="row-fluid">
-            <p class="lead">Steps to run on both local and remote NetWeaver Cloud are fully documented in the '<a href="https://help.netweaver.ondemand.com/default.htm?deploy_ide.html#concept_10CB6EE361554825A778B64F806C0B8F_84">Deploying from the Eclipse IDE</a>' page of the SAP NetWeaver Cloud Developer Center. Just use 'index.html' instead of 'HelloWorldServlet'</p>
+            <ul class="thumbnails">
+              <li class="span1">
+                <a href="#" class="thumbnail" style="none;">
+                    <img src="icons/7.png" alt="" >
+                </a>
+              </li>
+              <div class="lead">Steps to run on both local and remote NetWeaver Cloud are fully documented in the '<a href="https://help.netweaver.ondemand.com/default.htm?deploy_ide.html#concept_10CB6EE361554825A778B64F806C0B8F_84">Deploying from the Eclipse IDE</a>' page of the SAP NetWeaver Cloud Developer Center. Just use 'index.html' instead of 'HelloWorldServlet'</div>
+            </ul>
           </div>
         </section>
 
@@ -545,10 +631,17 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
         ================================================== -->
         <section id="egit">
           <div class="page-header">
-            <h1>6. Submit your work to Github with EGit</h1>
+            <h1>Submit your work to Github with EGit</h1>
           </div>
           <div class="row-fluid">
-            <p class="lead">Connect Eclipse to your git local repository with EGit. Review the <a href="http://wiki.eclipse.org/EGit/User_Guide/Getting_Started">Egit Getting Started User Guide</a>.</p>
+            <ul class="thumbnails">
+              <li class="span1">
+                <a href="#" class="thumbnail" style="none;">
+                    <img src="icons/8.png" alt="" >
+                </a>
+              </li>
+              <div class="lead">Connect Eclipse to your git local repository with EGit. Review the <a href="http://wiki.eclipse.org/EGit/User_Guide/Getting_Started">Egit Getting Started User Guide</a>.</div>
+            </ul>
             <div class="accordion" id="accordion-egit">
               <div class="accordion-group">
                 <div class="accordion-heading">
@@ -610,11 +703,12 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
                 </div>
                 <div id="collapse-egit-4" class="accordion-body collapse out">
                   <div class="accordion-inner">
+                    <p><code>.gitignore</code></p>
 <pre class="prettyprint">
-target/
-.settings/
-.classpath
-.project
+/.settings
+/target
+/.classpath
+/.project
 </pre>
                   </div>
                 </div>
@@ -678,12 +772,19 @@ HEAD is now at 42da300... Merge branch 'master' of https://github.com/cthiebaud/
         ================================================== -->
         <section id="travis-ci">
           <div class="page-header">
-            <h1>7. Continuous integration with travis-ci</h1>
+            <h1>Continuous integration with travis-ci</h1>
           </div>
           <div class="row-fluid">
-            <p class="lead">Open <a href="http://about.travis-ci.org/docs/user/getting-started/">http://about.travis-ci.org/docs/user/getting-started/</a>. 
+            <ul class="thumbnails">
+              <li class="span1">
+                <a href="#" class="thumbnail" style="none;">
+                    <img src="icons/9.png" alt="" >
+                </a>
+              </li>
+              <div class="lead">Open <a href="http://about.travis-ci.org/docs/user/getting-started/">http://about.travis-ci.org/docs/user/getting-started/</a>. 
               Sign for a <strong>free</strong> membership with your Github identity. 
-              Follow the process for a <a href="http://about.travis-ci.org/docs/user/languages/java/">java project using maven :</a>
+              Follow the process for a <a href="http://about.travis-ci.org/docs/user/languages/java/">java project using maven :</div>
+            </ul>
             </p>
             <p>Create a <code>.travis.yml</code> file in your project top directory with the following content:</p>
 <pre>
@@ -707,7 +808,7 @@ jdk:
                 </div>
               </div>
             </div>
-            <p>Trigger your first travis-ci build with a push to Github. You can have a peek to <a href="https://github.com/cthiebaud/abendrot/commit/37980daa7d71afe84872233ab26aec9ce8e25f6c">how I did it</a></p>
+            <p>Trigger your first travis-ci build with a push to Github. You can have a peek at <a href="https://github.com/cthiebaud/abendrot/commit/37980daa7d71afe84872233ab26aec9ce8e25f6c">how I did it</a></p>
             <div class="accordion" id="accordion-travis-ci">
               <div class="accordion-group">
                 <div class="accordion-heading">
@@ -730,19 +831,263 @@ jdk:
         ================================================== -->
         <section id="deploy">
           <div class="page-header">
-            <h1>X. Coming Soon ...</h1>
+            <h1>Automate Deploy</h1>
           </div>
           <div class="row-fluid">
-            <p class="lead">Coming soon ... </p>
+            <ul class="thumbnails">
+              <li class="span1">
+                <a href="#" class="thumbnail" style="none;">
+                    <img src="icons/1.png" alt="" >
+                </a>
+              </li>
+              <div class="lead">In a previous step, we saw how easy it was to deploy from Eclipse to the Cloud. For automated, unattended deployment, SAP NetWeaver Cloud comes with a <a href="SAP NetWeaver Cloud console client">powerful command-line interface</a>. 
+              I'd like to show here a third way : how to perform unattended deployment with maven</div>
+            </ul>
             <div class="accordion" id="accordion-deploy">
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    <span>Coming soon...</span>
+                    <p><span>There is a <a href="https://github.com/sapnwcloudlabs/nwcloud-maven-plugin">SAP NetWeaver Cloud Maven Plugin</a> named <code>nwcloud-maven-plugin</code> on Github ! It has been developed by SAP Research, but it is not included in NetWeaver Cloud distribution. The reason for that is that SAP NetWeaver Cloud is build tool agnostic, as already mentionned.</span></p>
+                    <p><span>There does not seem to be any public version of the <code>nwcloud-maven-plugin</code> binaries, at least not in any well known repository such as <a href="http://search.maven.org/">maven central</a>, therefore, to use it, one must build it.</span>
+                    <span>That's what I did, build worked like a charm, and build results are published to <a href="http://buildeventhub.net:8081/nexus/content/repositories/releases/com/sap/research/nwcloud-maven-plugin/1.0.0.RELEASE/">my personal public nexus repositoy</a>.</span>
+                    <span>Even if compiling the plugin was a snap, you may not want to go through the exercice. Include the <code>pluginRepositories</code> section below in your pom.xml, your maven build will directly grab <code>nwcloud-maven-plugin</code> binaries  from my personal nexus repository, no need to compile.</span></p>
+                    <!-- a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-deploy" href="#collapse-deploy-1"><i class="icon-chevron-right"></i></a -->
+<pre class="prettyprint">
+  &lt;pluginRepositories&gt;
+    &lt;pluginRepository&gt;
+      &lt;!-- my own repo were I deployed nwcloud-maven-plugin --&gt;
+      &lt;id&gt;public.buildeventhub.net&lt;/id&gt;
+      &lt;url&gt;http://buildeventhub.net:8081/nexus/content/repositories/releases/&lt;/url&gt;
+      &lt;releases&gt;
+        &lt;enabled&gt;true&lt;/enabled&gt;
+      &lt;/releases&gt;
+      &lt;snapshots&gt;
+        &lt;enabled&gt;false&lt;/enabled&gt;
+      &lt;/snapshots&gt;
+    &lt;/pluginRepository&gt;
+  &lt;/pluginRepositories&gt;
+</pre>
+
+                  </p>
+                </div>
+                <!-- div id="collapse-deploy-1" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+                    <p><strong></strong></p>
+                  </div>
+                </div>
+              </div-->
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <p>
+                    <span>Configuration of <code>nwcloud-maven-plugin</code> is done through a <code>nwcloud.properties</code> file. This is well documented in the <a href="https://github.com/sapnwcloudlabs/nwcloud-maven-plugin/blob/master/README.md">plugin documentation</a>. Unfortunately, the <code>nwcloud.properties</code> file act as container for the NetWeaver Cloud account password. If the password is not found in the file, one has feed the password to the commandline at each plugin invocation, quite fastidious, isn't it ? So it is basically impossible to resist putting the password in the life. To prevent submitting inadvertently your <strong>private</strong> password to your <strong>public</strong> github, include immediately nwcloud.properties in .gitignore, commit localy and push to remote. Now ! I mean it !</span>
                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-deploy" href="#collapse-deploy-1"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
                 <div id="collapse-deploy-1" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+                    <p><code>.gitignore</code></p>
+<pre class="prettyprint">
+  /.settings
+  /target
+  /.classpath
+  /.project
+  nwcloud.properties
+</pre>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <p>
+                    <span>For you reference, here is the complete <code>nwcloud.properties</code> file I am currently using, including super sensitive password information, of course.</span>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-deploy" href="#collapse-deploy-3"><i class="icon-chevron-right"></i></a>
+                  </p>
+                </div>
+                <div id="collapse-deploy-3" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+                    <p><code>nwcloud.properties</code></p>
+<pre class="prettyprint">
+# =============================================================================
+# SAP NetWeaver Cloud - Deployment Configuration
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Location of Neo SDK
+# -----------------------------------------------------------------------------
+#  - Download Neo SDK from: https://tools.netweaver.ondemand.com/
+#  - Extract Neo SDK to a directory and specify its path in sdk.dir setting.
+#     - Windows users: Please use double backslash instead of single backslash (e.g. c:\\Program Files\\Neo-SDK)
+#     - Linux/Mac users: Just use normal slash as usual (e.g. /home/myuser/bin/neo-sdk)
+sdk.dir=C:\\_neo\\neo-sdk-1.12.0
+
+# Proxy settings for Java Virtual Machine
+# - Proxy settings are tried to be autodetected from environment variables.
+# - If you are behind a proxy and autodetect does not work or you need to override the settings, this can be done here.
+# -Dhttp.proxyUser=proxyuser -Dhttp.proxyPassword=proxypassword -Dhttps.proxyUser=proxyuser -Dhttps.proxyPassword=proxypassword
+#sdk.proxy=-Dhttp.proxyHost=proxy -Dhttp.proxyPort=8080 -Dhttps.proxyHost=proxy -Dhttps.proxyPort=8080 -Dhttp.nonProxyHosts="localhost|127.0.0.1" -Dhttps.nonProxyHosts="localhost|127.0.0.1" 
+
+# -----------------------------------------------------------------------------
+# Target for deployment (host, account, application)
+# -----------------------------------------------------------------------------
+#  - host: The target platform to deploy to (e.g. https://netweaver.ondemand.com)
+#  - account: The account to deploy to
+#  - application:
+#     - Name/ID of the application to deploy (non-empty, alphanumeric, lowercase letters, starting with a letter, max. 30 characters).
+#     - If not specified, the maven project name in lowercase letters will be used.
+host=https://nwtrial.ondemand.com
+account=p1630844092trial
+application=abendrot
+
+# -----------------------------------------------------------------------------
+# SCN user (and password)
+# -----------------------------------------------------------------------------
+#  - user: SCN user (as registered at http://scn.sap.com/)
+#  - password: Password of SCN user. If not specified, it will be queried on the commandline each time needed.
+user=p1630844092
+password=THIS_IS_NOT_A_PASSWORD
+
+# -----------------------------------------------------------------------------
+# Optional settings
+# -----------------------------------------------------------------------------
+
+# Request specific URL prefix for deployed application component (optional).
+#url=myappurl
+
+# Define specific component name for deployed application (optional, defaults to "web").
+#component=myappcomp
+
+# The logging level of the server process(es) (optional, defaults to "error").
+# Allowed values are: error|warn|info|debug
+#severity=debug
+
+# Minimum count of server processes, on which application can be started (optional, defaults to 1).
+#minimum-processes=1
+
+# Maximum count of server processes, on which application can be started (optional, defaults to 1).
+#maximum-processes=1
+
+# Specifies whether to start/stop an application synchronously (optional, defaults to false).
+# Allowed values are: true|false
+synchronous=true
+
+# -----------------------------------------------------------------------------
+# Manually define WAR file to deploy
+# -----------------------------------------------------------------------------
+# The WAR file to be deployed is autodetected from maven project settings, but can also be set manually.
+
+# Option 1: Specify name of WAR
+# - Define name of WAR file in "target" directory of project (without ".war").
+#war.name=myapp
+
+# Option 2: Specify full path and name of WAR (including ".war")
+#source=c:\\Demo\\MyAppProjectFolder\\target\\myapp.war
+</pre>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <p>
+                    <span>Adapt this nwcloud.properties to your context. Then, launch for example :</span>
+<pre class="prettyprint">
+$ mvn com.sap.research:nwcloud-maven-plugin:1.0.0.RELEASE:status
+</pre>
+                    <span>In my case, this returned <code>Status: STARTED</code></span>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-deploy" href="#collapse-deploy-4"><i class="icon-chevron-right"></i></a>
+                  </p>
+                </div>
+                <div id="collapse-deploy-4" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+<pre class="prettyprint">
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building abendrot 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- nwcloud-maven-plugin:1.0.0.RELEASE:status (default-cli) @ abendrot ---
+
+init:
+
+password:
+
+status:
+     [java] 
+     [java] Requesting status for:
+     [java]    application: abendrot
+     [java]    account    : p1630844092trial
+     [java]    host       : https://nwtrial.ondemand.com
+     [java]    SDK version: 1.12.0
+     [java]    user       : p1630844092
+     [java] 
+     [java] Status: STARTED
+     [java] 
+     [java] URL: https://abendrotp1630844092trial.nwtrial.ondemand.com
+     [java] 
+     [java] Access points:
+     [java]   https://abendrotp1630844092trial.nwtrial.ondemand.com
+     [java] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 17.573s
+[INFO] Finished at: Mon Nov 05 19:00:52 CET 2012
+[INFO] Final Memory: 6M/245M
+[INFO] ------------------------------------------------------------------------
+</pre>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <p>
+                    <span>To avoid typing the full plugin identity before the goal (<code>groupID:artifactID:version:</code> i.e. <code>com.sap.research:nwcloud-maven-plugin:1.0.0.RELEASE:</code>), <i>" (...) in settings.xml search for the pluginGroups tag and insert com.sap.research as an artifact group that contains plugins."</i>, as quoted from the plugin docs :</span>
+<pre class="prettyprint">
+&lt;pluginGroups&gt;
+    &lt;!--pluginGroup
+     | Specifies a further group identifier to use for plugin lookup.
+    --&gt;
+    &lt;pluginGroup&gt;com.sap.research&lt;/pluginGroup&gt;
+&lt;/pluginGroups&gt;
+</pre>
+                    <span>After that, just type </span>
+<pre class="prettyprint">
+$ mvn nwcloud:status
+</pre>
+                    <!-- a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-deploy" href="#collapse-deploy-4"><i class="icon-chevron-right"></i></a-->
+                  </p>
+                </div>
+                <!--
+                <div id="collapse-deploy-4" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+                  </div>
+                </div>
+              -->
+              </div>
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <p>
+                    <span>Next, to invoke the <i>SAP NetWeaver Cloud Maven Plugin Deploy Goal</i> after each successful build</span>
+                    <span>Add this xml fragment to the &lt;build&gt;&lt;plugins&gt; section of pom.xml:</span>
+<pre class="prettyprint">
+&lt;plugin&gt;
+  &lt;groupId&gt;com.sap.research&lt;/groupId&gt;
+  &lt;artifactId&gt;nwcloud-maven-plugin&lt;/artifactId&gt;
+  &lt;executions&gt;
+    &lt;execution&gt;
+      &lt;id&gt;after.deploy&lt;/id&gt;
+      &lt;phase&gt;deploy&lt;/phase&gt;
+      &lt;goals&gt;
+        &lt;goal&gt;deploy&lt;/goal&gt;
+      &lt;/goals&gt;
+    &lt;/execution&gt;
+  &lt;/executions&gt;
+&lt;/plugin&gt;
+</pre>
+                    <!-- a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-release" href="#collapse-release-1"><i class="icon-chevron-right"></i></a -->
+                  </p>
+                </div>
+                <div id="collapse-release-1" class="accordion-body collapse out">
                   <div class="accordion-inner">
                     <p><strong>Coming</strong> soon ...</p>
 <pre class="prettyprint">
@@ -755,13 +1100,58 @@ $ coming soon ...
           </div>
         </section>
 
-        <!-- Coming soon
+        <!-- Add Github Ribbon
         ================================================== -->
-        <section id="release">
+        <section id="ribbon">
           <div class="page-header">
-            <h1>X. Coming Soon ...</h1>
+            <h1>Add Github Ribbon</h1>
           </div>
           <div class="row-fluid">
+            <div>
+              <ul class="thumbnails">
+                <li class="span1">
+                  <a href="#" class="thumbnail">
+                    <img src="images/github_ribbon.png" alt="">
+                  </a>
+                </li>
+                <span class="lead">Add a <a href="https://github.com/blog/273-github-ribbons">Github Ribbon</a> to the content. Let see how <a href="https://github.com/ktoso/maven-git-commit-id-plugin">maven-git-commit-id-plugin</a> can help us.</span>
+              </ul>              
+            </div>
+            <div class="accordion" id="accordion-ribbon">
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <p>
+                    <span>blah blah blah</span>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-ribbon" href="#collapse-ribbon-1"><i class="icon-chevron-right"></i></a>
+                  </p>
+                </div>
+                <div id="collapse-ribbon-1" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+                    <p><strong></p>
+<pre>
+</pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Conclusion
+        ================================================== -->
+        <section id="conclusion">
+          <div class="page-header">
+            <h1>Conclusion</h1>
+          </div>
+          <div class="row-fluid">
+            <ul class="thumbnails">
+              <li class="span1">
+                <a href="#" class="thumbnail" style="none;">
+                    <img src="icons/3.png" alt="" >
+                </a>
+              </li>
+              <div class="lead"></div>
+            </ul>
             <p class="lead">Coming soon ... </p>
             <div class="accordion" id="accordion-release">
               <div class="accordion-group">
@@ -784,6 +1174,7 @@ $ coming soon ...
           </div>
         </section>
 
+        <img src="./images/coming-soon.jpg" alt="">
         <!-- Coming soon
         ================================================== - - >
         <section id="coming-soon">
@@ -791,6 +1182,14 @@ $ coming soon ...
             <h1>X. Coming Soon ...</h1>
           </div>
           <div class="row-fluid">
+            <ul class="thumbnails">
+              <li class="span1">
+                <a href="#" class="thumbnail" style="none;">
+                    <img src="icons/4.png" alt="" >
+                </a>
+              </li>
+              <div class="lead"></div>
+            </ul>
             <p class="lead">Coming soon ... </p>
             <div class="accordion" id="accordion-coming-soon">
               <div class="accordion-group">
