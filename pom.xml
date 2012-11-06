@@ -33,21 +33,42 @@
 					<target>1.7</target>
 				</configuration>
 			</plugin>
-			<!-- 
 			<plugin>
 				<groupId>com.sap.research</groupId>
 				<artifactId>nwcloud-maven-plugin</artifactId>
 				<executions>
 					<execution>
 						<id>after.package</id>
-						<phase>package</phase>
+						<phase>deploy</phase>
 						<goals>
-							<goal>hint</goal>
+							<goal>deploy</goal>
 						</goals>
 					</execution>
 				</executions>
+				<configuration>
+					<sdk.args>--java-version</sdk.args>
+				</configuration>
 			</plugin>
-			-->
+			<plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+				<version>2.1.0</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>revision</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<!-- forces the plugin to generate the git.properties file -->
+					<generateGitPropertiesFile>true</generateGitPropertiesFile>
+
+					<!-- The path for the to be generated properties file, it's relative 
+						to ${project.basedir} -->
+					<generateGitPropertiesFilename>src/main/resources/git.properties</generateGitPropertiesFilename>
+				</configuration>
+			</plugin>
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.2</version>
