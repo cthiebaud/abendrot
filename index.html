@@ -147,7 +147,7 @@
                     <img src="icons/open_source-150x150.jpg" alt="">
                 </a>
               </li>
-              <div class="lead">SAP NetWeaver Cloud is <em>build technology</em> and <em>source code management system</em> agnostic, hence these two topics are not covered in the step by step guide of section 1. of this tutorial. <strong>abenrot</strong> uses <strong>maven</strong> as build technology and <strong>git</strong> as source code management system. So you must update the NetWeaver Cloud eclipse environment installed in section 1. of this tutorial to support maven and git. Here is how ot:</div>
+              <div class="lead">SAP NetWeaver Cloud is <em>build technology</em> and <em>source code management system</em> agnostic, hence these two topics are not covered in the step by step guide of section 1. of this tutorial. <strong>abenrot</strong> uses <strong>maven</strong> as build technology and <strong>git</strong> as source code management system. So you must update the NetWeaver Cloud eclipse environment installed in section 1. of this tutorial to support maven and git. Here is how to:</div>
             </ul>              
 
             <p><strong>Maven Integration for WTP</strong> (m2e-wtp) : open <a href="https://www.eclipse.org/m2e-wtp/">https://www.eclipse.org/m2e-wtp/</a>. Follow the installation procedure at <a href="https://www.eclipse.org/m2e-wtp/download/">https://www.eclipse.org/m2e-wtp/download/</a>. Install the latest release.</p>
@@ -881,7 +881,7 @@ jdk:
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    <span>Configuration of <code>nwcloud-maven-plugin</code> is done through a <code>nwcloud.properties</code> file. This is well documented in the <a href="https://github.com/sapnwcloudlabs/nwcloud-maven-plugin/blob/master/README.md">plugin documentation</a>. Unfortunately, the <code>nwcloud.properties</code> file act as container for the NetWeaver Cloud account password. If the password is not found in the file, one has feed the password to the commandline at each plugin invocation, quite fastidious, isn't it ? So it is basically impossible to resist putting the password in the life. To prevent submitting inadvertently your <strong>private</strong> password to your <strong>public</strong> github, include immediately nwcloud.properties in .gitignore, commit localy and push to remote. Now ! I mean it !</span>
+                    <span>Configuration of <code>nwcloud-maven-plugin</code> is done through a <code>nwcloud.properties</code> file. This is well documented in the <a href="https://github.com/sapnwcloudlabs/nwcloud-maven-plugin/blob/master/README.md">plugin documentation</a>. Unfortunately, the <code>nwcloud.properties</code> file act as container for the NetWeaver Cloud account password. If the password is not found in the file, one has feed the password to the commandline at each plugin invocation, quite fastidious, isn't it ? So it is basically impossible to resist putting the password in the file. To prevent submitting inadvertently your <strong>private</strong> password to your <strong>public</strong> github, include immediately nwcloud.properties in .gitignore, commit localy and push to remote. Now ! I mean it !</span>
                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-deploy" href="#collapse-deploy-1"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
