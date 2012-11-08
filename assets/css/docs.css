@@ -12,7 +12,7 @@
 
 body {
   position: relative;
-  // padding-top: 40px;
+  padding-top: 40px;
 }
 
 /* Code in headings */
@@ -66,7 +66,7 @@ section > ul li {
 
 /* Separators (hr) */
 .bs-docs-separator {
-  // margin: 40px 0 39px;
+  margin: 40px 0 39px;
 }
 
 /* Faded out hr */
@@ -801,7 +801,7 @@ form.bs-docs-example {
   opacity: 1;
 }
 .bs-docs-sidenav.affix {
-  top: 0; // 40px;
+  top: 40px;
 }
 .bs-docs-sidenav.affix-bottom {
   position: absolute;
