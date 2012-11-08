@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'Inconsolata';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Inconsolata'), url('assets/fonts/BjAYBlHtW3CJxDcjzrnZCIbN6UDyHWBl620a-IRfuBk.woff') format('woff');
+}
+.jumbotron {
+  background-image:url('images/abendrot-2-2.jpg');
+  background-repeat:no-repeat;
+  background-position:left top;       
+}
+p {
+  margin-top : 20px;
+}
+h1.brand {
+  letter-spacing:30px;
+}
+ul.breadcrumb li .divider i {
+  opacity: .5;
+}
+.underlined {
+  text-decoration: underline;
+}
+accordion-heading:hover {
+  text-decoration: none;
+}
+.accordion-group {
+  border : none;
+}
+.accordion-heading .accordion-toggle {
+  display:inline;
+}
+.thumbnails li {
+  margin-right:  1em;
+  margin-bottom:  0;
+}
