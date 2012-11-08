@@ -1,11 +1,11 @@
-<%@page import="net.aequologica.cloud.GitRepositoryState"
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
+%><%@page import="net.aequologica.cloud.GitRepositoryState"
 %><%@page import="java.util.Properties"
 %><%@page import="java.io.IOException"
-%><%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
 %><!DOCTYPE html>
 <html>
   <head>
-    <title>abendrot</title>
+    <title>abendrot | index</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   </head>
   <body>
