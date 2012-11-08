@@ -41,7 +41,6 @@
     }
     .underlined {
       text-decoration: underline;
-      text-transform: uppercase;
     }
     accordion-heading:hover {
       text-decoration: none;
@@ -107,18 +106,18 @@
     <div class="row">
       <div class="span3 bs-docs-sidebar">
         <ul class="nav nav-list bs-docs-sidenav affix-top">
-          <li class="active"><a href="#setup-nwcloud">  <i class="icon-chevron-right"></i> Setup SAP NetWeaver Cloud</a></li>
-          <li class=""><a href="#install-maven-and-git"><i class="icon-chevron-right"></i> Install Maven and Git</a></li>
-          <li class=""><a href="#setup-github">         <i class="icon-chevron-right"></i> Create Github Repository</a></li>
-          <li class=""><a href="#create-project">       <i class="icon-chevron-right"></i> Create Eclipse Project</a></li>
-          <li class=""><a href="#create-content">       <i class="icon-chevron-right"></i> Create Content</a></li>
-          <li class=""><a href="#run-it-tc">            <i class="icon-chevron-right"></i> Run on local Tomcat</a></li>
-          <li class=""><a href="#run-it-nw">            <i class="icon-chevron-right"></i> Run on NetWeaver Cloud</a></li>
-          <li class=""><a href="#egit">                 <i class="icon-chevron-right"></i> Submit to Github</a></li>
-          <li class=""><a href="#travis-ci">            <i class="icon-chevron-right"></i> Continously integrate</a></li>
-          <li class=""><a href="#deploy">               <i class="icon-chevron-right"></i> Automate Deploy</a></li>
-          <li class=""><a href="#ribbon">               <i class="icon-chevron-right"></i> Add Github Ribbon</a></li>
-          <li class=""><a href="#conclusion">           <i class="icon-chevron-right"></i> Conclusion</a></li>
+          <li class="active"><a href="#setup-nwcloud">   <i class="icon-chevron-right"></i> Setup SAP NetWeaver Cloud</a></li>
+          <li class=""><a href="#install-maven-and-git"> <i class="icon-chevron-right"></i> Install Maven and Git</a></li>
+          <li class=""><a href="#create-github-repo">    <i class="icon-chevron-right"></i> Create Github Repository</a></li>
+          <li class=""><a href="#create-eclipse-project"><i class="icon-chevron-right"></i> Create Eclipse Project</a></li>
+          <li class=""><a href="#create-content">        <i class="icon-chevron-right"></i> Create Content</a></li>
+          <li class=""><a href="#run-local-tomcat">      <i class="icon-chevron-right"></i> Run on local Tomcat</a></li>
+          <li class=""><a href="#run-nwcloud">           <i class="icon-chevron-right"></i> Run on NetWeaver Cloud</a></li>
+          <li class=""><a href="#egit">                  <i class="icon-chevron-right"></i> Submit to Github</a></li>
+          <li class=""><a href="#travis-ci">             <i class="icon-chevron-right"></i> Continously integrate</a></li>
+          <li class=""><a href="#auto-deploy">           <i class="icon-chevron-right"></i> Automate Deploy</a></li>
+          <li class=""><a href="#github-ribbon">         <i class="icon-chevron-right"></i> Add Github Ribbon</a></li>
+          <li class=""><a href="#conclusion">            <i class="icon-chevron-right"></i> Conclusion</a></li>
 
           <!-- li class=""><a href="#coming-soon"><i class="icon-chevron-right"></i> Coming soon ...</a></li -->
         </ul>
@@ -138,13 +137,15 @@
                     <img src="icons/sap-logo-without-trademark-150x150.png" alt="">
                 </a>
               </li>
-              <div class="lead">Open <a href="http://scn.sap.com/community/developer-center/cloud-platform">SAP NetWeaver Cloud Developer Center</a>, get your <strong>free</strong> developer license (in 5 minutes), and perform all the steps covered under the "Step by step" section.</div>
+              <div class="lead">Register <strong>free</strong> to <a href="https://www.sdn.sap.com/irj/scn/register">SAP Community Network</a> as a public user. Open <a href="http://scn.sap.com/community/developer-center/cloud-platform">SAP NetWeaver Cloud Developer Center</a>, get your <strong>free</strong> developer edition, and perform all the steps covered under the "Step by step" section.</div>
             </ul>              
 
             <div class="accordion" id="accordion-setup-nwcloud">
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <a href="http://scn.sap.com/docs/DOC-28197">
+                    <img src="./images/register_to_sap_community_network-trans.png" alt="">
+                    <div><hr></div>
                     <img src="./images/get_your_free_developer_edition.png" alt="">
                   </a>
                   <!-- a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-setup-nwcloud" href="#collapse-setup-nwcloud-1"><i class="icon-chevron-right"></i></a -->
@@ -185,7 +186,7 @@
 
         <!-- Create Github Repository
         ================================================== -->
-        <section id="setup-github">
+        <section id="create-github-repo">
           <div class="page-header">
             <h1>3. Create a Github Repository</h1>
           </div>
@@ -199,16 +200,16 @@
               <div class="lead"><strong>abendrot</strong> is a tutorial on how to write a SAP NetWeaver Cloud application. You will use a github repository to host and monitor your work. You will also clone <strong>abendrot</strong> itself to another directory. And you will use a <a href="http://www.scootersoftware.com/">good compare tool</a> to diff the two directories at various stages of the tutorial.</div>
             </ul>              
 
-            <div class="accordion" id="accordion-setup-github">
+            <div class="accordion" id="accordion-create-github-repo">
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
                     <span><a href="https://github.com/signup/free">Setup a <strong>free</strong> github account</a>, if you have not already one</span>
-                    <!-- a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-setup-github" href="#collapse-setup-github-1"><i class="icon-chevron-right"></i></a -->
+                    <!-- a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-create-github-repo" href="#collapse-create-github-repo-1"><i class="icon-chevron-right"></i></a -->
                   </p>
                 </div>
                 <!--
-                <div id="collapse-setup-github-1" class="accordion-body collapse out">
+                <div id="collapse-create-github-repo-1" class="accordion-body collapse out">
                   <div class="accordion-inner">
                     <img src="./images/sign_up_for_github.png" alt="">
                   </div>
@@ -219,11 +220,11 @@
                 <div class="accordion-heading">
                   <p>
                     <span>Log to your account at <a id="your_account" href="#">https://github.com/&lt;your account&gt;</a></span>
-                    <!-- a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-setup-github" href="#collapse-setup-github-2"><i class="icon-chevron-right"></i></a -->
+                    <!-- a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-create-github-repo" href="#collapse-create-github-repo-2"><i class="icon-chevron-right"></i></a -->
                   </p>
                 </div>
                 <!--
-                <div id="collapse-setup-github-2" class="accordion-body collapse out">
+                <div id="collapse-create-github-repo-2" class="accordion-body collapse out">
                   <div class="accordion-inner">
                     <img src="./images/your_account.png" alt="">
                   </div>
@@ -234,10 +235,10 @@
                 <div class="accordion-heading">
                   <p>
                     <span>Create an empty github repository</span>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-setup-github" href="#collapse-setup-github-3"><i class="icon-chevron-right"></i></a>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-create-github-repo" href="#collapse-create-github-repo-3"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
-                <div id="collapse-setup-github-3" class="accordion-body collapse out">
+                <div id="collapse-create-github-repo-3" class="accordion-body collapse out">
                   <div class="accordion-inner">
                     <p>To create an empty Github repository, this click icon in the top right toolbar:</p>
                     <img src="./images/create_github_repo.png" alt="">
@@ -248,10 +249,10 @@
                 <div class="accordion-heading">
                   <p>
                     <span>Name the repository abendrot-test, check <i>'Initialize this repository with a README'</i> and select maven .gitignore.</span>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-setup-github" href="#collapse-setup-github-4"><i class="icon-chevron-right"></i></a>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-create-github-repo" href="#collapse-create-github-repo-4"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
-                <div id="collapse-setup-github-4" class="accordion-body collapse out">
+                <div id="collapse-create-github-repo-4" class="accordion-body collapse out">
                   <div class="accordion-inner">
                     <img src="./images/create_github_repo_suite2.png" alt="">
                   </div>
@@ -262,10 +263,10 @@
                   <p>
                     <span>Create and clone immediately your repository. </span>
                     <span>I assume that you know how to. If not, <a href="https://help.github.com/categories/54/articles">Github Bootcamp</a>.</span>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-setup-github" href="#collapse-setup-github-5"><i class="icon-chevron-right"></i></a>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-create-github-repo" href="#collapse-create-github-repo-5"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
-                <div id="collapse-setup-github-5" class="accordion-body collapse out">
+                <div id="collapse-create-github-repo-5" class="accordion-body collapse out">
                   <div class="accordion-inner">
                     <p>E.g., using the git command line :</p>
 <pre class="prettyprint linenums">
@@ -284,10 +285,10 @@ $ git clone https://github.com/&lt;your_github_account_name&gt;/abendrot-test.gi
                 <div class="accordion-heading">
                   <p>
                     <span>Clone <strong>abendrot</strong> from <a href="https://github.com/cthiebaud/abendrot.git">https://github.com/cthiebaud/abendrot.git</a>; checkout the initial state, i.e. the first commit</span>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-setup-github" href="#collapse-setup-github-6"><i class="icon-chevron-right"></i></a>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-create-github-repo" href="#collapse-create-github-repo-6"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
-                <div id="collapse-setup-github-6" class="accordion-body collapse out">
+                <div id="collapse-create-github-repo-6" class="accordion-body collapse out">
                   <div class="accordion-inner">
                     <p>E.g., using the git command line :</p>
 <pre class="prettyprint linenums">
@@ -309,10 +310,10 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
                 <div class="accordion-heading">
                   <p>
                     <span>Compare yours and mine directories</span>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-setup-github" href="#collapse-setup-github-7"><i class="icon-chevron-right"></i></a>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-create-github-repo" href="#collapse-create-github-repo-7"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
-                <div id="collapse-setup-github-7" class="accordion-body collapse out">
+                <div id="collapse-create-github-repo-7" class="accordion-body collapse out">
                   <div class="accordion-inner">
                     <p>"Beyond-Comparing" the two directories will show something like :</p>
                     <img src="./images/diff.png" alt="">
@@ -325,7 +326,7 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
 
         <!-- Create Project in Eclipse
         ================================================== -->
-        <section id="create-project">
+        <section id="create-eclipse-project">
           <div class="page-header">
             <h1>4. Create Eclipse Project</h1>
           </div>
@@ -339,15 +340,15 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
               <div class="lead">There are ~12 different flavors of '<a href="http://stackoverflow.com/search?q=how+to+create+a+maven+aware+eclipse+project">how-to-create-a-maven-aware-eclipse-project</a>'. This one has my preference .</div>
             </ul>              
 
-            <div class="accordion" id="accordion-create-project">
+            <div class="accordion" id="accordion-create-eclipse-project">
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
                     <span>Open eclipse, switch to java perspective</span>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-create-project" href="#collapse-create-project-1"><i class="icon-chevron-right"></i></a>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-create-eclipse-project" href="#collapse-create-eclipse-project-1"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
-                <div id="collapse-create-project-1" class="accordion-body collapse out">
+                <div id="collapse-create-eclipse-project-1" class="accordion-body collapse out">
                   <div class="accordion-inner">
                     <img src="./images/java_perspective2.png" alt="">
                   </div>
@@ -365,11 +366,11 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
                       <li>Dynamic Web Project   <span class="divider"><i class="icon-play"></i></span></li>
                       <li>click <span class="underlined">N</span>ext &gt;<span class="divider"><i class="icon-play"></i></span></li>
                     </ul> 
-                    <!-- a class="accordion-toggle" data-toggle="collapse" Data-parent="#accordion-create-project" href="#collapse-create-project-2"><I class="icon-chevron-right"></i></a--> 
+                    <!-- a class="accordion-toggle" data-toggle="collapse" Data-parent="#accordion-create-eclipse-project" href="#collapse-create-eclipse-project-2"><I class="icon-chevron-right"></i></a--> 
                   </p>
                 </div>
                 <!--
-                <div id="collapse-create-project-2" class="accordion-body collapse out">
+                <div id="collapse-create-eclipse-project-2" class="accordion-body collapse out">
                   <div class="accordion-inner">
                   </div>
                 </div>
@@ -379,10 +380,10 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
                 <div class="accordion-heading">
                   <p>
                     <span>Set project name to abendrot-test, change project location from default to where you cloned from Github, accept all other defaults, click <span class="underlined">N</span>ext &gt;</span>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-create-project" href="#collapse-create-project-3"><i class="icon-chevron-right"></i></a>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-create-eclipse-project" href="#collapse-create-eclipse-project-3"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
-                <div id="collapse-create-project-3" class="accordion-body collapse out">
+                <div id="collapse-create-eclipse-project-3" class="accordion-body collapse out">
                   <div class="accordion-inner">
                     <img src="./images/dynamic_web_project_defaults.png" alt="">
                   </div>
@@ -392,10 +393,10 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
                 <div class="accordion-heading">
                   <p>
                     <span>Change the sources directory from eclipse default <code>src</code> to maven default <code>src/main/java</code> </span>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-create-project" href="#collapse-create-project-4"><i class="icon-chevron-right"></i></a>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-create-eclipse-project" href="#collapse-create-eclipse-project-4"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
-                <div id="collapse-create-project-4" class="accordion-body collapse out">
+                <div id="collapse-create-eclipse-project-4" class="accordion-body collapse out">
                   <div class="accordion-inner">
                     <img src="./images/remove_eclipse_src.png" alt="">
                     <p>then</p>
@@ -407,10 +408,10 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
                 <div class="accordion-heading">
                   <p>
                     <span>Change the output folder from eclipse default <code>build/classes</code> to maven default <code>target/classes</code>, click <span class="underlined">N</span>ext &gt;</span>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-create-project" href="#collapse-create-project-5"><i class="icon-chevron-right"></i></a>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-create-eclipse-project" href="#collapse-create-eclipse-project-5"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
-                <div id="collapse-create-project-5" class="accordion-body collapse out">
+                <div id="collapse-create-eclipse-project-5" class="accordion-body collapse out">
                   <div class="accordion-inner">
                     <img src="./images/set_maven_output_folder.png" alt="">
                   </div>
@@ -420,10 +421,10 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
                 <div class="accordion-heading">
                   <p>
                     <span>Change the webapp folder from eclipse default <code>WebContent</code> to maven default <code>src/main/webapp</Code>, click Finish</span>
-                    <a class="accordion-toggle" dAta-toggle="collapse" data-parent="#accordion-create-project" href="#collapse-create-project-6"><i class="icon-chevron-right"></i></a>
+                    <a class="accordion-toggle" dAta-toggle="collapse" data-parent="#accordion-create-eclipse-project" href="#collapse-create-eclipse-project-6"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
-                <div id="collapse-create-project-6" class="accordion-body collapse out">
+                <div id="collapse-create-eclipse-project-6" class="accordion-body collapse out">
                   <div class="accordion-inner">
                     <img src="./images/set_maven_webapp_folder.png" alt="">
                   </div>
@@ -433,10 +434,10 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
                 <div class="accordion-heading">
                   <p>
                     <span>Be polite and say 'no, thanks', when you are invited to change perspective.</span>
-                    <a class="accordion-toggle" Data-toggle="collapse" data-parent="#accordion-create-project" href="#collapse-create-project-7"><i class="icon-chevron-right"></i></a>
+                    <a class="accordion-toggle" Data-toggle="collapse" data-parent="#accordion-create-eclipse-project" href="#collapse-create-eclipse-project-7"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
-                <div id="collapse-create-project-7" class="accordion-body collapse out">
+                <div id="collapse-create-eclipse-project-7" class="accordion-body collapse out">
                   <div class="accordion-inner">
                     <img src="./images/j2ee_perspective_no_thanks.png" alt="">
                   </div>
@@ -452,10 +453,10 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
                       <li>Convert to Maven Project<span class="divider"><i class="icon-play"></i></span></li>
                     </ul> 
                     <span>A dialog pops up. Set your groupID, set artifactID to 'abendrot-test', and change packaging type to 'war'.</span>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-create-project" hrEf="#collapse-create-project-8"><I class="icon-chevron-right"></i></a>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-create-eclipse-project" hrEf="#collapse-create-eclipse-project-8"><I class="icon-chevron-right"></i></a>
                   </p>
                 </div>
-                <div id="collapse-create-project-8" class="accordion-body collapse out">
+                <div id="collapse-create-eclipse-project-8" class="accordion-body collapse out">
                   <div class="accordion-inner">
                     <img src="./images/convert_to_maven_project.png" alt="">
                     <hr>
@@ -482,7 +483,7 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
               <div class="lead">Create a HTML5 page</div>
             </ul>
             <p class="lead"></p>
-            <div class="accordion" id="accordion-run-it-tc">
+            <div class="accordion" id="accordion-run-local-tomcat">
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
@@ -495,11 +496,11 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
                       <li>HTML File   <span class="divider"><i class="icon-play"></i></span></li>
                       <li>click <span class="underlined">N</span>ext &gt;<span class="divider"><i class="icon-play"></i></span></li>
                     </ul> 
-                    <!-- a class="accordion-toggle" data-toggle="collapse" data-parent="#aaccordion3" href="#collapse-create-project-9"><i class="icon-chevron-right"></i></a -->
+                    <!-- a class="accordion-toggle" data-toggle="collapse" data-parent="#aaccordion3" href="#collapse-create-eclipse-project-9"><i class="icon-chevron-right"></i></a -->
                   </p>
                 </div>
                 <!--
-                <div id="collapse-create-project-9" class="accordion-body collapse out">
+                <div id="collapse-create-eclipse-project-9" class="accordion-body collapse out">
                   <div class="accordion-inner">
                   </div>
                 </div>
@@ -509,10 +510,10 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
                 <div class="accordion-heading">
                   <p>
                     <span>Select parent folder 'abendrot-test/src/main/webapp', name your page index.html (fancy, isn't it?), click <span class="underlined">N</span>ext &gt;</span></span>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-create-project" href="#collapse-create-project-10"><i class="icon-chevron-right"></i></a>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-create-eclipse-project" href="#collapse-create-eclipse-project-10"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
-                <div id="collapse-create-project-10" class="accordion-body collapse out">
+                <div id="collapse-create-eclipse-project-10" class="accordion-body collapse out">
                   <div class="accordion-inner">
                     <img src="./images/create_html_file.png" alt="">
                   </div>
@@ -522,10 +523,10 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
                 <div class="accordion-heading">
                   <p>
                     <span>Select HTML5 format, click Finish</span>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-create-project" href="#collapse-create-project-11"><i class="icon-chevron-right"></i></a>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-create-eclipse-project" href="#collapse-create-eclipse-project-11"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
-                <div id="collapse-create-project-11" class="accordion-body collapse out">
+                <div id="collapse-create-eclipse-project-11" class="accordion-body collapse out">
                   <div class="accordion-inner">
                     <img src="./images/select_html5.png" alt="">
                   </div>
@@ -537,7 +538,7 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
 
         <!-- Run on local Tomcat
         ================================================== -->
-        <section id="run-it-tc">
+        <section id="run-local-tomcat">
           <div class="page-header">
             <h1>6. Run on local Tomcat</h1>
           </div>
@@ -561,15 +562,15 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
             </div>
             <p>Get <strong>Tomcat 7</strong>: open <a href="http://tomcat.apache.org/">http://tomcat.apache.org/</a>. download .tar.gz or .zip file from <a href="http://tomcat.apache.org/download-70.cgi">http://tomcat.apache.org/download-70.cgi</a>. Unzip it to the directory of your choice, we'll reference it in this page as $TOMCAT_HOME </p>
 
-            <div class="accordion" id="accordion-run-it-tc">
+            <div class="accordion" id="accordion-run-local-tomcat">
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
                     <span>Start 'Run As' wizard on the index.html file we've just created</span>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-run-it-tc" href="#collapse-run-it-tc-1"><i class="icon-chevron-right"></i></a>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-run-local-tomcat" href="#collapse-run-local-tomcat-1"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
-                <div id="collapse-run-it-tc-1" class="accordion-body collapse out">
+                <div id="collapse-run-local-tomcat-1" class="accordion-body collapse out">
                   <div class="accordion-inner">
                     <ul class="breadcrumb">
                       <li>Right click on index.html <span class="divider"><i class="icon-play"></i></span></li>
@@ -583,13 +584,13 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    <span>Select 'Manually define a new Tomcat server', choose Tomcat7, click <span class="underlined">N</span>ext &gt;</span>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-run-it-tc" href="#collapse-run-it-tc-2"><i class="icon-chevron-right"></i></a>
+                    <span>Select '<span class="underlined">M</span>anually define a new server', select 'Apache' folder, choose Tomcat7, make sure that 'Server's <span class="underlined">h</span>ost name' is localhost, click <span class="underlined">N</span>ext &gt;</span>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-run-local-tomcat" href="#collapse-run-local-tomcat-2"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
-                <div id="collapse-run-it-tc-2" class="accordion-body collapse out">
+                <div id="collapse-run-local-tomcat-2" class="accordion-body collapse out">
                   <div class="accordion-inner">
-                    <img src="./images/manually_define_tomcat.png" alt="">
+                    <img src="./images/manually_define_tomcat-trans.png" alt="">
                   </div>
                 </div>
               </div>
@@ -597,10 +598,10 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
                 <div class="accordion-heading">
                   <p>
                     <span>Point the wizard to the $TOMCAT_HOME you've just downloaded</span>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-run-it-tc" href="#collapse-run-it-tc-3"><i class="icon-chevron-right"></i></a>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-run-local-tomcat" href="#collapse-run-local-tomcat-3"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
-                <div id="collapse-run-it-tc-3" class="accordion-body collapse out">
+                <div id="collapse-run-local-tomcat-3" class="accordion-body collapse out">
                   <div class="accordion-inner">
                     <img src="./images/specify_tomcat_dir.png" alt="">
                   </div>
@@ -610,10 +611,10 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
                 <div class="accordion-heading">
                   <p>
                     <span>Click Finish, Eclipse starts Tomcat and open the page in its internal browser. The page is empty.</span>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-run-it-tc" href="#collapse-run-it-tc-4"><i class="icon-chevron-right"></i></a>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-run-local-tomcat" href="#collapse-run-local-tomcat-4"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
-                <div id="collapse-run-it-tc-4" class="accordion-body collapse out">
+                <div id="collapse-run-local-tomcat-4" class="accordion-body collapse out">
                   <div class="accordion-inner">
                     <img src="./images/empty_index_html.png" alt="">
                   </div>
@@ -623,10 +624,10 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
                 <div class="accordion-heading">
                   <p>
                     <span>Add <code>&lt;h1&gt;Hello , World!&lt;/h1&gt;</code> to index.html, save, back to the browser, refresh, the content is displayed, no restart needed.</span>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-run-it-tc" href="#collapse-run-it-tc-5"><i class="icon-chevron-right"></i></a>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-run-local-tomcat" href="#collapse-run-local-tomcat-5"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
-                <div id="collapse-run-it-tc-5" class="accordion-body collapse out">
+                <div id="collapse-run-local-tomcat-5" class="accordion-body collapse out">
                   <div class="accordion-inner">
                     <img src="./images/non_empty_index_html.png" alt="">
                   </div>
@@ -638,7 +639,7 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
 
         <!-- Run on NetWeaver Cloud
         ================================================== -->
-        <section id="run-it-nw">
+        <section id="run-nwcloud">
           <div class="page-header">
             <h1>7. Run on NetWeaver Cloud</h1>
           </div>
@@ -715,35 +716,71 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
                   </div>
                 </div>
               </div>
-              <div class="accordion-group">
-                <div class="accordion-heading">
-                  <p>
-                    <span>Add eclipse configuration files to .gitignore file.</span>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-egit" href="#collapse-egit-4"><i class="icon-chevron-right"></i></a>
-                    <div class="alert alert-block media unstyled">
-                      <img src="images/infoicon70.png" class="pull-left">
-                      <div class="media-body">
-                        They contain elements of your local configuration that you must not share; and some files in the .settings directory are continously updated by eclipse with timestamps, which will lead to an infinite source of conflicts when stored in git.
-                      </div>
-                    </div>
-                  </p>
+
+              <p>
+                <div>Instruct git to ignore  eclipse configuration files:</span>
+              </p>
+              <div style="margin-left:40px;">
+                <div class="alert alert-block media unstyled">
+                  <img src="images/infoicon70.png" class="pull-left">
+                  <div class="media-body">
+                    Eclipse configuration files (e.g. the whole <code>.settings</code> directory, the <code>.classpath</code> and <code>.project</code> files) contain elements of your local configuration that you must not share; e.g. some files in the .settings directory are continously updated by eclipse with timestamps, which will lead to an infinite source of conflicts when stored in git.
+                  </div>
                 </div>
-                <div id="collapse-egit-4" class="accordion-body collapse out">
-                  <div class="accordion-inner">
-                    <p><code>.gitignore</code></p>
+
+                <div class="accordion-group">
+                  <div class="accordion-heading">
+                    <p>
+                      <span>Show eclipse hidden resources (such as the <code>.gitgnore</code> file). Uncheck <code>*.resources</code> in the Filters Dialog. 
+                      For instance, in the <img src="./images/javaEE.png"> perspective :</span>
+                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-egit" href="#collapse-egit-4"><i class="icon-chevron-right"></i></a>
+                    </p>
+                  </div>
+                  <div id="collapse-egit-4" class="accordion-body collapse out">
+                    <div class="accordion-inner">
+                      <img src="./images/show_dot_resources.png" alt="">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-group">
+                  <div class="accordion-heading">
+                    <p>
+                      <span>or in the <img src="./images/java.png"> perspective :</span>
+                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-egit" href="#collapse-egit-41"><i class="icon-chevron-right"></i></a>
+                    </p>
+                  </div>
+                  <div id="collapse-egit-41" class="accordion-body collapse out">
+                    <div class="accordion-inner">
+                      <img src="./images/show_dot_resources_java.png" alt="">
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-group" > <!-- style="padding-left:40px;" -->
+                  <div class="accordion-heading">
+                    <p>
+                      <span>Open <code>.gitignore</code>, now visible in the top project directory. Add eclipse configuration files (<code>.settings</code>, <code>.classpath</code> and <code>.project</code>) to .gitignore file.</span>
+                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-egit" href="#collapse-egit-42"><i class="icon-chevron-right"></i></a>
+                    </p>
+                  </div>
+                  <div id="collapse-egit-42" class="accordion-body collapse out">
+                    <div class="accordion-inner">
+                      <p><code>.gitignore</code></p>
 <pre class="prettyprint linenums">
 /.settings
 /target
 /.classpath
 /.project
 </pre>
+                    </div>
                   </div>
                 </div>
               </div>
+
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    <span>Commit to local git, then push to remoter git on Github.</span>
+                    <span>Commit to local git, then push to remote git on Github.</span>
                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-egit" href="#collapse-egit-5"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
@@ -759,7 +796,7 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
                 <div class="accordion-heading">
                   <p>
                     <span>Checkout state #2 of <strong>abendrot</strong>, i.e. commit 42da300...</span>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-setup-github" href="#collapse-egit-6"><i class="icon-chevron-right"></i></a>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-create-github-repo" href="#collapse-egit-6"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
                 <div id="collapse-egit-6" class="accordion-body collapse out">
@@ -780,7 +817,7 @@ HEAD is now at 42da300... Merge branch 'master' of https://github.com/cthiebaud/
                 <div class="accordion-heading">
                   <p>
                     <span>Compare yours and mine directories</span>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-setup-github" href="#collapse-egit-7"><i class="icon-chevron-right"></i></a>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-create-github-repo" href="#collapse-egit-7"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
                 <div id="collapse-egit-7" class="accordion-body collapse out">
@@ -856,7 +893,7 @@ jdk:
 
         <!-- Deploy
         ================================================== -->
-        <section id="deploy">
+        <section id="auto-deploy">
           <div class="page-header">
             <h1>10. Automate Deploy</h1>
           </div>
@@ -870,7 +907,7 @@ jdk:
               <div class="lead">In a previous step, we saw how easy it was to deploy from Eclipse to the Cloud. For automated, unattended deployment, SAP NetWeaver Cloud comes with a <a href="https://help.netweaver.ondemand.com/default.htm?deploy_console.html#concept_CA421D77C6184898B157103613C99A96_85">powerful command-line interface</a>. 
               I'd like to show here a third way : how to perform unattended deployment with maven</div>
             </ul>
-            <div class="accordion" id="accordion-deploy">
+            <div class="accordion" id="accordion-auto-deploy">
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
@@ -878,7 +915,7 @@ jdk:
                     <p><span>There does not seem to be any public version of the <code>nwcloud-maven-plugin</code> binaries, at least not in any well known repository such as <a href="http://search.maven.org/">maven central</a>, therefore, to use it, one must build it.</span>
                     <span>That's what I did, build worked like a charm, and build results are published to <a href="http://buildeventhub.net:8081/nexus/content/repositories/releases/com/sap/research/nwcloud-maven-plugin/1.0.0.RELEASE/">my personal public nexus repositoy</a>.</span>
                     <span>Even if compiling the plugin was a snap, you may not want to go through the exercice. Include the <code>pluginRepositories</code> section below in your pom.xml, your maven build will directly grab <code>nwcloud-maven-plugin</code> binaries  from my personal nexus repository, no need to compile.</span></p>
-                    <!-- a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-deploy" href="#collapse-deploy-1"><i class="icon-chevron-right"></i></a -->
+                    <!-- a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-auto-deploy" href="#collapse-auto-deploy-1"><i class="icon-chevron-right"></i></a -->
 <pre class="prettyprint linenums">
   &lt;pluginRepositories&gt;
     &lt;pluginRepository&gt;
@@ -897,7 +934,7 @@ jdk:
 
                   </p>
                 </div>
-                <!-- div id="collapse-deploy-1" class="accordion-body collapse out">
+                <!-- div id="collapse-auto-deploy-1" class="accordion-body collapse out">
                   <div class="accordion-inner">
                     <p><strong></strong></p>
                   </div>
@@ -907,10 +944,10 @@ jdk:
                 <div class="accordion-heading">
                   <p>
                     <span>Configuration of <code>nwcloud-maven-plugin</code> is done through a <code>nwcloud.properties</code> file. This is well documented in the <a href="https://github.com/sapnwcloudlabs/nwcloud-maven-plugin/blob/master/README.md">plugin documentation</a>. Unfortunately, the <code>nwcloud.properties</code> file act as container for the NetWeaver Cloud account password. If the password is not found in the file, one has feed the password to the commandline at each plugin invocation, quite fastidious, isn't it ? So it is basically impossible to resist putting the password in the file. To prevent submitting inadvertently your <strong>private</strong> password to your <strong>public</strong> github, include immediately nwcloud.properties in .gitignore, commit localy and push to remote. Now ! I mean it !</span>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-deploy" href="#collapse-deploy-1"><i class="icon-chevron-right"></i></a>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-auto-deploy" href="#collapse-auto-deploy-1"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
-                <div id="collapse-deploy-1" class="accordion-body collapse out">
+                <div id="collapse-auto-deploy-1" class="accordion-body collapse out">
                   <div class="accordion-inner">
                     <p><code>.gitignore</code></p>
 <pre class="prettyprint linenums">
@@ -927,10 +964,10 @@ jdk:
                 <div class="accordion-heading">
                   <p>
                     <span>For you reference, here is the complete <code>nwcloud.properties</code> file I am currently using, including super sensitive password information, of course.</span>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-deploy" href="#collapse-deploy-3"><i class="icon-chevron-right"></i></a>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-auto-deploy" href="#collapse-auto-deploy-3"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
-                <div id="collapse-deploy-3" class="accordion-body collapse out">
+                <div id="collapse-auto-deploy-3" class="accordion-body collapse out">
                   <div class="accordion-inner">
                     <p><code>nwcloud.properties</code></p>
 <pre class="prettyprint linenums">
@@ -1020,10 +1057,10 @@ synchronous=true
 $ mvn com.sap.research:nwcloud-maven-plugin:1.0.0.RELEASE:status
 </pre>
                     <span>In my case, this returned <code>Status: STARTED</code></span>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-deploy" href="#collapse-deploy-4"><i class="icon-chevron-right"></i></a>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-auto-deploy" href="#collapse-auto-deploy-4"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
-                <div id="collapse-deploy-4" class="accordion-body collapse out">
+                <div id="collapse-auto-deploy-4" class="accordion-body collapse out">
                   <div class="accordion-inner">
 <pre class="prettyprint linenums">
 [INFO] Scanning for projects...
@@ -1081,11 +1118,11 @@ status:
 <pre class="prettyprint linenums">
 $ mvn nwcloud:status
 </pre>
-                    <!-- a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-deploy" href="#collapse-deploy-4"><i class="icon-chevron-right"></i></a-->
+                    <!-- a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-auto-deploy" href="#collapse-auto-deploy-4"><i class="icon-chevron-right"></i></a-->
                   </p>
                 </div>
                 <!--
-                <div id="collapse-deploy-4" class="accordion-body collapse out">
+                <div id="collapse-auto-deploy-4" class="accordion-body collapse out">
                   <div class="accordion-inner">
                   </div>
                 </div>
@@ -1131,7 +1168,7 @@ $ coming soon ...
 
         <!-- Add Github Ribbon
         ================================================== -->
-        <section id="ribbon">
+        <section id="github-ribbon">
           <div class="page-header">
             <h1>11. Add Github Ribbon</h1>
           </div>
@@ -1146,15 +1183,15 @@ $ coming soon ...
                 <span class="lead">Add a <a href="https://github.com/blog/273-github-ribbons">Github Ribbon</a> to the content. Let see how <a href="https://github.com/ktoso/maven-git-commit-id-plugin">maven-git-commit-id-plugin</a> can help us.</span>
               </ul>              
             </div>
-            <div class="accordion" id="accordion-ribbon">
+            <div class="accordion" id="accordion-github-ribbon">
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
                     <span>Configure <code>maven-git-commit-id-plugin</code> as described in section "<i>The easier way: generate git.properties</i>" of the <a href="https://github.com/ktoso/maven-git-commit-id-plugin/blob/master/README.md">README</a>. Cf. xml snippet:</span>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-ribbon" href="#collapse-ribbon-1"><i class="icon-chevron-right"></i></a>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-github-ribbon" href="#collapse-github-ribbon-1"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
-                <div id="collapse-ribbon-1" class="accordion-body collapse out">
+                <div id="collapse-github-ribbon-1" class="accordion-body collapse out">
                   <div class="accordion-inner">
 <pre class="prettyprint linenums">
 &lt;plugin&gt;
@@ -1184,10 +1221,10 @@ $ coming soon ...
                 <div class="accordion-heading">
                   <p>
                     <span>Add a <code>GitRepositoryState</code> java class to hold git properties. Grab code from <a href="https://github.com/cthiebaud/abendrot/blob/d8145105cad16ec001c6a0ad1fbe7755e63ffff6/src/main/java/net/aequologica/cloud/GitRepositoryState.java">here</a></span>
-                    <!-- a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-ribbon" href="#collapse-ribbon-2"><i class="icon-chevron-right"></i></a -->
+                    <!-- a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-github-ribbon" href="#collapse-github-ribbon-2"><i class="icon-chevron-right"></i></a -->
                   </p>
                 </div>
-                <!-- div id="collapse-ribbon-2" class="accordion-body collapse out">
+                <!-- div id="collapse-github-ribbon-2" class="accordion-body collapse out">
                   <div class="accordion-inner">
                   </div>
                 </div-->
@@ -1196,10 +1233,10 @@ $ coming soon ...
                 <div class="accordion-heading">
                   <p>
                     <span>Add a <code>index.jsp</code> java server page to display a Github ribbon. The ribbon points back to <strong>abendrot</strong> sources in Github. Moreover, the ribbon points to the very commit that has been build to produce the application (not sure to be crystal clear ... anyhow, you got it). Grab code from <a href="https://github.com/cthiebaud/abendrot/blob/38ba28884e72f1e9b493b60174452c86a60e970b/src/main/webapp/index.jsp">here</a></span>
-                    <!-- a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-ribbon" href="#collapse-ribbon-2"><i class="icon-chevron-right"></i></a -->
+                    <!-- a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-github-ribbon" href="#collapse-github-ribbon-2"><i class="icon-chevron-right"></i></a -->
                   </p>
                 </div>
-                <!-- div id="collapse-ribbon-2" class="accordion-body collapse out">
+                <!-- div id="collapse-github-ribbon-2" class="accordion-body collapse out">
                   <div class="accordion-inner">
                   </div>
                 </div-->
@@ -1208,10 +1245,10 @@ $ coming soon ...
                 <div class="accordion-heading">
                   <p>
                     <span>Rename <code>index.html</code> to <code>helloworld.html</code>. Now, index.jsp is the default landing page of <strong>abendrot</strong> web application.</span>
-                    <!-- a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-ribbon" href="#collapse-ribbon-2"><i class="icon-chevron-right"></i></a -->
+                    <!-- a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-github-ribbon" href="#collapse-github-ribbon-2"><i class="icon-chevron-right"></i></a -->
                   </p>
                 </div>
-                <!-- div id="collapse-ribbon-2" class="accordion-body collapse out">
+                <!-- div id="collapse-github-ribbon-2" class="accordion-body collapse out">
                   <div class="accordion-inner">
                   </div>
                 </div-->
@@ -1220,10 +1257,10 @@ $ coming soon ...
                 <div class="accordion-heading">
                   <p>
                     <span>Do not forget to add abendrot/src/main/resources/git.properties to .gitignore. The file will be generated at each build, we must not keep it in the sources.</span>
-                    <!-- a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-ribbon" href="#collapse-ribbon-2"><i class="icon-chevron-right"></i></a -->
+                    <!-- a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-github-ribbon" href="#collapse-github-ribbon-2"><i class="icon-chevron-right"></i></a -->
                   </p>
                 </div>
-                <!-- div id="collapse-ribbon-2" class="accordion-body collapse out">
+                <!-- div id="collapse-github-ribbon-2" class="accordion-body collapse out">
                   <div class="accordion-inner">
                   </div>
                 </div-->
