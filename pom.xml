@@ -36,12 +36,15 @@
 			<plugin>
 				<groupId>com.sap.research</groupId>
 				<artifactId>nwcloud-maven-plugin</artifactId>
+				<version>1.0.1-SNAPSHOT</version>
 				<executions>
 					<execution>
 						<id>after.package</id>
 						<phase>deploy</phase>
 						<goals>
+							<goal>stop</goal>
 							<goal>deploy</goal>
+							<goal>start</goal>
 						</goals>
 					</execution>
 				</executions>
