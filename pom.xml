@@ -1,18 +1,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	
+
 	<modelVersion>4.0.0</modelVersion>
-	
+
 	<groupId>net.aequologica</groupId>
 	<artifactId>abendrot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	
+
 	<packaging>war</packaging>
-	
+
 	<pluginRepositories>
 		<pluginRepository>
-			<!-- my own repo were I deployed nwcloud-maven-plugin -->
-			<id>public.buildeventhub.net</id>
+			<id>public.releases.buildeventhub.net</id>
 			<url>http://buildeventhub.net:8081/nexus/content/repositories/releases/</url>
 			<releases>
 				<enabled>true</enabled>
@@ -21,8 +20,18 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</pluginRepository>
+		<pluginRepository>
+			<id>public.snapshots.buildeventhub.net</id>
+			<url>http://buildeventhub.net:8081/nexus/content/repositories/snapshots/</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
 	</pluginRepositories>
-	
+
 	<build>
 		<plugins>
 			<plugin>
