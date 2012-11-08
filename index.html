@@ -114,7 +114,7 @@
           <li class=""><a href="#run-local-tomcat">      <i class="icon-chevron-right"></i> Run on local Tomcat</a></li>
           <li class=""><a href="#run-nwcloud">           <i class="icon-chevron-right"></i> Run on NetWeaver Cloud</a></li>
           <li class=""><a href="#egit">                  <i class="icon-chevron-right"></i> Submit to Github</a></li>
-          <li class=""><a href="#travis-ci">             <i class="icon-chevron-right"></i> Continously integrate</a></li>
+          <li class=""><a href="#travis-ci">             <i class="icon-chevron-right"></i> Continously Integrate</a></li>
           <li class=""><a href="#auto-deploy">           <i class="icon-chevron-right"></i> Automate Deploy</a></li>
           <li class=""><a href="#github-ribbon">         <i class="icon-chevron-right"></i> Add Github Ribbon</a></li>
           <li class=""><a href="#conclusion">            <i class="icon-chevron-right"></i> Conclusion</a></li>
@@ -917,16 +917,26 @@ jdk:
                     <span>Even if compiling the plugin was a snap, you may not want to go through the exercice. Include the <code>pluginRepositories</code> section below in your pom.xml, your maven build will directly grab <code>nwcloud-maven-plugin</code> binaries  from my personal nexus repository, no need to compile.</span></p>
                     <!-- a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-auto-deploy" href="#collapse-auto-deploy-1"><i class="icon-chevron-right"></i></a -->
 <pre class="prettyprint linenums">
+  &lt;!-- my own repos were I deployed nwcloud-maven-plugin --&gt;
   &lt;pluginRepositories&gt;
     &lt;pluginRepository&gt;
-      &lt;!-- my own repo were I deployed nwcloud-maven-plugin --&gt;
-      &lt;id&gt;public.buildeventhub.net&lt;/id&gt;
+      &lt;id&gt;public.releases.buildeventhub.net&lt;/id&gt;
       &lt;url&gt;http://buildeventhub.net:8081/nexus/content/repositories/releases/&lt;/url&gt;
       &lt;releases&gt;
         &lt;enabled&gt;true&lt;/enabled&gt;
       &lt;/releases&gt;
       &lt;snapshots&gt;
         &lt;enabled&gt;false&lt;/enabled&gt;
+      &lt;/snapshots&gt;
+    &lt;/pluginRepository&gt;
+    &lt;pluginRepository&gt;
+      &lt;id&gt;public.snapshots.buildeventhub.net&lt;/id&gt;
+      &lt;url&gt;http://buildeventhub.net:8081/nexus/content/repositories/snapshots/&lt;/url&gt;
+      &lt;releases&gt;
+        &lt;enabled&gt;false&lt;/enabled&gt;
+      &lt;/releases&gt;
+      &lt;snapshots&gt;
+        &lt;enabled&gt;true&lt;/enabled&gt;
       &lt;/snapshots&gt;
     &lt;/pluginRepository&gt;
   &lt;/pluginRepositories&gt;
@@ -1131,37 +1141,49 @@ $ mvn nwcloud:status
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    <span>Next, to invoke the <i>SAP NetWeaver Cloud Maven Plugin Deploy Goal</i> after each successful build</span>
-                    <span>Add this xml fragment to the &lt;build&gt;&lt;plugins&gt; section of pom.xml:</span>
+                    <span>Finally, Add this xml fragment to the &lt;build&gt;&lt;plugins&gt; section of pom.xml:</span>
 <pre class="prettyprint linenums">
 &lt;plugin&gt;
   &lt;groupId&gt;com.sap.research&lt;/groupId&gt;
   &lt;artifactId&gt;nwcloud-maven-plugin&lt;/artifactId&gt;
+  &lt;version&gt;1.0.1-SNAPSHOT&lt;/version&gt;
   &lt;executions&gt;
     &lt;execution&gt;
       &lt;id&gt;after.deploy&lt;/id&gt;
       &lt;phase&gt;deploy&lt;/phase&gt;
       &lt;goals&gt;
+        &lt;goal&gt;stop&lt;/goal&gt;
         &lt;goal&gt;deploy&lt;/goal&gt;
+        &lt;goal&gt;start&lt;/goal&gt;
       &lt;/goals&gt;
     &lt;/execution&gt;
   &lt;/executions&gt;
 &lt;/plugin&gt;
 </pre>
+                      <div>(If you are on Java 6, replace <code>&lt;version&gt;1.0.1-SNAPSHOT&lt;/version&gt;</code> with <code>&lt;version&gt;1.0.0-RELEASE&lt;/version&gt;</code>)</div>
                     <!-- a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-release" href="#collapse-release-1"><i class="icon-chevron-right"></i></a -->
                   </p>
                 </div>
-                <!--
-                <div id="collapse-release-1" class="accordion-body collapse out">
+              </div>
+            <div class="accordion" id="accordion-travis-ci">
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <p>
+                    <span><strong>With all this, a <code>maven deploy</code> will automatically trigger the upgrade of the application in the cloud!</strong>. e.g. </span>
+<pre>
+$ mvn clean deploy -DaltDeploymentRepository=[your_repo_id]::default::[your_repo_url]
+</pre>                    
+                    <span>cf. <a href="http://maven.apache.org/plugins/maven-deploy-plugin/deploy-mojo.html">Maven Deploy Plugin</a> for <code>-DaltDeploymentRepository</code> syntax</span>. You may have a peek at the maven ouput of the above command in my case <a href="./sample_deploy_ouput.txt">here</a>.</span>
+                  </p>
+                </div>
+                <div id="collapse-auto-deploy-12" class="accordion-body collapse out">
                   <div class="accordion-inner">
-                    <p><strong>Coming</strong> soon ...</p>
-<pre class="prettyprint linenums">
-$ coming soon ...
-</pre>
+<pre>
+</pre>                    
                   </div>
                 </div>
-                -->
               </div>
+            </div>
             </div>
           </div>
         </section>
@@ -1286,10 +1308,17 @@ $ coming soon ...
               <p class="lead"><a href="https://abendrotp1630844092trial.nwtrial.ondemand.com/abendrot/">https://abendrotp1630844092trial.nwtrial.ondemand.com/abendrot/</a></p>
               <p class="lead">I know what you are thinking <i style="font-size:small">('what an antediluvian URL!')</i>. Hey, it's SAP! :)<p> 
             </ul>
+            <p>So here are some more human URLs that will redirect to the real urls :
+              <ul>
+                <li>application : <a href="http://www.abendrot.org">http://www.abendrot.org</a></li>
+                <li>documentation : <a href="http://www.abendrot.org">http://doc.abendrot.org</a></li>
+                <li>source : <a href="http://www.abendrot.org">http://src.abendrot.org</a></li>
+              </ul>
+            </p>
             <p>You sure be thinking as well <i>"your tutorial is OK, but going through all these just to push a mere "Hello, World!" to the cloud ... isn't it mega-supra-hyper overkill?"</i></p>
             <p>Stay tuned, I'll try to find time to add meat to the tutorial using NetWeaver Cloud Services:</p>
             <ul>
-              <li>ID Service</li>
+              <li>Identity Service</li>
               <li>Persistence Service</li>
               <li>Connectivity Service</li>
               <li>Mail Service</li>
