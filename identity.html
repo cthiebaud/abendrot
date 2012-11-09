@@ -97,13 +97,38 @@
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>Let's write an elementary java server page to display java system properties.</p>
-                  <p>Grab the code from <a href="https://raw.github.com/cthiebaud/abendrot/b9dd4662317c49d2da05981340e252d7d4324e14/src/main/webapp/spy.jsp">here</a>, and paste it into a file named <code>spy.jsp</code> under the directory <code>src/main/webapp</code>.
+                  <p>Create a new <code>spy.jsp</code> file in the <code>src/main/webapp</code> directory, then copy &amp; paste the code from <a href="https://raw.github.com/cthiebaud/abendrot/b9dd4662317c49d2da05981340e252d7d4324e14/src/main/webapp/spy.jsp">this version from github</a>. Run in your local tomcat server:
                   <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-look-in-the-motor" href="#collapse-look-in-the-motor-1"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
                 <div id="collapse-look-in-the-motor-1" class="accordion-body collapse out">
                   <div class="accordion-inner">
-                    <img src="./images/coming-soon.jpg" alt="">
+                    <img src="./images/bare_spy_in_local_tomcat.png" alt="">
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <p>Yes, this is a tutorial, and including code unrelated to the topic may make it more difficult to follow, but this bare spy.jsp is simply not usable. Let's add some CSS/javascript magic. No worry, we'll use only healthy stuff, no <a href="http://en.wikipedia.org/wiki/Genetically_modified_organism" style="text-decoration: line-through;">GMO</a> : <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>, <a href="http://jquery.com/">JQuery</a> and <a href="http://datatables.net/">Datatables</a>, all fetched via <a href="http://en.wikipedia.org/wiki/Content_delivery_network">CDN</a>. And yes, in a tutorial, acronyms should be forbidden by law.</p> 
+                  <p>Copy &amp; replace all the <code>spy.jsp</code> code with <a href="https://raw.github.com/cthiebaud/abendrot/328dc9fca7adb409df563bf5a4addf101b92b1fb/src/main/webapp/spy.jsp">this new version from github</a>. Here is what has been added :
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-look-in-the-motor" href="#collapse-look-in-the-motor-2"><i class="icon-chevron-right"></i></a>
+                  </p>
+                </div>
+                <div id="collapse-look-in-the-motor-2" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+                    <iframe src='spy.diff.html' style="width:100%; height: 400px; border: none;"></iframe>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <p>Now, in your local tomcat server, the page should look like :
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-look-in-the-motor" href="#collapse-look-in-the-motor-3"><i class="icon-chevron-right"></i></a>
+                  </p>
+                </div>
+                <div id="collapse-look-in-the-motor-3" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+                    <img src="./images/nice_spy_in_local_tomcat.png" alt="">
                   </div>
                 </div>
               </div>
