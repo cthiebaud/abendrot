@@ -13,8 +13,11 @@
 <%
 Properties properties = new Properties();
 properties.load(this.getClass().getClassLoader().getResourceAsStream("git.properties"));
-%>    <a href="https://github.com/cthiebaud/abendrot/commit/<%=new GitRepositoryState(properties).getCommitId()%>" target="_blank">
+GitRepositoryState gitRepositoryState = new GitRepositoryState(properties);
+if (gitRepositoryState.getCommitIdAbbrev().indexOf("dirty") != -1) {
+%>    <a href="https://github.com/cthiebaud/abendrot/commit/<%=gitRepositoryState.getCommitId()%>" target="_blank">
       <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub">
     </a>
+<%} %>    
   </body>
 </html>
