@@ -1139,7 +1139,11 @@ $ mvn nwcloud:status
 <pre>
 $ mvn clean deploy -DaltDeploymentRepository=[your_repo_id]::default::[your_repo_url]
 </pre>                    
-                    <span>cf. <a href="http://maven.apache.org/plugins/maven-deploy-plugin/deploy-mojo.html">Maven Deploy Plugin</a> for <code>-DaltDeploymentRepository</code> syntax</span>. You may have a peek at the maven ouput of the above command in my case <a href="./sample_deploy_ouput.txt">here</a>.</span>
+                    <span>cf. <a href="http://maven.apache.org/plugins/maven-deploy-plugin/deploy-mojo.html">Maven Deploy Plugin</a> for <code>-DaltDeploymentRepository</code> syntax</span>. If you do not know what it is , and you do not want to take a maven tutorial, enter : 
+<pre>
+$ mvn clean deploy -DaltDeploymentRepository=my_repo::default::file:///tmp/my_repo
+</pre>                    
+                    a You may have a peek at the maven ouput of the above command in my case <a href="./sample_deploy_ouput.txt">here</a>.</span>
                   </p>
                 </div>
                 <div id="collapse-auto-deploy-12" class="accordion-body collapse out">
@@ -1374,8 +1378,6 @@ $ coming soon ...
         alert("Replace <your account> with ... err ... <your account> :)");
       });
 
-      $('#what_you_think').tooltip({html:true});
-  });
   </script>
 
   <script type="text/javascript">
