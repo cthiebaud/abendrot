@@ -9,8 +9,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <!-- Bootstrap CSS -->
-  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
-   
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
     <!-- DataTables CSS -->
     <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
   
@@ -20,8 +19,9 @@
     }
     </style>
   </head>
+  
   <body>
-    <table id="properties" cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered">
+    <table id="properties" class="table table-striped table-bordered">
       <caption>java system properties</caption>
       <thead>
         <tr>
