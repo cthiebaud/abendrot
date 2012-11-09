@@ -1,3 +1,4 @@
+<%@page import="java.util.Set"%>
 <%@  page language="java"
 %><%@page import="java.util.Map"
 %><%@page import="java.util.Properties"
@@ -31,7 +32,8 @@
       </thead>
       <tbody>
 <% Properties properties = System.getProperties();
-for (String key : new TreeSet<String>(properties.stringPropertyNames())) { %>
+Set<String> keys = new TreeSet<>(properties.stringPropertyNames()); 
+for (String key : keys) { %>
         <tr>
           <td><%=key                          %></td>
           <td><%=properties.getProperty(key) %></td>
