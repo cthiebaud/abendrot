@@ -97,7 +97,7 @@
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>Let's write an elementary java server page to display java system properties.</p>
-                  <p>Create a new <code>spy.jsp</code> file in the <code>src/main/webapp</code> directory, then copy &amp; paste the code from <a href="https://raw.github.com/cthiebaud/abendrot/b9dd4662317c49d2da05981340e252d7d4324e14/src/main/webapp/spy.jsp">this version from github</a>. Run in your local tomcat server:
+                  <p>Create a new <code>spy.jsp</code> file in the <code>src/main/webapp</code> directory. Copy &amp; paste the code from <a href="https://raw.github.com/cthiebaud/abendrot/b9dd4662317c49d2da05981340e252d7d4324e14/src/main/webapp/spy.jsp">this version from github</a>. Run in your local tomcat server. Result should look like:
                   <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-look-in-the-motor" href="#collapse-look-in-the-motor-1"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
@@ -122,7 +122,7 @@
               </div>
               <div class="accordion-group">
                 <div class="accordion-heading">
-                  <p>Now, in your local tomcat server, the page should look like :
+                  <p>In your local tomcat server, the page should now look like :
                   <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-look-in-the-motor" href="#collapse-look-in-the-motor-3"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
@@ -131,6 +131,40 @@
                     <img src="./images/nice_spy_in_local_tomcat.png" alt="">
                   </div>
                 </div>
+              </div>
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <p>Let's deploy spy.jsp in the cloud : 
+
+                  <ul class="breadcrumb">
+                    <li>commit to local git<span class="divider"><i class="icon-play"></i></span></li>
+                    <li>push to remote git<span class="divider"><i class="icon-play"></i></span></li>
+                    <li>mvn clean deploy       <span class="divider"><i class="icon-play"></i></span></li>
+                    <li>grab a nice cup of <img src="./images/coffee-trans.jpg" style="height:18px; width:auto;"><span class="divider"><i class="icon-play"></i></span></li>
+                    <li>browse to <a id="your_app" href="#">https://&lt;your app&gt;&lt;your user ID&gt;trial.nwtrial.ondemand.com/&lt;your war name&gt;/spy.jsp</a></li>
+                  </ul> 
+                  and you should see something similar to :
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-look-in-the-motor" href="#collapse-look-in-the-motor-4"><i class="icon-chevron-right"></i></a>
+                  </p>
+                </div>
+                <div id="collapse-look-in-the-motor-4" class="accordion-body collapse out">
+                  <div>(this is HTML, not a screenshot, try to click Previous / Next, or to search for, e.g. 'java.version')</div>
+                  <div class="accordion-inner">
+                    <iframe src='spy.cloud.html' style="width:100%; height: 460px; border: none;"></iframe>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <p>Looking at these properties, we learn something about this SAP NetWeaver Cloud instance : it runs Java 7, there are OSGi things and it uses Tomcat to serve HTTP.
+                  <!-- a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-look-in-the-motor" href="#collapse-look-in-the-motor-3"><i class="icon-chevron-right"></i></a -->
+                  </p>
+                </div>
+                <!-- div id="collapse-look-in-the-motor-3" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+                    <img src="./images/nice_spy_in_local_tomcat.png" alt="">
+                  </div>
+                </div-->
               </div>
             </div>
           </div>
@@ -228,11 +262,9 @@ $ coming soon ...
 
   <script type="text/javascript">
   $(function() {
-      $("#your_account").click(function(event){
-        alert("Replace <your account> with ... err ... <your account> :)");
+      $("#your_app").click(function(event){
+        alert("Replace <your app>, <your user ID> and <your war name> with appropriate values");
       });
-
-      $('#what_you_think').tooltip({html:true});
   });
   </script>
 
