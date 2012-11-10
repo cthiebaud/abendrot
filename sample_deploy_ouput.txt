@@ -44,7 +44,7 @@ Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
 [INFO] Assembling webapp [abendrot] in [C:\Users\i051108\Documents\GitHub\abendrot\target\abendrot-0.0.1-SNAPSHOT]
 [INFO] Processing war project
 [INFO] Copying webapp resources [C:\Users\i051108\Documents\GitHub\abendrot\src\main\webapp]
-[INFO] Webapp assembled in [232 msecs]
+[INFO] Webapp assembled in [287 msecs]
 [INFO] Building war: C:\Users\i051108\Documents\GitHub\abendrot\target\abendrot-0.0.1-SNAPSHOT.war
 [INFO] WEB-INF\web.xml already added, skipping
 [INFO] 
@@ -53,19 +53,7 @@ Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
 [INFO] Installing C:\Users\i051108\Documents\GitHub\abendrot\pom.xml to C:\Users\i051108\.m2\repository\net\aequologica\abendrot\0.0.1-SNAPSHOT\abendrot-0.0.1-SNAPSHOT.pom
 [INFO] 
 [INFO] --- maven-deploy-plugin:2.7:deploy (default-deploy) @ abendrot ---
-[INFO] Using alternate deployment repository beh_snapshots::default::http://buildeventhub.net:8081/nexus/content/repositories/snapshots/
-Downloading: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/0.0.1-SNAPSHOT/maven-metadata.xml
-773/773 B               Downloaded: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/0.0.1-SNAPSHOT/maven-metadata.xml (773 B at 2.0 KB/sec)
-Uploading: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/0.0.1-SNAPSHOT/abendrot-0.0.1-20121108.205739-4.war
-2/7 KB      4/7 KB   6/7 KB   7/7 KB            Uploaded: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/0.0.1-SNAPSHOT/abendrot-0.0.1-20121108.205739-4.war (7 KB at 13.9 KB/sec)
-Uploading: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/0.0.1-SNAPSHOT/abendrot-0.0.1-20121108.205739-4.pom
-2/3 KB   3/3 KB            Uploaded: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/0.0.1-SNAPSHOT/abendrot-0.0.1-20121108.205739-4.pom (3 KB at 6.1 KB/sec)
-Downloading: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/maven-metadata.xml
-283/283 B               Downloaded: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/maven-metadata.xml (283 B at 1.5 KB/sec)
-Uploading: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/0.0.1-SNAPSHOT/maven-metadata.xml
-773/773 B               Uploaded: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/0.0.1-SNAPSHOT/maven-metadata.xml (773 B at 2.5 KB/sec)
-Uploading: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/maven-metadata.xml
-283/283 B               Uploaded: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/maven-metadata.xml (283 B at 1.1 KB/sec)
+[INFO] Using alternate deployment repository my_repo::default::file:///tmp/my_repo
 [INFO] 
 [INFO] --- nwcloud-maven-plugin:1.0.1-SNAPSHOT:stop (after.package) @ abendrot ---
 
@@ -89,10 +77,10 @@ stop:
      [java] Component status: STARTED
      [java] 
      [java] 
-     [java] [Thu Nov 08 21:57:44 CET 2012] Waiting for STOPPED status...
+     [java] [Fri Nov 09 23:54:42 CET 2012] Waiting for STOPPED status...
      [java] 
-     [java] -\|/-\|/-\|[Thu Nov 08 21:57:51 CET 2012] Component [web] reached STOPPED after 3011 ms
-     [java] [Thu Nov 08 21:57:51 CET 2012] Reached STOPPED status
+     [java] -\|/-\|/-\|[Fri Nov 09 23:54:48 CET 2012] Component [web] reached STOPPED after 3013 ms
+     [java] [Fri Nov 09 23:54:48 CET 2012] Reached STOPPED status
 [INFO] 
 [INFO] --- nwcloud-maven-plugin:1.0.1-SNAPSHOT:deploy (after.package) @ abendrot ---
 
@@ -140,11 +128,11 @@ start:
      [java] Component status: STARTING
      [java] 
      [java] 
-     [java] [Thu Nov 08 21:58:01 CET 2012] Waiting for STARTED status...
+     [java] [Fri Nov 09 23:55:01 CET 2012] Waiting for STARTED status...
      [java] 
-     [java] -\|/-\|/-\|[Thu Nov 08 21:58:07 CET 2012] Component [web] reached STARTING after 3008 ms
-     [java] /-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|[Thu Nov 08 21:58:49 CET 2012] Component [web] reached STARTED after 45047 ms
-     [java] [Thu Nov 08 21:58:49 CET 2012] Reached STARTED status
+     [java] -\|/-\|/-\|[Fri Nov 09 23:55:07 CET 2012] Component [web] reached STARTING after 3008 ms
+     [java] /-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|[Fri Nov 09 23:55:49 CET 2012] Component [web] reached STARTED after 45026 ms
+     [java] [Fri Nov 09 23:55:49 CET 2012] Reached STARTED status
      [java] web: STARTED
      [java] 
      [java] URL: https://abendrotp1630844092trial.nwtrial.ondemand.com
@@ -155,7 +143,7 @@ start:
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 1:17.637s
-[INFO] Finished at: Thu Nov 08 21:58:50 CET 2012
-[INFO] Final Memory: 19M/309M
+[INFO] Total time: 2:03.810s
+[INFO] Finished at: Fri Nov 09 23:55:50 CET 2012
+[INFO] Final Memory: 17M/245M
 [INFO] ------------------------------------------------------------------------

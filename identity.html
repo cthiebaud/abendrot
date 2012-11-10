@@ -71,8 +71,10 @@
     <div class="row">
       <div class="span3 bs-docs-sidebar">
         <ul class="nav nav-list bs-docs-sidenav affix-top">
-          <li class="active"><a href="#look-in-the-motor"> <i class="icon-chevron-right"></i> Look Inside the Motor</a></li>
-          <li class=""><a href="#add-security-constraint"> <i class="icon-chevron-right"></i> Add Security Constraint</a></li>
+          <li class="active"><a href="#look-in-the-motor">    <i class="icon-chevron-right"></i> Look Inside the Motor</a></li>
+          <li class=""><a href="#add-security-constraint">    <i class="icon-chevron-right"></i> Add Security Constraint</a></li>
+          <li class=""><a href="#get-back-Tomcat-in-the-game"> <i class="icon-chevron-right"></i> Get Back Tomcat in the Game</a></li>
+          <li class=""><a href="#conclusion">                 <i class="icon-chevron-right"></i> Conclusion</a></li>
           <!-- li class=""><a href="#coming-soon"><i class="icon-chevron-right"></i> Coming soon ...</a></li -->
         </ul>
       </div>
@@ -97,13 +99,13 @@
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>Let's write an elementary java server page to display java system properties.</p>
-                  <p>Create a new <code>spy.jsp</code> file in the <code>src/main/webapp</code> directory. Copy &amp; paste the code from <a href="https://raw.github.com/cthiebaud/abendrot/b9dd4662317c49d2da05981340e252d7d4324e14/src/main/webapp/spy.jsp">this version from github</a>. Run in your local tomcat server. Result should look like:
+                  <p>Create a new <code>spy.jsp</code> file in the <code>src/main/webapp</code> directory. Copy &amp; paste the code from <a href="https://raw.github.com/cthiebaud/abendrot/b9dd4662317c49d2da05981340e252d7d4324e14/src/main/webapp/spy.jsp">this version from github</a>. Run in your local Tomcat server. Result should look like:
                   <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-look-in-the-motor" href="#collapse-look-in-the-motor-1"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
                 <div id="collapse-look-in-the-motor-1" class="accordion-body collapse out">
                   <div class="accordion-inner">
-                    <img src="./images/bare_spy_in_local_tomcat.png" alt="">
+                    <img src="./images/bare_spy_in_local_Tomcat.png" alt="">
                   </div>
                 </div>
               </div>
@@ -122,13 +124,13 @@
               </div>
               <div class="accordion-group">
                 <div class="accordion-heading">
-                  <p>In your local tomcat server, the page should now look like :
+                  <p>In your local Tomcat server, the page should now look like :
                   <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-look-in-the-motor" href="#collapse-look-in-the-motor-3"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
                 <div id="collapse-look-in-the-motor-3" class="accordion-body collapse out">
                   <div class="accordion-inner">
-                    <img src="./images/nice_spy_in_local_tomcat.png" alt="">
+                    <img src="./images/nice_spy_in_local_Tomcat.png" alt="">
                   </div>
                 </div>
               </div>
@@ -156,13 +158,13 @@
               </div>
               <div class="accordion-group">
                 <div class="accordion-heading">
-                  <p>Looking at these properties, we learn something about this SAP NetWeaver Cloud instance : it runs Java 7, there are OSGi things and it uses Tomcat to serve HTTP.
+                  <p>Looking at these properties, we learn a few things about this SAP NetWeaver Cloud instance : for example, it runs on Java 7, it runs on OSGi and it uses Tomcat to serve HTTP requests.
                   <!-- a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-look-in-the-motor" href="#collapse-look-in-the-motor-3"><i class="icon-chevron-right"></i></a -->
                   </p>
                 </div>
                 <!-- div id="collapse-look-in-the-motor-3" class="accordion-body collapse out">
                   <div class="accordion-inner">
-                    <img src="./images/nice_spy_in_local_tomcat.png" alt="">
+                    <img src="./images/nice_spy_in_local_Tomcat.png" alt="">
                   </div>
                 </div-->
               </div>
@@ -183,14 +185,248 @@
                     <img src="icons/old-rusty-key.jpg" alt="">
                 </a>
               </li>
-              <div class="lead">Coming Soon ...</div>
-              <img src="./images/coming-soon.jpg" alt="">
+              <div class="lead">Maybe we do not want everybody to access this spy thingy. Let's implement security : only registered Sap Community Network members 
+              (well, that's <a href="http://en.wikipedia.org/wiki/SAP_AG" title='"The SAP Community Network (SCN) has more than 2 million members"'>a lot</a> ... <img src="./icons/smiley_wink.png">) will be able to access it.</div>
             </ul>              
-        </div>
+            <div class="accordion" id="accordion-add-security-constraint">
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <p>Let's implement standard servlet security as defined in <a href="http://jcp.org/en/jsr/detail?id=315">the spec</a>.</p>
+                  <p>Create a new <code>web.xml</code> file in the <code>src/main/webapp/WEB-INF</code> directory. Copy &amp; paste the code from <a href="https://raw.github.com/cthiebaud/abendrot/990bcf71f939f14fd25faa28d8cdb83e6a1a565c/src/main/webapp/WEB-INF/web.xml">this version from github</a>. 
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-add-security-constraint" href="#collapse-add-security-constraint-1"><i class="icon-chevron-right"></i></a>
+                  </p>
+                </div>
+                <div id="collapse-add-security-constraint-1" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+<pre class="prettyprint linenums">
+&lt;login-config&gt;
+  &lt;auth-method&gt;FORM&lt;/auth-method&gt;
+&lt;/login-config&gt;
+
+&lt;security-constraint&gt;
+  &lt;web-resource-collection&gt;
+    &lt;web-resource-name&gt;Protected Area&lt;/web-resource-name&gt;
+    &lt;url-pattern&gt;/spy.jsp&lt;/url-pattern&gt;
+  &lt;/web-resource-collection&gt;
+  &lt;auth-constraint&gt;
+    &lt;role-name&gt;Everyone&lt;/role-name&gt;
+  &lt;/auth-constraint&gt;
+&lt;/security-constraint&gt;
+
+&lt;security-role&gt;
+  &lt;description&gt;All SAP NetWeaver Cloud users&lt;/description&gt;
+  &lt;role-name&gt;Everyone&lt;/role-name&gt;
+&lt;/security-role&gt;
+</pre>                    
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <p>
+                    <span>In Eclipse, in the servers view, double click on the Local Test Server for SAP NetWeaver Cloud to open the server configuration page, 
+                      select the 'Users' tab, then click New User.</span>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-add-security-constraint" href="#collapse-add-security-constraint-2"><i class="icon-chevron-right"></i></a>
+                  </p>
+                </div>
+                <div id="collapse-add-security-constraint-2" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+                    <img src="./images/create_new_user.png" alt="">
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <p>
+                    <span>You are free to enter whatever content in the following dialog box to create a new user. Close the dialog, and do not forget to save your modifications of the server configuration. (CTRL-S) </span>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-add-security-constraint" href="#collapse-add-security-constraint-3"><i class="icon-chevron-right"></i></a>
+                  </p>
+                </div>
+                <div id="collapse-add-security-constraint-3" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+                    <img src="./images/trazom.png" alt="">
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <p>
+                    <span>Run spy.jsp in the Local Test Server for SAP NetWeaver Cloud. Bing, an authentication form is displayed. Enter the Credentials for the user you've just created, and you are in.</span>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-add-security-constraint" href="#collapse-add-security-constraint-4"><i class="icon-chevron-right"></i></a>
+                  </p>
+                </div>
+                <div id="collapse-add-security-constraint-4" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+                    <img src="./images/login_local.png" alt="">
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <p>This local user management provides a nice de-coupling of the development cycle from 'true' authentication providers, such as LDAP servers, that maybe more complex to configure, and less performant, or even out of reach in certain circumstances, e.g. working off-line. It is nevertheless possible to plugin locally other authentication providers. I leave that as an exercice for the reader.</p>
+                  <p>Let's see what happens in the cloud. Deploy this application with the modified (new, actually) web.xml. Again, you should be familar with the process now, but I repeat it - for the last time, promised: 
+                  <ul class="breadcrumb">
+                    <li>commit to local git<span class="divider"><i class="icon-play"></i></span></li>
+                    <li>push to remote git<span class="divider"><i class="icon-play"></i></span></li>
+                    <li>mvn clean deploy       <span class="divider"><i class="icon-play"></i></span></li>
+                    <li>grab another cup of <img src="./images/coffee-trans.jpg" style="height:18px; width:auto;"><span class="divider"><i class="icon-play"></i></span></li>
+                    <li>browse to <a id="your_app" href="#">https://&lt;your app&gt;&lt;your user ID&gt;trial.nwtrial.ondemand.com/&lt;your war name&gt;/spy.jsp</a></li>
+                  </ul> 
+                  </p>
+                  <p><span>Bing, <strong>another</strong> authentication form is displayed. Enter now <strong>your SCN  Credentials</strong>, and you are in.</span>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-add-security-constraint" href="#collapse-add-security-constraint-5"><i class="icon-chevron-right"></i></a>
+                  </p>
+                  </p>
+                </div>
+                <div id="collapse-add-security-constraint-5" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+                    <img src="./images/login_cloud.png" alt="">
+                  </div>
+                </div>
+                <div>
+                  <p>
+                  Authentication on the cloud involves the <a href="http://en.wikipedia.org/wiki/SAML_2.0">Security Assertion Markup Language 2.0 (SAML 2.0)</a> protocol. 
+                  </p>
+                  <p>
+                  Your application subcontracts authentication to the the SAP Community Network (cf. the URL in the screen shot above : https://<strong>accounts.sap.com</strong>/...). 
+                  </p>
+                  <p>
+                  For this, a bi-directionnal trust relationship must exist between the your app and SCN: your app trusts that the authentication token provided by SCN truly identifies <strong>you</strong>, 
+                  but before, SCN has trusted <strong>your app</strong> to be entitled to query - and make good usage - of authentication tokens. Fortunately, SCN and NetWeaver Cloud are managed by the same guy (SAP), which helps fostering a strong trust relationship.
+                  </p>
+                  <p>
+                  For SAP NetWeaver Cloud customers that have their own authentication provider. e.g. corporate LDAP, it is possible to setup the same trust relationship and communication process. It is as well possible for the authentication provider of customer to pass extended attributes to the application, such as group information (e.g. admins, super-users, users, guests), upon which the application can react accordingly.
+                  </p>
+                  <p>
+                    However, to my knowledge, there is currently no way to subcontract the authentication to 3rd party identity providers, such as Facebook, Twitter, etc. There is little doubt that this feature will be heavily requested.
+                  </p>
+                <div>
+              </div>
+            </div>
+          </div>
         </section>
 
+        <!-- Coming soon
+        ================================================== -->
+        <section id="get-back-Tomcat-in-the-game">
+          <div class="page-header">
+            <h1>3. Get Back Tomcat in the Game</h1>
+          </div>
+          <div class="row-fluid">
+            <ul class="thumbnails">
+              <li class="span1">
+                <span class="thumbnail">
+                    <img src="icons/apache-Tomcat-150x150.png" alt="">
+                </a>
+              </li>
+              <div class="lead">Tomcat standalone server needs a little uplift to be able to handle authentication. Only for Windows. Sob. <img src="./icons/smiley_frown.png"></div>
+            </ul>
+            <p class="lead"></p>
+            <div class="accordion" id="accordion-get-back-Tomcat-in-the-game">
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <p>You may have noticed that the previous section did not show how to run your application in Tomcat, now that servlet security is enabled.</p>
+                  <p>U
+                    nfortunately, with this instruction in the web.xml ...
+<pre class="prettyprint linenums">
+&lt;login-config&gt;
+  &lt;auth-method&gt;FORM&lt;/auth-method&gt;
+&lt;/login-config&gt;
+</pre>              
+                    ... the servlet container expects a html FORM to be implemented somewhere to handle the authentication. SAP NetWeaver Cloud local as well as remote systems provide a default HTML form (we've seen both).
+                    However, Tomcat has no default. Trying to run <code>spy.jsp</code> on Tomcat leads to a miserable "No login page was defined for FORM authentication" error message:
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-get-back-Tomcat-in-the-game" href="#collapse-get-back-Tomcat-in-the-game-1"><i class="icon-chevron-right"></i></a>
+                  </p>
+                </div>
+                <div id="collapse-get-back-Tomcat-in-the-game-1" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+                    <img src="./images/login_Tomcat_error.png" alt="">
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <p>At least the error message is clear. We are left with these options:</p>
+                  <ol>
+                    <li>Implement such a FORM. Not trivial and above all, the application code will diverge betwenn Tomcat and SAP NetWeaver Cloud.</li>
+                    <li>Comment and un-comment the security section in web.xml at each switch from testing with Tomcat to testing with SAP NetWeaver Cloud. I even did that for some time. No comment.</li>
+                    <li>As a variation of 2., implement maven resources filtering or plugin to rewrite the web.xml file at build time based on some profile or parameter. Tecnically feasible, but a pain in the ...</li>
+                    <li>Stop using Tomcat. But we need Tomcat ! First to ensure that our application is not overly coupled with SAP NetWeaver Cloud, second, because hot reloading of jsp is unvaluable to speed up development, and I did not find how to get hot reload with SAP NetWeaver Cloud local test server. If you know that it is possible, please wave your hand.</li>
+                  </ol>
+                  <p>Enter <a href="http://dblock.github.com/waffle/">WAFFLE</a>, open source <i>Windows &amp; Active Directory Authentication Framework for C# and Java.</i>. Download latest version from  <a href="https://github.com/downloads/dblock/waffle/Waffle.1.5.zip">here</a>, uzip it it somewhere and copy ...
+<pre class="prettyprint linenums">
+jcl-over-slf4j-1.7.2.jar
+jna-3.5.0.jar
+platform-3.5.0.jar
+slf4j-api-1.7.2.jar
+waffle-jna.jar
+waffle-tomcat7.jar
+</pre>
+                    ... from <code>&lt;waffle&gt;/Bin</code>  to <code>&lt;apache-tomcat&gt;/lib</code>. </p>
+
+                    <p>Open <code>context.xml</code> in Package Explorer > Servers > Tomcat v7.0 Server:
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-add-security-constraint" href="#collapse-get-back-Tomcat-in-the-game-2"><i class="icon-chevron-right"></i></a>
+
+                <div id="collapse-get-back-Tomcat-in-the-game-2" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+                    <img src="./images/tomcat_waffle_config.png" alt="">
+                  </div>
+                </div>
+                <div class="accordion-heading">
+                  <p> Add 
+<pre class="prettyprint linenums">
+&lt;!-- https://github.com/dblock/waffle/blob/master/Docs/tomcat/TomcatSingleSignOnValve.md --&gt;
+&lt;Valve className="waffle.apache.NegotiateAuthenticator" /&gt;
+&lt;Realm className="waffle.apache.WindowsRealm" /&gt;
+</pre>
+                    <p>to install the waffle authentication provider for Windows in Tomcat. Stop and restart tomcat, run spy.jsp, and bingo !
+
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-add-security-constraint" href="#collapse-get-back-Tomcat-in-the-game-3"><i class="icon-chevron-right"></i></a>
+                  </p>
+                </div>
+                <div id="collapse-get-back-Tomcat-in-the-game-3" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+                    <img src="./images/login_tomcat_ok.png" alt="">
+                  </div>
+                </div>
+              </div>
+              <div> see <a href="https://github.com/dblock/waffle/tree/master/Docs/tomcat">here</a> for more options to configure Tomcat with waffle.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Conclusion
+        ================================================== -->
+        <section id="conclusion">
+          <div class="page-header">
+            <h1>12. Conclusion</h1>
+          </div>
+          <div class="row-fluid">
+            <ul class="thumbnails">
+              <li class="span2">
+                <span class="thumbnail">
+                    <img src="icons/old-woman-looking-bored-at-her-laptop.jpg" alt="">
+                </a>
+              </li>
+              <div class="lead">Still with me ? The <strong>abendrot</strong> spy is here:<div>
+              <p><a href="http://www.abendrot.org/spy.jsp">http://www.abendrot.org/spy.jsp</a></p>
+            </ul>
+            <p>You must be registered as a <a href="http://scn.sap.com/welcome">SAP Community Network</a> member to access it. Hey, it's SAP! :)<p> 
+            <p><a href="http://en.wiktionary.org/wiki/tsch%C3%BCss">Tschüß!</a></p>
+            <p>PS.
+<a href="https://twitter.com/abenrot_chef" class="twitter-follow-button" data-show-count="false" data-size="large" data-show-screen-name="false" data-dnt="true">Follow @abenrot_chef</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>              
+<strong>abendrot</strong> on Twitter to be notified of the coming chapters (always, if time permits, no promises).
+            </p>
+
+            <p style=" text-align: center;">
+              <img src="images/abendrot-600x400.jpg" class="center">
+            </p>
+          </div>
+        </section>
 
         <!-- Coming soon
+
         ================================================== - - >
         <section id="coming-soon">
           <div class="page-header">

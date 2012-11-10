@@ -843,7 +843,7 @@ jdk:
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    <span>On <a href="https://travis-ci.org/">https://travis-ci.org/</a>, you should be able to find your build, as I did find mine :</span>
+                    <span>On <a href="https://travis-ci.org/">https://travis-ci.org/</a>, you'll find your build under the tab 'My Repositories' :</span>
                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-coming-soon" href="#collapse-travis-ci-2"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
@@ -1139,17 +1139,17 @@ $ mvn nwcloud:status
 <pre>
 $ mvn clean deploy -DaltDeploymentRepository=[your_repo_id]::default::[your_repo_url]
 </pre>                    
-                    <span>cf. <a href="http://maven.apache.org/plugins/maven-deploy-plugin/deploy-mojo.html">Maven Deploy Plugin</a> for <code>-DaltDeploymentRepository</code> syntax</span>. If you do not know what it is , and you do not want to take a maven tutorial, enter : 
+                    <span>cf. <a href="http://maven.apache.org/plugins/maven-deploy-plugin/deploy-mojo.html">Maven Deploy Plugin</a> for <code>-DaltDeploymentRepository</code> syntax</span>. If you do not know what that means, and have no time for a maven tutorial right now, enter : 
 <pre>
 $ mvn clean deploy -DaltDeploymentRepository=my_repo::default::file:///tmp/my_repo
 </pre>                    
-                    a You may have a peek at the maven ouput of the above command in my case <a href="./sample_deploy_ouput.txt">here</a>.</span>
-                  </p>
+                    This will deploy to your file system, in the /tmp/my_repo directory (of your current drive, if you're on Windows). Here is a sample ouput :
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-auto-deploy" href="#collapse-auto-deploy-12"><i class="icon-chevron-right"></i></a>
+                    </p>
                 </div>
                 <div id="collapse-auto-deploy-12" class="accordion-body collapse out">
                   <div class="accordion-inner">
-<pre>
-</pre>                    
+                    <iframe src='sample_deploy_ouput.txt' style="width:100%; height: 460px; border: none;"></iframe>
                   </div>
                 </div>
               </div>
@@ -1296,6 +1296,11 @@ $ mvn clean deploy -DaltDeploymentRepository=my_repo::default::file:///tmp/my_re
             </ul>
             <p>In addition, I'd like show how IOC injection with Guice, REST services with Jersey and <i>(coming soon)</i> work seamlessly with NetWeaver Cloud.</p>
             <p><a href="http://en.wiktionary.org/wiki/tsch%C3%BCss">Tschüß!</a></p>
+            <p>PS.
+<a href="https://twitter.com/abenrot_chef" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @abenrot_chef</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<strong>abendrot</strong> on Twitter to be notified of the coming chapters (always, if time permits, no promises).
+            </p>
             <p style=" text-align: center;">
               <img src="images/abendrot-600x400.jpg" class="center">
             </p>
