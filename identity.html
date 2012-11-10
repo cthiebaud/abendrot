@@ -73,7 +73,7 @@
         <ul class="nav nav-list bs-docs-sidenav affix-top">
           <li class="active"><a href="#look-in-the-motor">    <i class="icon-chevron-right"></i> Look Inside the Motor</a></li>
           <li class=""><a href="#add-security-constraint">    <i class="icon-chevron-right"></i> Add Security Constraint</a></li>
-          <li class=""><a href="#get-back-Tomcat-in-the-game"> <i class="icon-chevron-right"></i> Get Back Tomcat in the Game</a></li>
+          <li class=""><a href="#get-back-tomcat-in-the-game"> <i class="icon-chevron-right"></i> Get Back Tomcat in the Game</a></li>
           <li class=""><a href="#conclusion">                 <i class="icon-chevron-right"></i> Conclusion</a></li>
           <!-- li class=""><a href="#coming-soon"><i class="icon-chevron-right"></i> Coming soon ...</a></li -->
         </ul>
@@ -93,7 +93,7 @@
                     <img src="icons/lego_car.jpg" alt="">
                 </a>
               </li>
-              <div class="lead">Now that the <strong>abendrot</strong> application is deployed on the cloud, it is good to have a sneak inside the motor.</div>
+              <div class="lead">Now that the <strong>abendrot</strong> application is deployed on the cloud (cf. <a href=".7index.html">part 1.</a>), it is good to have a sneak inside the motor.</div>
             </ul>              
             <div class="accordion" id="accordion-look-in-the-motor">
               <div class="accordion-group">
@@ -105,7 +105,7 @@
                 </div>
                 <div id="collapse-look-in-the-motor-1" class="accordion-body collapse out">
                   <div class="accordion-inner">
-                    <img src="./images/bare_spy_in_local_Tomcat.png" alt="">
+                    <img src="./images/bare_spy_in_local_tomcat.png" alt="">
                   </div>
                 </div>
               </div>
@@ -130,7 +130,7 @@
                 </div>
                 <div id="collapse-look-in-the-motor-3" class="accordion-body collapse out">
                   <div class="accordion-inner">
-                    <img src="./images/nice_spy_in_local_Tomcat.png" alt="">
+                    <img src="./images/nice_spy_in_local_tomcat.png" alt="">
                   </div>
                 </div>
               </div>
@@ -164,7 +164,7 @@
                 </div>
                 <!-- div id="collapse-look-in-the-motor-3" class="accordion-body collapse out">
                   <div class="accordion-inner">
-                    <img src="./images/nice_spy_in_local_Tomcat.png" alt="">
+                    <img src="./images/nice_spy_in_local_tomcat.png" alt="">
                   </div>
                 </div-->
               </div>
@@ -308,7 +308,7 @@
 
         <!-- Coming soon
         ================================================== -->
-        <section id="get-back-Tomcat-in-the-game">
+        <section id="get-back-tomcat-in-the-game">
           <div class="page-header">
             <h1>3. Get Back Tomcat in the Game</h1>
           </div>
@@ -316,13 +316,13 @@
             <ul class="thumbnails">
               <li class="span1">
                 <span class="thumbnail">
-                    <img src="icons/apache-Tomcat-150x150.png" alt="">
+                    <img src="icons/apache-tomcat-150x150.png" alt="">
                 </a>
               </li>
               <div class="lead">Tomcat standalone server needs a little uplift to be able to handle authentication. Only for Windows. Sob. <img src="./icons/smiley_frown.png"></div>
             </ul>
             <p class="lead"></p>
-            <div class="accordion" id="accordion-get-back-Tomcat-in-the-game">
+            <div class="accordion" id="accordion-get-back-tomcat-in-the-game">
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>You may have noticed that the previous section did not show how to run your application in Tomcat, now that servlet security is enabled.</p>
@@ -335,12 +335,12 @@
 </pre>              
                     ... the servlet container expects a html FORM to be implemented somewhere to handle the authentication. SAP NetWeaver Cloud local as well as remote systems provide a default HTML form (we've seen both).
                     However, Tomcat has no default. Trying to run <code>spy.jsp</code> on Tomcat leads to a miserable "No login page was defined for FORM authentication" error message:
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-get-back-Tomcat-in-the-game" href="#collapse-get-back-Tomcat-in-the-game-1"><i class="icon-chevron-right"></i></a>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-get-back-tomcat-in-the-game" href="#collapse-get-back-tomcat-in-the-game-1"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
-                <div id="collapse-get-back-Tomcat-in-the-game-1" class="accordion-body collapse out">
+                <div id="collapse-get-back-tomcat-in-the-game-1" class="accordion-body collapse out">
                   <div class="accordion-inner">
-                    <img src="./images/login_Tomcat_error.png" alt="">
+                    <img src="./images/login_tomcat_error.png" alt="">
                   </div>
                 </div>
               </div>
@@ -365,9 +365,9 @@ waffle-tomcat7.jar
                     ... from <code>&lt;waffle&gt;/Bin</code>  to <code>&lt;apache-tomcat&gt;/lib</code>. </p>
 
                     <p>Open <code>context.xml</code> in Package Explorer > Servers > Tomcat v7.0 Server:
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-add-security-constraint" href="#collapse-get-back-Tomcat-in-the-game-2"><i class="icon-chevron-right"></i></a>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-add-security-constraint" href="#collapse-get-back-tomcat-in-the-game-2"><i class="icon-chevron-right"></i></a>
 
-                <div id="collapse-get-back-Tomcat-in-the-game-2" class="accordion-body collapse out">
+                <div id="collapse-get-back-tomcat-in-the-game-2" class="accordion-body collapse out">
                   <div class="accordion-inner">
                     <img src="./images/tomcat_waffle_config.png" alt="">
                   </div>
@@ -381,10 +381,10 @@ waffle-tomcat7.jar
 </pre>
                     <p>to install the waffle authentication provider for Windows in Tomcat. Stop and restart tomcat, run spy.jsp, and bingo !
 
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-add-security-constraint" href="#collapse-get-back-Tomcat-in-the-game-3"><i class="icon-chevron-right"></i></a>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-add-security-constraint" href="#collapse-get-back-tomcat-in-the-game-3"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
-                <div id="collapse-get-back-Tomcat-in-the-game-3" class="accordion-body collapse out">
+                <div id="collapse-get-back-tomcat-in-the-game-3" class="accordion-body collapse out">
                   <div class="accordion-inner">
                     <img src="./images/login_tomcat_ok.png" alt="">
                   </div>
@@ -414,9 +414,8 @@ waffle-tomcat7.jar
             <p>You must be registered as a <a href="http://scn.sap.com/welcome">SAP Community Network</a> member to access it. Hey, it's SAP! :)<p> 
             <p><a href="http://en.wiktionary.org/wiki/tsch%C3%BCss">Tschüß!</a></p>
             <p>PS.
-<a href="https://twitter.com/abenrot_chef" class="twitter-follow-button" data-show-count="false" data-size="large" data-show-screen-name="false" data-dnt="true">Follow @abenrot_chef</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>              
-<strong>abendrot</strong> on Twitter to be notified of the coming chapters (always, if time permits, no promises).
+<a href="https://twitter.com/abenrot_chef" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @abenrot_chef</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
             </p>
 
             <p style=" text-align: center;">
