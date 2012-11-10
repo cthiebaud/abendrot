@@ -1135,16 +1135,18 @@ $ mvn nwcloud:status
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    <span><strong>With all this, a <code>maven deploy</code> will automatically trigger the upgrade of the application in the cloud!</strong>. e.g. </span>
+                    <p><strong>With all this, a <code>maven deploy</code> will automatically trigger the upgrade of the application in the cloud!</strong>. e.g. 
 <pre>
 $ mvn clean deploy -DaltDeploymentRepository=[your_repo_id]::default::[your_repo_url]
 </pre>                    
-                    <span>cf. <a href="http://maven.apache.org/plugins/maven-deploy-plugin/deploy-mojo.html">Maven Deploy Plugin</a> for <code>-DaltDeploymentRepository</code> syntax</span>. If you do not know what that means, and have no time for a maven tutorial right now, enter : 
+                    </o>
+                    <p>cf. <a href="http://maven.apache.org/plugins/maven-deploy-plugin/deploy-mojo.html">Maven Deploy Plugin</a> for <code>-DaltDeploymentRepository</code> syntax</span>. 
+                      If you do not know what that means, and have no time for a maven tutorial right now, enter : 
 <pre>
 $ mvn clean deploy -DaltDeploymentRepository=my_repo::default::file:///tmp/my_repo
 </pre>                    
-                    This will deploy to your file system, in the /tmp/my_repo directory (of your current drive, if you're on Windows). Here is a sample ouput :
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-auto-deploy" href="#collapse-auto-deploy-12"><i class="icon-chevron-right"></i></a>
+                      Maven will 'deploy' the build results to the file system in the /tmp/my_repo directory (of the current drive, if you're on Windows), then <code>nwcloud-maven-plugin</code> will 'deploy' - same name, two different things <img src="./icons/smiley_frown.png"> - the war build result to the cloud. Here is a sample ouput :
+                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-auto-deploy" href="#collapse-auto-deploy-12"><i class="icon-chevron-right"></i></a>
                     </p>
                 </div>
                 <div id="collapse-auto-deploy-12" class="accordion-body collapse out">
