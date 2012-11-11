@@ -1,4 +1,4 @@
-package net.aequologica.cloud;
+package net.aequologica.cloud.git;
 
 import java.util.Properties;
 
@@ -54,7 +54,7 @@ public class GitRepositoryState {
 		return branch;
 	}
 
-	public String getDescribe() {
+	public String getCommitIdDescribe() {
 		return describe;
 	}
 

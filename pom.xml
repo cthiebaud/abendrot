@@ -7,6 +7,26 @@
     <version>0.0.4-SNAPSHOT</version>
 
     <packaging>war</packaging>
+    
+	<dependencies>
+		<!--  slf4j -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+        <!-- TEST -->
+        
+        <!-- junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit-dep</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
     <pluginRepositories>
         <pluginRepository>
@@ -135,6 +155,9 @@
     
     <properties>
         <!-- http://maven.apache.org/plugins/maven-release-plugin/faq.html#credentials -->
+		<slf4j.version>1.7.2</slf4j.version>
+		<logback.version>1.0.7</logback.version>
+		<junit.version>4.11-beta-1</junit.version>
         <project.scm.id>github</project.scm.id>
     </properties>
 
