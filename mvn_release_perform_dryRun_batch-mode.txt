@@ -1,0 +1,17 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building abendrot 0.0.3-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-release-plugin:2.3.2:perform (default-cli) @ abendrot ---
+[INFO] The project would be checked out to perform the release ...
+[INFO] Executing perform goals  - since this is simulation mode these goals are skipped.
+[INFO] Cleaning up after release...
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2.613s
+[INFO] Finished at: Sun Nov 11 21:17:44 CET 2012
+[INFO] Final Memory: 10M/245M
+[INFO] ------------------------------------------------------------------------

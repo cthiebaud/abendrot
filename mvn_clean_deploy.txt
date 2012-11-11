@@ -1,0 +1,158 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building abendrot 0.0.3-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ abendrot ---
+[INFO] Deleting c:\^\abendrot-release\target
+[INFO] 
+[INFO] --- git-commit-id-plugin:2.1.2:revision (default) @ abendrot ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ abendrot ---
+[debug] execute contextualize
+[WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:compile (default-compile) @ abendrot ---
+[WARNING] File encoding has not been set, using platform encoding Cp1252, i.e. build is platform dependent!
+[INFO] Compiling 1 source file to c:\^\abendrot-release\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ abendrot ---
+[debug] execute contextualize
+[WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory c:\^\abendrot-release\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:testCompile (default-testCompile) @ abendrot ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ abendrot ---
+[INFO] No tests to run.
+[INFO] Surefire report directory: c:\^\abendrot-release\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Error: Unable to access jarfile c:\\abendrot-release\target\surefire\surefirebooter445349973458779019.jar
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-war-plugin:2.3:war (default-war) @ abendrot ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [abendrot] in [c:\^\abendrot-release\target\abendrot-0.0.3-SNAPSHOT]
+[INFO] Processing war project
+[INFO] Copying webapp resources [c:\^\abendrot-release\src\main\webapp]
+[INFO] Webapp assembled in [200 msecs]
+[INFO] Building war: c:\^\abendrot-release\target\abendrot-0.0.3-SNAPSHOT.war
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ abendrot ---
+[INFO] Installing c:\^\abendrot-release\target\abendrot-0.0.3-SNAPSHOT.war to C:\Users\i051108\.m2\repository\net\aequologica\abendrot\0.0.3-SNAPSHOT\abendrot-0.0.3-SNAPSHOT.war
+[INFO] Installing c:\^\abendrot-release\pom.xml to C:\Users\i051108\.m2\repository\net\aequologica\abendrot\0.0.3-SNAPSHOT\abendrot-0.0.3-SNAPSHOT.pom
+[INFO] 
+[INFO] --- maven-deploy-plugin:2.7:deploy (default-deploy) @ abendrot ---
+Downloading: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/0.0.3-SNAPSHOT/maven-metadata.xml
+773/773 B               Downloaded: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/0.0.3-SNAPSHOT/maven-metadata.xml (773 B at 2.2 KB/sec)
+Uploading: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/0.0.3-SNAPSHOT/abendrot-0.0.3-20121111.200739-6.war
+2/9 KB      4/9 KB   6/9 KB   8/9 KB   9/9 KB            Uploaded: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/0.0.3-SNAPSHOT/abendrot-0.0.3-20121111.200739-6.war (9 KB at 14.5 KB/sec)
+Uploading: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/0.0.3-SNAPSHOT/abendrot-0.0.3-20121111.200739-6.pom
+2/6 KB   4/6 KB   6/6 KB            Uploaded: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/0.0.3-SNAPSHOT/abendrot-0.0.3-20121111.200739-6.pom (6 KB at 15.1 KB/sec)
+Downloading: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/maven-metadata.xml
+323/323 B               Downloaded: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/maven-metadata.xml (323 B at 1.8 KB/sec)
+Uploading: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/0.0.3-SNAPSHOT/maven-metadata.xml
+773/773 B               Uploaded: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/0.0.3-SNAPSHOT/maven-metadata.xml (773 B at 1.7 KB/sec)
+Uploading: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/maven-metadata.xml
+323/323 B               Uploaded: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/maven-metadata.xml (323 B at 1.2 KB/sec)
+[INFO] 
+[INFO] --- nwcloud-maven-plugin:1.0.2:stop (after.package) @ abendrot ---
+
+init:
+
+password:
+
+stop:
+     [java] 
+     [java] Requesting stop for:
+     [java]    application: abendrot
+     [java]    account    : p1630844092trial
+     [java]    host       : https://nwtrial.ondemand.com
+     [java]    synchronous: true
+     [java]    SDK version: 1.12.0
+     [java]    user       : p1630844092
+     [java] 
+     [java] 
+     [java] Stop request performed successfully.
+     [java] Triggered stop of appliance component
+     [java] Component status: STARTED
+     [java] 
+     [java] 
+     [java] [Sun Nov 11 21:07:48 CET 2012] Waiting for STOPPED status...
+     [java] 
+     [java] -\|/-\|/-\|[Sun Nov 11 21:07:54 CET 2012] Component [web] reached STOPPED after 3028 ms
+     [java] [Sun Nov 11 21:07:54 CET 2012] Reached STOPPED status
+[INFO] 
+[INFO] --- nwcloud-maven-plugin:1.0.2:deploy (after.package) @ abendrot ---
+
+init:
+
+password:
+
+deploy:
+     [copy] Copying 1 file to c:\^\abendrot-release\target
+     [java] 
+     [java] Requesting deployment for:
+     [java]    application    : abendrot
+     [java]    account        : p1630844092trial
+     [java]    source         : c:/^/abendrot-release/target/abendrot.war
+     [java]    JVM version    : 7
+     [java]    elasticity data: [1 .. 1]
+     [java]    severity       : ERROR
+     [java]    host           : https://nwtrial.ondemand.com
+     [java]    SDK version    : 1.12.0
+     [java]    user           : p1630844092
+     [java] 
+     [java] 
+     [java] Deployment finished successfully.
+     [java] 
+[INFO] 
+[INFO] --- nwcloud-maven-plugin:1.0.2:start (after.package) @ abendrot ---
+
+init:
+
+password:
+
+start:
+     [java] 
+     [java] Requesting start for:
+     [java]    application: abendrot
+     [java]    account    : p1630844092trial
+     [java]    host       : https://nwtrial.ondemand.com
+     [java]    synchronous: true
+     [java]    SDK version: 1.12.0
+     [java]    user       : p1630844092
+     [java] 
+     [java] 
+     [java] Start request performed successfully.
+     [java] Triggered start of application processes.
+     [java] Component status: STARTING
+     [java] 
+     [java] 
+     [java] [Sun Nov 11 21:08:03 CET 2012] Waiting for STARTED status...
+     [java] 
+     [java] -\|/-\|/-\|[Sun Nov 11 21:08:09 CET 2012] Component [web] reached STARTING after 3006 ms
+     [java] /-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|[Sun Nov 11 21:08:52 CET 2012] Component [web] reached STARTING after 45015 ms
+     [java] /-\|/-[Sun Nov 11 21:08:55 CET 2012] Reached STARTED status
+     [java] web: STARTING
+     [java] 
+     [java] Access points:
+     [java]   not available
+     [java] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1:23.868s
+[INFO] Finished at: Sun Nov 11 21:08:56 CET 2012
+[INFO] Final Memory: 18M/245M
+[INFO] ------------------------------------------------------------------------

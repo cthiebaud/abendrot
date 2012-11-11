@@ -1,0 +1,110 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building abendrot 0.0.3-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-release-plugin:2.3.2:prepare (default-cli) @ abendrot ---
+[INFO] Verifying that there are no local modifications...
+[INFO]   ignoring changes on: **\release.properties, **\pom.xml.next, **\pom.xml.releaseBackup, **\pom.xml.backup, **\pom.xml.branch, **\pom.xml.tag
+[INFO] Executing: cmd.exe /X /C "git status"
+[INFO] Working directory: c:\^\abendrot-release
+[INFO] Checking dependencies and plugins for snapshots ...
+[INFO] Transforming 'abendrot'...
+[INFO] Not generating release POMs
+[INFO] Executing goals 'clean verify'...
+[INFO] [INFO] Scanning for projects...
+[INFO] [INFO]                                                                         
+[INFO] [INFO] ------------------------------------------------------------------------
+[INFO] [INFO] Building abendrot 0.0.3
+[INFO] [INFO] ------------------------------------------------------------------------
+[INFO] [INFO] 
+[INFO] [INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ abendrot ---
+[INFO] [INFO] Deleting C:\^\abendrot-release\target
+[INFO] [INFO] 
+[INFO] [INFO] --- git-commit-id-plugin:2.1.2:revision (default) @ abendrot ---
+[INFO] [INFO] 
+[INFO] [INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ abendrot ---
+[INFO] [debug] execute contextualize
+[INFO] [WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] [INFO] Copying 2 resources
+[INFO] [INFO] 
+[INFO] [INFO] --- maven-compiler-plugin:2.5.1:compile (default-compile) @ abendrot ---
+[INFO] [WARNING] File encoding has not been set, using platform encoding Cp1252, i.e. build is platform dependent!
+[INFO] [INFO] Compiling 1 source file to C:\^\abendrot-release\target\classes
+[INFO] [INFO] 
+[INFO] [INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ abendrot ---
+[INFO] [debug] execute contextualize
+[INFO] [WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] [INFO] skip non existing resourceDirectory C:\^\abendrot-release\src\test\resources
+[INFO] [INFO] 
+[INFO] [INFO] --- maven-compiler-plugin:2.5.1:testCompile (default-testCompile) @ abendrot ---
+[INFO] [INFO] No sources to compile
+[INFO] [INFO] 
+[INFO] [INFO] --- maven-surefire-plugin:2.10:test (default-test) @ abendrot ---
+[INFO] [INFO] No tests to run.
+[INFO] [INFO] Surefire report directory: C:\^\abendrot-release\target\surefire-reports
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Error: Unable to access jarfile C:\\abendrot-release\target\surefire\surefirebooter1814379753152874881.jar
+[INFO] 
+[INFO] Results :
+[INFO] 
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] [INFO] 
+[INFO] [INFO] --- maven-war-plugin:2.3:war (default-war) @ abendrot ---
+[INFO] [INFO] Packaging webapp
+[INFO] [INFO] Assembling webapp [abendrot] in [C:\^\abendrot-release\target\abendrot-0.0.3]
+[INFO] [INFO] Processing war project
+[INFO] [INFO] Copying webapp resources [C:\^\abendrot-release\src\main\webapp]
+[INFO] [INFO] Webapp assembled in [124 msecs]
+[INFO] [INFO] Building war: C:\^\abendrot-release\target\abendrot-0.0.3.war
+[INFO] [INFO] ------------------------------------------------------------------------
+[INFO] [INFO] BUILD SUCCESS
+[INFO] [INFO] ------------------------------------------------------------------------
+[INFO] [INFO] Total time: 4.966s
+[INFO] [INFO] Finished at: Sun Nov 11 21:19:11 CET 2012
+[INFO] [INFO] Final Memory: 13M/245M
+[INFO] [INFO] ------------------------------------------------------------------------
+[INFO] Checking in modified POMs...
+[INFO] Executing: cmd.exe /X /C "git add -- pom.xml"
+[INFO] Working directory: c:\^\abendrot-release
+[INFO] Executing: cmd.exe /X /C "git status"
+[INFO] Working directory: c:\^\abendrot-release
+[INFO] Executing: cmd.exe /X /C "git commit --verbose -F C:\Users\i051108\AppData\Local\Temp\maven-scm-225139171.commit pom.xml"
+[INFO] Working directory: c:\^\abendrot-release
+[INFO] Executing: cmd.exe /X /C "git symbolic-ref HEAD"
+[INFO] Working directory: c:\^\abendrot-release
+[INFO] Executing: cmd.exe /X /C "git push https://cthiebaud:########@github.com/cthiebaud/abendrot.git master:master"
+[INFO] Working directory: c:\^\abendrot-release
+[INFO] Tagging release with the label abendrot-0.0.3...
+[INFO] Executing: cmd.exe /X /C "git tag -F C:\Users\i051108\AppData\Local\Temp\maven-scm-403131345.commit abendrot-0.0.3"
+[INFO] Working directory: C:\^\abendrot-release
+[INFO] Executing: cmd.exe /X /C "git push https://cthiebaud:########@github.com/cthiebaud/abendrot.git abendrot-0.0.3"
+[INFO] Working directory: C:\^\abendrot-release
+[INFO] Executing: cmd.exe /X /C "git ls-files"
+[INFO] Working directory: C:\^\abendrot-release
+[INFO] Transforming 'abendrot'...
+[INFO] Not removing release POMs
+[INFO] Checking in modified POMs...
+[INFO] Executing: cmd.exe /X /C "git add -- pom.xml"
+[INFO] Working directory: c:\^\abendrot-release
+[INFO] Executing: cmd.exe /X /C "git status"
+[INFO] Working directory: c:\^\abendrot-release
+[INFO] Executing: cmd.exe /X /C "git commit --verbose -F C:\Users\i051108\AppData\Local\Temp\maven-scm-1924924271.commit pom.xml"
+[INFO] Working directory: c:\^\abendrot-release
+[INFO] Executing: cmd.exe /X /C "git symbolic-ref HEAD"
+[INFO] Working directory: c:\^\abendrot-release
+[INFO] Executing: cmd.exe /X /C "git push https://cthiebaud:########@github.com/cthiebaud/abendrot.git master:master"
+[INFO] Working directory: c:\^\abendrot-release
+[INFO] Release preparation complete.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 19.953s
+[INFO] Finished at: Sun Nov 11 21:19:21 CET 2012
+[INFO] Final Memory: 9M/245M
+[INFO] ------------------------------------------------------------------------
