@@ -110,7 +110,7 @@
                 </div>
                 <div id="collapse-look-in-the-motor-1" class="accordion-body collapse out">
                   <div class="accordion-inner">
-                    <img src="./images/bare_spy_in_local_tomcat.png" alt="">
+                    <!-- img src="./images/bare_spy_in_local_tomcat.png" alt="" alt=""--><span class="img_later" data-src="./images/bare_spy_in_local_tomcat.png" alt=""></span>
                   </div>
                 </div>
               </div>
@@ -149,7 +149,7 @@
                 </div>
                 <div id="collapse-look-in-the-motor-3" class="accordion-body collapse out">
                   <div class="accordion-inner">
-                    <img src="./images/nice_spy_in_local_tomcat.png" alt="">
+                    <!-- img src="./images/nice_spy_in_local_tomcat.png" alt="" alt=""--><span class="img_later" data-src="./images/nice_spy_in_local_tomcat.png" alt=""></span>
                   </div>
                 </div>
               </div>
@@ -177,14 +177,8 @@
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>Looking at these properties, we learn a few things about this SAP NetWeaver Cloud instance : for example, it runs on Java 7, it runs on OSGi and it uses Tomcat to serve HTTP requests.
-                  <!-- a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-look-in-the-motor" href="#collapse-look-in-the-motor-3"><i class="icon-chevron-right"></i></a -->
                   </p>
                 </div>
-                <!-- div id="collapse-look-in-the-motor-3" class="accordion-body collapse out">
-                  <div class="accordion-inner">
-                    <img src="./images/nice_spy_in_local_tomcat.png" alt="">
-                  </div>
-                </div-->
               </div>
             </div>
           </div>
@@ -200,7 +194,7 @@
             <ul class="thumbnails">
               <li class="span1">
                 <span class="thumbnail">
-                    <img src="icons/old-rusty-key.jpg" alt="">
+                    <!-- img src="icons/old-rusty-key.jpg" alt="" alt=""--><span class="img_later" data-src="icons/old-rusty-key.jpg" alt=""></span>
                 </a>
               </li>
               <div class="lead">Maybe we do not want everybody to access this spy thingy. Let's implement <strong>standard servlet security</strong>, as defined in <a href="http://jcp.org/en/jsr/detail?id=315">the spec</a>: after that, only registered Sap Community Network members 
@@ -248,7 +242,7 @@
                 </div>
                 <div id="collapse-add-security-constraint-2" class="accordion-body collapse out">
                   <div class="accordion-inner">
-                    <img src="./images/create_new_user.png" alt="">
+                    <!-- img src="./images/create_new_user.png" alt="" alt=""--><span class="img_later" data-src="./images/create_new_user.png" alt=""></span>
                   </div>
                 </div>
               </div>
@@ -261,7 +255,7 @@
                 </div>
                 <div id="collapse-add-security-constraint-3" class="accordion-body collapse out">
                   <div class="accordion-inner">
-                    <img src="./images/trazom.png" alt="">
+                    <!-- img src="./images/trazom.png" alt="" alt=""--><span class="img_later" data-src="./images/trazom.png" alt=""></span>
                   </div>
                 </div>
               </div>
@@ -274,7 +268,7 @@
                 </div>
                 <div id="collapse-add-security-constraint-4" class="accordion-body collapse out">
                   <div class="accordion-inner">
-                    <img src="./images/login_local.png" alt="">
+                    <!-- img src="./images/login_local.png" alt="" alt=""--><span class="img_later" data-src="./images/login_local.png" alt=""></span>
                   </div>
                 </div>
               </div>
@@ -301,7 +295,7 @@
                 </div>
                 <div id="collapse-add-security-constraint-5" class="accordion-body collapse out">
                   <div class="accordion-inner">
-                    <img src="./images/login_cloud.png" alt="">
+                    <!-- img src="./images/login_cloud.png" alt="" alt=""--><span class="img_later" data-src="./images/login_cloud.png" alt=""></span>
                   </div>
                 </div>
                 <div>
@@ -366,7 +360,7 @@
                 </div>
                 <div id="collapse-get-back-tomcat-in-the-game-1" class="accordion-body collapse out">
                   <div class="accordion-inner">
-                    <img src="./images/login_tomcat_error.png" alt="">
+                    <!-- img src="./images/login_tomcat_error.png" alt="" alt=""--><span class="img_later" data-src="./images/login_tomcat_error.png" alt=""></span>
                   </div>
                 </div>
               </div>
@@ -395,7 +389,7 @@ waffle-tomcat7.jar
 
                 <div id="collapse-get-back-tomcat-in-the-game-2" class="accordion-body collapse out">
                   <div class="accordion-inner">
-                    <img src="./images/tomcat_waffle_config.png" alt="">
+                    <!-- img src="./images/tomcat_waffle_config.png" alt="" alt=""--><span class="img_later" data-src="./images/tomcat_waffle_config.png" alt=""></span>
                   </div>
                 </div>
                 <div class="accordion-heading">
@@ -412,7 +406,7 @@ waffle-tomcat7.jar
                 </div>
                 <div id="collapse-get-back-tomcat-in-the-game-3" class="accordion-body collapse out">
                   <div class="accordion-inner">
-                    <img src="./images/login_tomcat_ok.png" alt="">
+                    <!-- img src="./images/login_tomcat_ok.png" alt="" alt=""--><span class="img_later" data-src="./images/login_tomcat_ok.png" alt=""></span>
                   </div>
                 </div>
               </div>
@@ -527,9 +521,16 @@ waffle-tomcat7.jar
 
   <script type="text/javascript">
   $(function() {
-      $(".your_app").click(function(event){
-        alert("Replace <your app>, <your user ID> and <your war name> with appropriate values");
-      });
+    $(".your_app").click(function(event){
+      alert("Replace <your app>, <your user ID> and <your war name> with appropriate values");
+    });
+    
+
+    $('span.img_later').prepend( function(index) {
+      var src = $(this).attr('data-src');
+      return '<img alt="" src="' + src + '">';
+    });
+
   });
   </script>
 
