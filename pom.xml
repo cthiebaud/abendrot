@@ -95,7 +95,11 @@
 		<developerConnection>scm:git:https://github.com/cthiebaud/abendrot.git</developerConnection>
 	</scm>
 
-	<distributionManagement>
+    <properties>
+		<project.scm.id>github<project.scm.id>
+    </properties>
+
+    <distributionManagement>
 		<repository>
 			<uniqueVersion>false</uniqueVersion>
 			<id>beh_releases</id>
