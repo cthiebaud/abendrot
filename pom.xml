@@ -44,7 +44,7 @@
 			<plugin>
 				<groupId>com.sap.research</groupId>
 				<artifactId>nwcloud-maven-plugin</artifactId>
-				<version>1.0.1</version>
+				<version>1.0.2-SNAPSHOT</version>
 				<executions>
 					<execution>
 						<id>after.package</id>
