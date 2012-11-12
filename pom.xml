@@ -88,7 +88,8 @@
 					<target>1.7</target>
 				</configuration>
 			</plugin>
-
+			
+			<!--
 			<plugin>
 				<groupId>pl.project13.maven</groupId>
 				<artifactId>git-commit-id-plugin</artifactId>
@@ -100,14 +101,15 @@
 					</execution>
 				</executions>
 				<configuration>
-					<!-- forces the plugin to generate the git.properties file -->
+					< ! - - forces the plugin to generate the git.properties file - - >
 					<generateGitPropertiesFile>true</generateGitPropertiesFile>
 
-					<!-- The path for the to be generated properties file, it's relative 
-						to ${project.basedir} -->
+					< ! - - The path for the to be generated properties file, it's relative 
+						to ${project.basedir} - - >
 					<generateGitPropertiesFilename>abendrot-web/src/main/resources/git.properties</generateGitPropertiesFilename>
 				</configuration>
 			</plugin>
+			-->
 
 		</plugins>
 	</build>
