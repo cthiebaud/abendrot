@@ -21,7 +21,7 @@
     </dependencies>
     
     <build>
-        <finalName>abendrot</finalName>    
+        <!-- finalName>abendrot</finalName --> <!--  does not work with nwcloud-maven-plugin -->    
         <plugins>
             <plugin>
                 <groupId>com.sap.research</groupId>
