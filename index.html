@@ -42,6 +42,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="brand" href="#">abendrot</a>
+          
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="active">
@@ -51,10 +52,14 @@
                 <a href="./identity.html">identity</a>
               </li>
               <li>
+                <a href="./rest.html">rest</a>
+              </li>
+              <li>
                 <a href="./comingsoon.html">coming soon ...</a>
               </li>
             </ul>
           </div>
+
         </div>
       </div>
     </div>
@@ -1371,6 +1376,52 @@ $ mvn clean deploy -DaltDeploymentRepository=my_repo::default::file:///tmp/my_re
 
               <div class="accordion-group">
                 <div class="accordion-heading">
+                  <p>In order to perform a fully automated &amp; unattended release, to avoid to be prompted for username and password during the process, we need to instruct maven where to find our credentials. 
+                    <ol>
+                      <li>In general, maven stores credentials in <code>~/.2/settings.xml</code>, cf. <a href="http://maven.apache.org/settings.html#Servers">http://maven.apache.org/settings.html#Servers</a>.</li>
+                      <li>Encryption is recommended, but not mandatory, cf. <a href="http://maven.apache.org/guides/mini/guide-encryption.html">http://maven.apache.org/guides/mini/guide-encryption.html</a>.</li>
+                      <li>Finally, a piece of glue between maven and git is required: the <code>project.scm.id</code> property, cf. <a href="http://maven.apache.org/plugins/maven-release-plugin/faq.html#credentials">http://maven.apache.org/plugins/maven-release-plugin/faq.html#credentials</a>.</li>
+                    </ol>
+                    Here are my settings for your reference :
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-auto-release" href="#collapse-auto-release-3"><i class="icon-chevron-right"></i></a>
+                  </p>
+                </div>
+                <div id="collapse-auto-release-3" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+                    In <code>~/.2/settings.xml</code>
+<pre class="linenums">
+&lt;servers&gt;
+  &lt;server&gt;
+    &lt;id&gt;beh_releases&lt;/id&gt;
+    &lt;username&gt;deployment&lt;/username&gt;
+    &lt;password&gt; ... &lt;/password&gt;
+  &lt;/server&gt;
+  &lt;server&gt;
+    &lt;id&gt;beh_snapshots&lt;/id&gt;
+    &lt;username&gt;deployment&lt;/username&gt;
+    &lt;password&gt; ... &lt;/password&gt;
+  &lt;/server&gt;
+  &lt;server&gt;
+    &lt;id&gt;<strong>github</strong>&lt;/id&gt;
+    &lt;username&gt;cthiebaud&lt;/username&gt;
+    &lt;password&gt; ... &lt;/password&gt;
+  &lt;/server&gt;
+&lt;/servers&gt;
+</pre>
+                    In <code>pom.xml</code>
+<pre class="linenums">
+&lt;properties&gt;
+  &lt;project.scm.id&gt;<strong>github</strong>&lt;/project.scm.id&gt;
+&lt;/properties&gt;
+</pre>
+                  </div>
+                </div>
+              </div>
+
+              <p>Ready to go ?</p>
+
+              <div class="accordion-group">
+                <div class="accordion-heading">
                   <p><strong>Ensure that your project directory is clean</strong>. That means that 
                     <ol>
                       <li>you have pulled the last vesion from Github,</li>
@@ -1450,6 +1501,22 @@ $ mvn release:prepare --batch-mode -DreleaseVersion=0.0.3 -Dtag=abendrot-0.0.3 -
                   </div>
                 </div>
               </div>
+
+              <div class="alert alert-block media unstyled">
+                <img src="images/infoicon70.png" class="pull-left">
+                <div class="media-body">
+                  <div>In case something goes wrong during the <code>release:prepare</code> phase, rollback to the initial state with:
+<pre style="background-color:white;">
+$ git reset --hard HEAD~1
+$ mvn release:clean
+</pre>               
+                  </div>
+                </div>
+              </div>
+              <ol>
+                <li><code>git reset --hard HEAD~1</code> will wipe for the eternity the local commit of the version upgrade in the the pom.xml just done by maven-release-plugin, and</li>
+                <li><code>mvn release:clean</code> will remove temporary work files (release.properties, etc.) left by the maven-release-plugin in the project directory</li>
+              </ol>   
 
               <div class="accordion-group">
                 <div class="accordion-heading">
