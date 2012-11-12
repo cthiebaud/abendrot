@@ -148,6 +148,8 @@
 		<tomcat.version>7.0.32</tomcat.version>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+		
+        <!-- http://maven.apache.org/plugins/maven-release-plugin/faq.html#credentials -->
+        <project.scm.id>github</project.scm.id>	</properties>
 
 </project>
