@@ -51,7 +51,10 @@
                 <a href="./identity.html">identity</a>
               </li>
               <li class="active">
-                <a href="./rest.html">rest</a>
+                <a href="./rest.html">identity</a>
+              </li>
+              <li>
+                <a href="./comingsoon.html">coming soon ...</a>
               </li>
             </ul>
           </div>
@@ -74,48 +77,120 @@
     <div class="row">
       <div class="span3 bs-docs-sidebar">
         <ul class="nav nav-list bs-docs-sidenav affix-top">
-          <li class="active"><a href="#coming-soon">   <i class="icon-chevron-right"></i> Coming Soon ...</a></li>
-          <li class=""><a href="#cconlusion"> <i class="icon-chevron-right"></i> Conclusion</a></li>
+          <li class="active"><a href="#restructure">    <i class="icon-chevron-right"></i> A Bit of Structure</a></li>
+          <li class="active"><a href="#coming-soon">    <i class="icon-chevron-right"></i> Coming Soon ...</a></li>
+          <li class=""><a href="#cconlusion">           <i class="icon-chevron-right"></i> Conclusion</a></li>
           <!-- li class=""><a href="#coming-soon"><i class="icon-chevron-right"></i> Coming soon ...</a></li -->
         </ul>
       </div>
       <div class="span9">
 
-        <!-- Coming soon
+        <!-- Refactor
         ================================================== -->
-        <section id="coming-soon">
+        <section id="restructure">
           <div class="page-header">
-            <h1>X. Coming Soon ...</h1>
+            <h1>1. A Bit of Structure</h1>
           </div>
           <div class="row-fluid">
             <ul class="thumbnails">
               <li class="span1">
-                <span class="thumbnail"><img src="./images/coming-soon.jpg" alt=""></span>
+                <span class="thumbnail"><img src="./icons/structure.png" alt=""></span>
               </li>
-              <div class="lead">Coming soon ...</div>
+              <div class="lead">Before goin into this chapter about REST, <a href="http://en.wikipedia.org/wiki/Representational_state_transfer"></a>REpresentational State Transfer, 
+                we need to restructure our code, otherwise quickly we'll end up with a big mess. We'll simply split the initial abendrot project in modules.</div>
             </ul>
-            <div class="accordion" id="accordion-coming-soon">
+            <div class="accordion" id="accordion-restructure">
+
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    <span>Coming soon...</span>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-coming-soon" href="#collapse-coming-soon-1"><i class="icon-chevron-right"></i></a>
+                    <span>I will not enter the details. We start a level <strong>abendrot-0.0.3</strong> of the code.</span>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-restructure" href="#collapse-restructure-1"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
-                <div id="collapse-coming-soon-1" class="accordion-body collapse out">
+                <div id="collapse-restructure-1" class="accordion-body collapse out">
                   <div class="accordion-inner">
-<pre class="prettyprint linenums">
-$ coming soon ...
-</pre>
+<pre>
+abendrot
+|   pom.xml
+|   README.md
+\---src
+    \---main
+        +---java
+        |   \---net
+        |       \---aequologica
+        |           \---cloud
+        |                   GitRepositoryState.java
+        \---webapp
+            |   helloworld.html
+            |   index.jsp
+            |   logout.jsp
+            |   spy.jsp
+            |   whoami.jsp
+            \---WEB-INF
+                    web.xml
+                    
+</pre>                    
                   </div>
                 </div>
               </div>
+
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <p>
+                    <span>Not that much, isn't it? after the refactoring, we endup with two modules and a parent project:</span>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-restructure" href="#collapse-restructure-2"><i class="icon-chevron-right"></i></a>
+                  </p>
+                </div>
+                <div id="collapse-restructure-2" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+<pre>
+abendrot
+|   pom.xml
+|   README.md
++---abendrot-rest : &lt;=== that's what this page is all about
+\---abendrot-web
+    |   pom.xml
+    \---src
+        +---main
+        |   +---java
+        |   |   \---net
+        |   |       \---aequologica
+        |   |           \---cloud
+        |   |               \---git
+        |   |                       GitRepositoryState.java
+        |   \---webapp
+        |       |   helloworld.html
+        |       |   index.jsp
+        |       |   logout.jsp
+        |       |   spy.jsp
+        |       |   whoami.jsp
+        |       \---WEB-INF
+        |               web.xml
+        \---test
+            \---java
+                \---net
+                    \---aequologica
+                        \---cloud
+                            \---git
+                                    GitRepositoryStateTest.java
+</pre>                    
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <p>
+                    <span>previous abendrot content is now in abendrot.web</span>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-restructure" href="#collapse-restructure-2"><i class="icon-chevron-right"></i></a>
+                  </p>
+                </div>
+              </div>
+
             </div>
-            <img src="./images/coming-soon.jpg" alt="">
           </div>
         </section>
-        <!--
-        ================================================== -->
         <!--
         ================================================== -->
 
