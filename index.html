@@ -146,7 +146,7 @@
               <div class="lead">SAP NetWeaver Cloud is <em>build technology</em> and <em>source code management system</em> agnostic, 
                 hence these two topics are not covered in the step by step guide of section 1. of this tutorial. 
                 <strong>abendrot</strong> uses <strong>maven</strong> as build technology and <strong>git</strong> as source code management system. 
-                So you must update the NetWeaver Cloud eclipse environment installed in section 1. of this tutorial to support maven and git. Here is how to:
+                You have to update SAP NetWeaver Cloud eclipse environment installed in section 1. of this tutorial:
               </div>
             </ul>              
 
@@ -154,13 +154,15 @@
               Follow the installation procedure at <a href="https://www.eclipse.org/m2e-wtp/download/">https://www.eclipse.org/m2e-wtp/download/</a>. Install the latest release.
             </p>
 
-            <p><strong>Command line maven</strong> (optional, but strongly encouraged) : open <a href="http://maven.apache.org/">http://maven.apache.org/</a>. 
+            <p><strong>Command line maven</strong>: open <a href="http://maven.apache.org/">http://maven.apache.org/</a>. 
               Follow the installation procedure at <a href="http://maven.apache.org/download.html">http://maven.apache.org/download.html</a>. Install the latest release.
             </p>
   
             <p><strong>Eclipse Git</strong> (egit): open <a href="http://www.eclipse.org/egit/">http://www.eclipse.org/egit/</a>. 
               Follow the installation procedure at <a href="http://www.eclipse.org/egit/download/">http://www.eclipse.org/egit/download/</a>. Install the latest release.
             </p>
+
+            <p><i>For more details, <a href="https://twitter.com/steinermatt">Matthias Steiner</a>, Cloud Platform Evangelist @SAP, posted recently a blog entry on the same topic on SAP Community Network: <a href="http://scn.sap.com/community/developer-center/cloud-platform/blog/2012/11/02/essentials--working-with-git-maven-in-eclipse#comments">Essentials - Working with Git &amp; Maven in Eclipse</a></i></p>
         </div>
         </section>
         <!--
@@ -179,7 +181,9 @@
                     <img src="icons/octocat-150x150.png" alt="">
                 </a>
               </li>
-              <div class="lead"><strong>abendrot</strong> is a tutorial on how to write a SAP NetWeaver Cloud application. You will use a github repository to host and monitor your work. You will also clone <strong>abendrot</strong> itself to another directory. And you will use a <a href="http://www.scootersoftware.com/">good compare tool</a> to diff the two directories at various stages of the tutorial.</div>
+              <div class="lead"><strong>abendrot</strong> is a tutorial on how to write a SAP NetWeaver Cloud application. You will use a github repository to host and monitor your work. 
+                You may want clone <strong>abendrot</strong> itself to another directory. 
+                You may then use your favorite compare tool - mine is <a href="http://www.scootersoftware.com/">Beyond Compare</a> - to diff the two directories at various stages of the tutorial.</div>
             </ul>              
 
             <div class="accordion" id="accordion-create-github-repo">
@@ -282,13 +286,13 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    <span>Compare yours and mine directories</span>
+                    <span>Compare yours (abendrot-test) and mine (abendrot) directories</span>
                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-create-github-repo" href="#collapse-create-github-repo-7"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
                 <div id="collapse-create-github-repo-7" class="accordion-body collapse out">
                   <div class="accordion-inner">
-                    <p>"Beyond-Comparing" the two directories will show something like :</p>
+                    <p>Beyond-comparing the two directories will show something like :</p>
                     <!-- img src="./images/diff.png" alt="" alt=""--><span class="img_later" data-src="./images/diff.png" alt=""></span>
                   </div>
                 </div>
@@ -313,7 +317,7 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
                     <img src="icons/eclipse_ide_icon-150x150.png" alt="">
                 </a>
               </li>
-              <div class="lead">There are ~12 different flavors of '<a href="http://stackoverflow.com/search?q=how+to+create+a+maven+aware+eclipse+project">how-to-create-a-maven-aware-eclipse-project</a>'. This one has my preference .</div>
+              <div class="lead">There are ~12 different flavors of '<a href="http://stackoverflow.com/search?q=how+to+create+a+maven+aware+eclipse+project">how-to-create-a-maven-aware-eclipse-project</a>'. This one has my preference:</div>
             </ul>              
 
             <div class="accordion" id="accordion-create-eclipse-project">
@@ -334,14 +338,14 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    <span>Create a new dynamic Web project :</span>
+                    <span>Create a new dynamic Web project:</span>
                     <ul class="breadcrumb">
                       <li>File                  <span class="divider"><i class="icon-play"></i></span></li>
                       <li>New                   <span class="divider"><i class="icon-play"></i></span></li>
                       <li>Other...              <span class="divider"><i class="icon-play"></i></span></li>
                       <li>scroll down and open folder 'Web'<span class="divider"><i class="icon-play"></i></span></li>
                       <li>Dynamic Web Project   <span class="divider"><i class="icon-play"></i></span></li>
-                      <li>click <span class="underlined">N</span>ext &gt;<span class="divider"><i class="icon-play"></i></span></li>
+                      <li>click <span class="underlined">N</span>ext &gt;</li>
                     </ul> 
                   </p>
                 </div>
@@ -350,7 +354,7 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    <span>Set project name to abendrot-test, change project location from default to where you cloned from Github, accept all other defaults, click <span class="underlined">N</span>ext &gt;</span>
+                    <span>Set project name to abendrot-test, change project location from default to te location where you cloned your abendrot-test from Github, accept all other defaults, click <span class="underlined">N</span>ext &gt;</span>
                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-create-eclipse-project" href="#collapse-create-eclipse-project-3"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
@@ -426,16 +430,28 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
                     <span>Right-click on the project name in the package explorer to open the context menu, select </span>
                     <ul class="breadcrumb">
                       <li>Configure <span class="divider"><i class="icon-play"></i></span></li>
-                      <li>Convert to Maven Project<span class="divider"><i class="icon-play"></i></span></li>
-                    </ul> 
-                    <span>A dialog pops up. Set your groupID, set artifactID to 'abendrot-test', and change packaging type to 'war'.</span>
+                      <li>Convert to Maven Project</span>
                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-create-eclipse-project" hrEf="#collapse-create-eclipse-project-8"><I class="icon-chevron-right"></i></a>
+                      </li>
+                    </ul> 
                   </p>
                 </div>
                 <div id="collapse-create-eclipse-project-8" class="accordion-body collapse out">
                   <div class="accordion-inner">
                     <!-- img src="./images/convert_to_maven_project.png" alt="" alt=""--><span class="img_later" data-src="./images/convert_to_maven_project.png" alt=""></span>
-                    <hr>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <p>
+                    <span>Set your groupID, set artifactID to 'abendrot-test', and change packaging type to 'war'.</span>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-create-eclipse-project" hrEf="#collapse-create-eclipse-project-9"><I class="icon-chevron-right"></i></a>
+                  </p>
+                </div>
+                <div id="collapse-create-eclipse-project-9" class="accordion-body collapse out">
+                  <div class="accordion-inner">
                     <!-- img src="./images/convert_to_maven_project2.png" alt="" alt=""--><span class="img_later" data-src="./images/convert_to_maven_project2.png" alt=""></span>
                   </div>
                 </div>
@@ -467,14 +483,14 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    From Eclipse, 
+                    From Eclipse menu, 
                     <ul class="breadcrumb">
                       <li>File                  <span class="divider"><i class="icon-play"></i></span></li>
                       <li>New                   <span class="divider"><i class="icon-play"></i></span></li>
                       <li>Other...              <span class="divider"><i class="icon-play"></i></span></li>
                       <li>scroll down and open folder 'Web'<span class="divider"><i class="icon-play"></i></span></li>
                       <li>HTML File   <span class="divider"><i class="icon-play"></i></span></li>
-                      <li>click <span class="underlined">N</span>ext &gt;<span class="divider"><i class="icon-play"></i></span></li>
+                      <li>click <span class="underlined">N</span>ext &gt;</li>
                     </ul> 
                   </p>
                 </div>
@@ -483,7 +499,7 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    <span>Select parent folder 'abendrot-test/src/main/webapp', name your page index.html (fancy, isn't it?), click <span class="underlined">N</span>ext &gt;</span></span>
+                    <span>Select parent folder 'abendrot-test/src/main/webapp', name your page index.html, click <span class="underlined">N</span>ext &gt;</span></span>
                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-create-eclipse-project" href="#collapse-create-eclipse-project-10"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
@@ -534,29 +550,30 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
               <div class="media-body">
                   'Official' SAP NetWeaver Cloud tutorials are usually targetting only NetWeaver Cloud servers 2. (local) and 3. (on the cloud). We need server 1. (plain Tomcat) for two reasons:
                   <ol>
-                    <li>We aim to have zero coupling with NetWeaver proprietary APIs. Tomcat plain server will tell us if we have.</li>
-                    <li>The development cycle with Tomcat is still faster than with Local NetWeaver.</li>
+                    <li>We aim to have zero coupling with SAP NetWeaver Cloud proprietary APIs. Tomcat plain server will tell us if we have.</li>
+                    <li>The development cycle with Tomcat is still faster than with SAP NetWeaver Cloud local test server.</li>
                   </ol>
               </div>
             </div>
 
-            <p>Get <strong>Tomcat 7</strong>: open <a href="http://tomcat.apache.org/">http://tomcat.apache.org/</a>. download .tar.gz or .zip file from <a href="http://tomcat.apache.org/download-70.cgi">http://tomcat.apache.org/download-70.cgi</a>. Unzip it to the directory of your choice, we'll reference it in this page as $TOMCAT_HOME </p>
+            <p>Get Tomcat 7: open <a href="http://tomcat.apache.org/">http://tomcat.apache.org/</a>. Download .tar.gz or .zip file from <a href="http://tomcat.apache.org/download-70.cgi">http://tomcat.apache.org/download-70.cgi</a>. Unzip it to the directory of your choice, referenced below as $TOMCAT_HOME.</p>
 
             <div class="accordion" id="accordion-run-local-tomcat">
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
                     <span>Start 'Run As' wizard on the index.html file we've just created</span>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-run-local-tomcat" href="#collapse-run-local-tomcat-1"><i class="icon-chevron-right"></i></a>
+                    <ul class="breadcrumb">
+                      <li>Right click on index.html <span class="divider"><i class="icon-play"></i></span></li>
+                      <li>Run As                    <span class="divider"><i class="icon-play"></i></span></li>
+                      <li>Run on Server
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-run-local-tomcat" href="#collapse-run-local-tomcat-1"><i class="icon-chevron-right"></i></a>
+                      </li>
+                    </ul> 
                   </p>
                 </div>
                 <div id="collapse-run-local-tomcat-1" class="accordion-body collapse out">
                   <div class="accordion-inner">
-                    <ul class="breadcrumb">
-                      <li>Right click on index.html <span class="divider"><i class="icon-play"></i></span></li>
-                      <li>Run As                    <span class="divider"><i class="icon-play"></i></span></li>
-                      <li>Run on Server     <span class="divider"><i class="icon-play"></i></span></li>
-                    </ul> 
                     <!-- img src="./images/run_on_server.png" alt="" alt=""--><span class="img_later" data-src="./images/run_on_server.png" alt=""></span>
                   </div>
                 </div>
@@ -669,8 +686,9 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
                     <p>Right-click on the project name in the package explorer to open the context menu, select </p>
                     <ul class="breadcrumb">
                       <li>Team <span class="divider"><i class="icon-play"></i></span></li>
-                      <li>Share Project ...<span class="divider"><i class="icon-play"></i></span></li>
-                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-egit" hrEf="#collapse-egit-1"><I class="icon-chevron-right"></i></a>
+                      <li>Share Project ...</span>
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-egit" hrEf="#collapse-egit-1"><I class="icon-chevron-right"></i></a>
+                      </li>
                     </ul> 
                   </p>
                 </div>
@@ -684,7 +702,7 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    <span>Guess what ? Select Git Source Code Management System, then select your local repo.</span>
+                    <span>Select Git Source Code Management System, then select your local repo.</span>
                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-egit" href="#collapse-egit-2"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
@@ -711,7 +729,7 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
                 </div>
               </div>
 
-              <p>Instruct git to ignore eclipse configuration files:</p>
+              <p>Instruct git to ignore eclipse configuration files.</p>
 
               <div style="margin-left:40px;">
 
@@ -762,10 +780,10 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
                     <div class="accordion-inner">
                       <p><code>.gitignore</code></p>
 <pre class="prettyprint linenums">
-/.settings
-/target
-/.classpath
-/.project
+target
+.settings
+.classpath
+.project
 </pre>
                     </div>
                   </div>
@@ -846,7 +864,7 @@ HEAD is now at 42da300... Merge branch 'master' of https://github.com/cthiebaud/
               </li>
               <div class="lead">Open <a href="http://about.travis-ci.org/docs/user/getting-started/">http://about.travis-ci.org/docs/user/getting-started/</a>. 
               Sign for a <strong>free</strong> membership with your Github identity. 
-              Follow the process for a <a href="http://about.travis-ci.org/docs/user/languages/java/">java project using maven</a> :</div>
+              Follow the process for a <a href="http://about.travis-ci.org/docs/user/languages/java/">java project using maven</a>.</div>
             </ul>
 
             <p>Create a <code>.travis.yml</code> file in your project top directory with the following content:
@@ -880,7 +898,7 @@ jdk:
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    <span>On <a href="https://travis-ci.org/">https://travis-ci.org/</a>, you'll find your build under the tab 'My Repositories' :</span>
+                    <span>On <a href="https://travis-ci.org/">https://travis-ci.org/</a>, your build is under the tab 'My Repositories' :</span>
                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-coming-soon" href="#collapse-travis-ci-2"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
@@ -918,7 +936,7 @@ jdk:
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    <p><span>There is a <a href="https://github.com/sapnwcloudlabs/nwcloud-maven-plugin">SAP NetWeaver Cloud Maven Plugin</a> named <code>nwcloud-maven-plugin</code> on Github ! It has been developed by SAP Research, but it is not included in NetWeaver Cloud distribution. The reason for that is that SAP NetWeaver Cloud is build tool agnostic, as already mentionned.</span></p>
+                    <p><span>There is a <a href="https://github.com/sapnwcloudlabs/nwcloud-maven-plugin">SAP NetWeaver Cloud Maven Plugin</a> named <code>nwcloud-maven-plugin</code> on Github ! It has been developed by SAP Research, but it is not included in NetWeaver Cloud distribution. The reason for it being that SAP NetWeaver Cloud is build tool agnostic, as already mentionned.</span></p>
                     <p><span>There does not seem to be any public version of the <code>nwcloud-maven-plugin</code> binaries, at least not in any well known repository such as <a href="http://search.maven.org/">maven central</a>, therefore, to use it, one must build it.</span>
                     <span>That's what I did, build worked like a charm, and build results are published to <a href="http://buildeventhub.net:8081/nexus/content/repositories/releases/com/sap/research/nwcloud-maven-plugin/1.0.0.RELEASE/">my personal public nexus repositoy</a>.</span>
                     <span>Even if compiling the plugin was a snap, you may not want to go through the exercice. Include the <code>pluginRepositories</code> section below in your pom.xml, your maven build will directly grab <code>nwcloud-maven-plugin</code> binaries  from my personal nexus repository, no need to compile.</span></p>
@@ -964,10 +982,10 @@ jdk:
                   <div class="accordion-inner">
                     <p><code>.gitignore</code></p>
 <pre class="prettyprint linenums">
-  /.settings
-  /target
-  /.classpath
-  /.project
+  target
+  .settings
+  .classpath
+  .project
   nwcloud.properties
 </pre>
                   </div>
@@ -1122,7 +1140,12 @@ status:
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    <span>To avoid typing the full plugin identity before the goal (<code>groupID:artifactID:version:</code> i.e. <code>com.sap.research:nwcloud-maven-plugin:1.0.0.RELEASE:</code>), <i>" (...) in settings.xml search for the pluginGroups tag and insert com.sap.research as an artifact group that contains plugins."</i>, as quoted from the plugin docs :</span>
+                    <span>To avoid having to type the full plugin identity before the goal 
+                      (<code><strong>groupID:artifactID:version</strong>:goal</code> e.g. 
+                       <code><strong>com.sap.research:nwcloud-maven-plugin:1.0.0.RELEASE</strong>:status</code>), <i>
+                       you may want to
+                       " (...) search in settings.xml for the pluginGroups tag and insert com.sap.research as an artifact group that contains plugins."</i>, </span>
+                       as quoted from the nwcloud-maven-plugin documentation.
 <pre class="prettyprint linenums">
 &lt;pluginGroups&gt;
     &lt;!--pluginGroup
@@ -1178,7 +1201,7 @@ $ mvn clean deploy -DaltDeploymentRepository=[your_repo_id]::default::[your_repo
 <pre>
 $ mvn clean deploy -DaltDeploymentRepository=my_repo::default::file:///tmp/my_repo
 </pre>                    
-                      Maven will 'deploy' the build results to the file system in the /tmp/my_repo directory (of the current drive, if you're on Windows), then <code>nwcloud-maven-plugin</code> will 'deploy' - same name, two different things <img src="./icons/smiley_frown.png"> - the war build result to the cloud. Here is a sample ouput :
+                      Maven will 'deploy' the build results to the file system in the /tmp/my_repo directory (of the current drive, if you're on Windows), then <code>nwcloud-maven-plugin</code> will 'deploy' - same name, two different things <img src="./icons/smiley_frown.png"> - the war build result to the cloud. Here is a sample maven ouput:
                       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-auto-deploy" href="#collapse-auto-deploy-12"><i class="icon-chevron-right"></i></a>
                     </p>
                 </div>
@@ -1262,7 +1285,7 @@ $ mvn clean deploy -DaltDeploymentRepository=my_repo::default::file:///tmp/my_re
                     <span>Add a <code>index.jsp</code> java server page to display a Github ribbon. 
                       The ribbon points back to <strong>abendrot</strong> sources in Github. 
                       Moreover, the ribbon points to the very commit that has been build to produce the application (not sure to be crystal clear ... anyhow, you got it).
-                       Even more, if you have deployed from a directory where there are uncommited changes to github, the ribbon will not be deployed at all. 
+                       Moreover, if you have deployed from a directory where there are uncommited changes to github, the ribbon will not be deployed at all. 
                        Grab code from <a href="https://github.com/cthiebaud/abendrot/blob/a34875e16682e9b214dde8e4f521c3ea969533bb/src/main/webapp/index.jsp">here</a></span>
                   </p>
                 </div>
@@ -1279,7 +1302,7 @@ $ mvn clean deploy -DaltDeploymentRepository=my_repo::default::file:///tmp/my_re
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    <span>Do not forget to add abendrot/src/main/resources/git.properties to .gitignore. The file will be generated at each build, we must not keep it in the sources.</span>
+                    <span>Do not forget to add abendrot/src/main/resources/git.properties to .gitignore. The file will be generated at each build, it must not be kept as a source file.</span>
                   </p>
                 </div>
               </div>
@@ -1303,13 +1326,13 @@ $ mvn clean deploy -DaltDeploymentRepository=my_repo::default::file:///tmp/my_re
               <div class="lead">We are nearly done. Last-but-not-least step is to automate the release of <strong>abendrot</strong>. 
                 After <code><a href="https://github.com/sapnwcloudlabs/nwcloud-maven-plugin">nwcloud-maven-plugin</a></code> 
                 and <code><a href="https://github.com/ktoso/maven-git-commit-id-plugin">git-commit-id-plugin</a></code>, 
-                enters our last maven magic trick: <code><a href="https://github.com/apache/maven-release">maven-release-plugin</a></code>.</div>
+                enters our last maven magic trick, <code><a href="https://github.com/apache/maven-release">maven-release-plugin</a></code>.</div>
             </ul>
 
             <div class="accordion" id="accordion-auto-release">
               <div class="accordion-group">
                 <div class="accordion-heading">
-                  <p>First of all, we need to switch to a patched version of <code>nwcloud-maven-plugin</code>. Having the <code>nvcloud.properties</code> file 
+                  <p>First of all, we need to switch to a patched version of <code>nwcloud-maven-plugin</code>. This is because having the <code>nvcloud.properties</code> file 
                     in the project directory is simply not an option: the only way to have the <code>maven-release-plugin</code> to do his job, i.e. to release, 
                     would be to submit <code>nwcloud.properties</code> file, incl. password, to Github <img src="./icons/smiley_frown.png">.</p>
                   <p>
@@ -1325,6 +1348,8 @@ $ mvn clean deploy -DaltDeploymentRepository=my_repo::default::file:///tmp/my_re
                 </div>
               </div>
 
+              <p>Before we start, a good introduction is to read the <a href="http://www.sonatype.com/people/2009/09/maven-tips-and-tricks-using-github/">this page from Sonatype</a> about <i>"Maven Tips and Tricks: Using GitHub"</i>.</p>
+
               <div class="alert alert-block media unstyled">
                 <img src="./icons/angry_haddock-trans.png" class="pull-left">
                 <div class="media-body">
@@ -1334,8 +1359,6 @@ $ mvn clean deploy -DaltDeploymentRepository=my_repo::default::file:///tmp/my_re
                   <div>Furthermore, it is <strong>far</strong> easier to put in place at the start of a project, and to continously operate forward on, than to add it at the end, usually under deadline pressure from guys with suits.</div>
                 </div>
               </div>
-
-              <p>Before we start, a good introduction is to read the <a href="http://www.sonatype.com/people/2009/09/maven-tips-and-tricks-using-github/">this page from Sonatype</a> about <i>"Maven Tips and Tricks: Using GitHub"</i>.</p>
 
               <div class="accordion-group">
                 <div class="accordion-heading">
@@ -1382,7 +1405,7 @@ $ mvn clean deploy -DaltDeploymentRepository=my_repo::default::file:///tmp/my_re
                       <li>Encryption is recommended, but not mandatory, cf. <a href="http://maven.apache.org/guides/mini/guide-encryption.html">http://maven.apache.org/guides/mini/guide-encryption.html</a>.</li>
                       <li>Finally, a piece of glue between maven and git is required: the <code>project.scm.id</code> property, cf. <a href="http://maven.apache.org/plugins/maven-release-plugin/faq.html#credentials">http://maven.apache.org/plugins/maven-release-plugin/faq.html#credentials</a>.</li>
                     </ol>
-                    Here are my settings for your reference :
+                    Here is my configuration, for your reference:
                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-auto-release" href="#collapse-auto-release-3"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
@@ -1429,10 +1452,10 @@ $ mvn clean deploy -DaltDeploymentRepository=my_repo::default::file:///tmp/my_re
                       <li>there are no local files that are not explicitely declared in a .gitignore file.</li>
                     </ol>
                     <i>The easiest way to get into this state is to perform a fresh <code>git clone</code> into a new directory. e.g.</i>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-auto-release" href="#collapse-auto-release-3"><i class="icon-chevron-right"></i></a>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-auto-release" href="#collapse-auto-release-333"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
-                <div id="collapse-auto-release-3" class="accordion-body collapse out">
+                <div id="collapse-auto-release-333" class="accordion-body collapse out">
                   <div class="accordion-inner">
 <pre class="linenums">
 $ # git clone git@github.com:whatever folder-name
