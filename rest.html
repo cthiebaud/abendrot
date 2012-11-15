@@ -211,7 +211,7 @@ public class Resource {
 
               <p>
                 We've only created a <a href="http://en.wikipedia.org/wiki/Plain_Old_Java_Object">POJO</a>. 
-                Now, let's transform out POJO POJO into a REST service, with the help of JAX-RS annotations. 
+                Now, let's transform this POJO into a REST service, with the help of JAX-RS annotations. 
                 First, add Jersey dependency to <strong>abendrot-test-rest</strong> pom.xml. 
 <pre class="prettyprint linenums xml">
 &lt;dependency&gt;
@@ -225,9 +225,9 @@ public class Resource {
               </p>
 
               <p>
-                Add annotations <code>Path</code> to class <code>net.aequologica.cloud.jaxrs.Resource</code> and <code>GET</code> to method <code>getIt</code>
+                Add annotations <code>javax.ws.rs.Path</code> to class <code>net.aequologica.cloud.jaxrs.Resource</code> and <code>javax.ws.rs.GET</code> to method <code>getIt</code>
 <pre class="prettyprint linenums java">
-(...)        
+(...)       
 <strong>@Path("hello")</strong>
 public class Resource {
 
@@ -239,7 +239,7 @@ public class Resource {
               </p>
 
               <p>
-                Make your JAX-RS annotated pojo reachable from http. This is done in two steps: 1. bind JAX-RS application to web server, and 2. declare JAX-RS resources in JAX-RS application. 
+                Make your JAX-RS annotated pojo reachable from http. This is done with the last two classes: <code>net.aequologica.cloud.jaxrs.Servlet</code> binds JAX-RS application to web server, and <code>net.aequologica.cloud.jaxrs.Application</code> declares/registers JAX-RS resources. 
               </p>
 
               <p>
@@ -342,6 +342,7 @@ public class Application extends javax.ws.rs.core.Application {
     }
 }
 </pre>
+                <i>NB. the Java 7 'diamond' operator in new HashSet<strong>&lt;&gt;</strong>();</i>
 
               </p>
 
