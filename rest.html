@@ -625,12 +625,12 @@ public void test() throws IOException, InterruptedException, ExecutionException 
               <li class="span1">
                 <span class="thumbnail"><img src="./icons/log.png" alt=""></span>
               </li>
-              <div class="lead">How to convince Java Unified Logging (JUL) to write to SAP NetWeaver Logs.</div>
+              <div class="lead">How to convince java.util.logging (JUL) to write to SAP NetWeaver Logs.</div>
             </ul>
 
             <p>
               It is always good to read <a href="https://help.netweaver.ondemand.com/default.htm?logging.html">Logging in an SAP NetWeaver Cloud Application</a>, but I am afraid that it will not help us much.
-              The problem is that Jersey uses Java Unified Logging (Hey, Jersey is from Sun, err... Oracle), and that SAP NetWeaver Cloud uses slf4j as a facade for your application, with a log4j implementation in the back-end.
+              The problem is that Jersey uses java.util.logging (Hey, Jersey is from Sun, err... Oracle), and that SAP NetWeaver Cloud uses slf4j as a facade for your application, with a log4j implementation in the back-end.
               Without some extra configuration, everything written to JUL is lost.
             </p>
 
