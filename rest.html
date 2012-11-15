@@ -79,34 +79,849 @@
     <div class="row">
       <div class="span3 bs-docs-sidebar">
         <ul class="nav nav-list bs-docs-sidenav affix-top">
-          <li class="active"><a href="#restructure">    <i class="icon-chevron-right"></i> A Bit of Structure</a></li>
-          <li class=""><a href="#coming-soon">    <i class="icon-chevron-right"></i> Coming Soon ...</a></li>
-          <li class=""><a href="#cconlusion">           <i class="icon-chevron-right"></i> Conclusion</a></li>
+          <li class="active"><a href="#basic-jax-rs">     <i class="icon-chevron-right"></i> Write a JAX-RS 2.0 service</a></li>
+          <li class=""><a href="#test-it">                <i class="icon-chevron-right"></i> Unit Test Service with Embedded Tomcat</a></li>
+          <li class=""><a href="#log-it">                 <i class="icon-chevron-right"></i> Setup Logging</a></li>
+          <li class=""><a href="#run-it">                 <i class="icon-chevron-right"></i> Run Service on Servers</a></li>
+          <li class=""><a href="#json-it">                <i class="icon-chevron-right"></i> Add JSON</a></li>
+          <li class=""><a href="#restructure">            <i class="icon-chevron-right"></i> A Word on Refactoring</a></li-->
+          <li class=""><a href="#conlusion">              <i class="icon-chevron-right"></i> Conclusion</a></li>
           <!-- li class=""><a href="#coming-soon"><i class="icon-chevron-right"></i> Coming soon ...</a></li -->
         </ul>
       </div>
       <div class="span9">
 
-        <!-- Refactor
+
+        <!-- Basic JAX-RS 2.0
+        ================================================== -->
+        <section id="basic-jax-rs">
+          <div class="page-header">
+            <h1>1. Write a JAX-RS 2.0 'Hello World' service</h1>
+          </div>
+          <div class="row-fluid">
+            <ul class="thumbnails">
+              <li class="span1">
+                <span class="thumbnail"><img src="./icons/rest.jpg" alt=""></span>
+              </li>
+              <div class="lead">Implement a 'Hello World' <a href="http://en.wikipedia.org/wiki/Representational_state_transfer">Representational State Transfer</a> (REST) service in 1+3 tiny classes, using JAX-RS 2.0, implemented by Jersey 2. </div>
+            </ul>
+            <div class="accordion" id="accordion-basic-jax-rs">
+
+              <p>
+                The 'Hello World' REST service will be bundled in a jar (yes, no war). 
+                Let's create a new Eclipse project completely independent from the first <strong>abendrot-test</strong> project used in <a href="index.html">part 1 (getting started)</a> and <a href="identity.html">part 2 (identity)</a> of this tutorial. 
+              </p>
+
+              <div class="alert alert-block media unstyled">
+                <img src="images/infoicon70.png" class="pull-left">
+                <div class="media-body">
+                    If you are not familiar with eclipse, there is a detailed version of the first steps of this page in a <a href="./rest_detailed.html">rest_detailed.html</a> page. 
+                </div>
+              </div>
+
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <p>
+                    Create a new maven project of type 'jar' (skip archetype creation) named <strong>abendrot-test-rest</strong>. Be sure to use java 7. Here is the pom.xml snippet to set java 7 with maven: 
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-basic-jax-rs" href="#collapse-basic-jax-rs-0"><i class="icon-chevron-right"></i></a>
+                  </p>
+                </div>
+                <div id="collapse-basic-jax-rs-0" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+<pre class="prettyprint linenums xml">
+&lt;build&gt;
+  &lt;plugins&gt;
+    &lt;plugin&gt;
+      &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+      &lt;configuration&gt;
+        &lt;source&gt;1.7&lt;/source&gt;
+        &lt;target&gt;1.7&lt;/target&gt;
+      &lt;/configuration&gt;
+    &lt;/plugin&gt;
+  &lt;/plugins&gt;
+&lt;/build&gt;  
+</pre>                    
+                  </div>
+                </div>
+              </div>
+
+
+
+              </p>
+
+              <p>                 
+                Add junit4 dependency to <strong>abendrot-test-rest</strong> pom.xml. 
+
+<pre class="prettyprint linenums xml">
+&lt;dependency&gt;
+  &lt;groupId&gt;junit&lt;/groupId&gt;
+  &lt;artifactId&gt;junit&lt;/artifactId&gt;
+  &lt;version&gt;4.11-beta-1&lt;/version&gt;   &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt; 
+</pre>                                   
+                If you'd prefer another version of junit4, look at what is available for <a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22junit%22">junit @ maven central</a> 
+              </p>
+
+              <p>
+                [<strong>1</strong>/1 | 0/3] Create new test class <code>net.aequologica.cloud.jaxrs.ResourceTest</code> in directory <code>src/<strong>test</strong>/java</code>
+<pre class="prettyprint linenums java">
+package net.aequologica.cloud.jaxrs;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
+public class ResourceTest {
+
+  @Test
+  public void test() {
+    assertEquals("Hello, World!", new Resource().getIt());
+  }
+}
+</pre>
+              </p>
+
+              <p>
+                [1/1 | <strong>1</strong>/3] Create new class <code>net.aequologica.cloud.jaxrs.Resource</code> in directory <code>src/<strong>main</strong>/java</code>
+<pre class="prettyprint linenums java">
+package net.aequologica.cloud.jaxrs;
+
+public class Resource {
+
+    public String getIt() {
+        return "Hello, World!";
+    }
+}
+</pre>
+              </p>
+
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <p>
+                    <span>Run the Unit Test. 
+                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-basic-jax-rs" href="#collapse-basic-jax-rs-1"><i class="icon-chevron-right"></i></a>
+                  </p>
+                </div>
+                <div id="collapse-basic-jax-rs-1" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+                    <img src="./images/run_unit_test2.jpg" alt="">
+                  </div>
+                </div>
+              </div>
+
+              <p>
+                We've only created a <a href="http://en.wikipedia.org/wiki/Plain_Old_Java_Object">POJO</a>. 
+                Now, let's transform out POJO POJO into a REST service, with the help of JAX-RS annotations. 
+                First, add Jersey dependency to <strong>abendrot-test-rest</strong> pom.xml. 
+<pre class="prettyprint linenums xml">
+&lt;dependency&gt;
+  &lt;groupId&gt;org.glassfish.jersey.containers&lt;/groupId&gt;
+  &lt;artifactId&gt;jersey-container-servlet&lt;/artifactId&gt;
+  &lt;version&gt;2.0-m09-1&lt;/version&gt;
+&lt;/dependency&gt;
+</pre>                    
+                Again, you can check <a href="http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22jersey-container-servlet%22">jersey-container-servlet @ maven central</a> if you'd prefer another version.
+
+              </p>
+
+              <p>
+                Add annotations <code>Path</code> to class <code>net.aequologica.cloud.jaxrs.Resource</code> and <code>GET</code> to method <code>getIt</code>
+<pre class="prettyprint linenums java">
+(...)        
+<strong>@Path("hello")</strong>
+public class Resource {
+
+  <strong>@GET</strong>
+  public String getIt() {
+     "Hello, World!";
+(...)        
+</pre>
+              </p>
+
+              <p>
+                Make your JAX-RS annotated pojo reachable from http. This is done in two steps: 1. bind JAX-RS application to web server, and 2. declare JAX-RS resources in JAX-RS application. 
+              </p>
+
+              <p>
+                <strong>Bind JAX-RS application to web server</strong>
+              </p>
+
+              <p>
+                Add Servlet 3.0 API dependency to <strong>abendrot-test-rest</strong> pom.xml
+<pre class="prettyprint linenums xml">
+&lt;dependency&gt;
+  &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+  &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
+  &lt;version&gt;3.1-b02&lt;/version&gt;
+  &lt;scope&gt;provided&lt;/scope&gt;
+&lt;/dependency&gt;
+</pre>        
+              </p>        
+              <p>
+              [1/1 | <strong>2</strong>/3] Create a <code>net.aequologica.cloud.jaxrs.Servlet</code> class that extends <code>org.glassfish.jersey.servlet.ServletContainer</code> (Jersey stock servlet), and annotate it with a Servlet 3.0 <code>@WebServlet</code> annotation. 
+<pre class="prettyprint linenums java">
+package net.aequologica.cloud.jaxrs;
+
+import javax.servlet.annotation.WebInitParam;
+import javax.servlet.annotation.WebServlet;
+
+import org.glassfish.jersey.server.ResourceConfig;
+import org.glassfish.jersey.servlet.ServletContainer;
+
+<strong>@WebServlet</strong>( 
+  urlPatterns = "<strong>/resources/*</strong>" , 
+  initParams  = @WebInitParam(name  = "<strong>javax.ws.rs.Application</strong>", 
+                              value = "<strong>net.aequologica.cloud.jaxrs.Application</strong>"))         
+public class Servlet extends ServletContainer {
+
+  private static final long serialVersionUID = -7330108202178070064L;
+
+  public Servlet() {
+  }
+
+  public Servlet(ResourceConfig resourceConfig) {
+    super(resourceConfig);
+  }
+}
+</pre>
+              </p>
+
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                <p>
+                  The java code above is the <code>Servlet 3.0</code> xml-free practically equivalent of the <code>Servlet&lt;=2.5</code> declaration in web.xml:
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-basic-jax-rs" href="#collapse-basic-jax-rs-12"><i class="icon-chevron-right"></i></a>
+                  </p>
+                </div>
+                <div id="collapse-basic-jax-rs-12" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+<pre class="prettyprint linenums xml">
+&lt;web-app (...) &gt;
+  (...)
+  &lt;servlet&gt;
+    &lt;servlet-name&gt;pick_a_name_you_like&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;org.glassfish.jersey.servlet.ServletContainer&lt;/servlet-class&gt;
+    &lt;init-param&gt;
+      &lt;param-name&gt;<strong>javax.ws.rs.Application</strong>&lt;/param-name&gt;
+      &lt;param-value&gt;<strong>net.aequologica.cloud.jaxrs.Application</strong>&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+  &lt;/servlet&gt;
+  &lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;pick_a_name_you_like&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;<strong>/resources/*</strong>&lt;/url-pattern&gt;
+  &lt;/servlet-mapping&gt;
+  (...)
+&lt;/web-app&gt;
+</pre>              
+                  </div>
+                </div>
+              </div>
+
+              <p><strong>Declare JAX-RS resources in JAX-RS application</strong></p>
+
+              <p>
+
+                [1/1 | <strong>3</strong>/3] Create a <code>net.aequologica.cloud.jaxrs.Application.class</code> to register JAX-RS resources:
+
+<pre class="prettyprint linenums java">
+package net.aequologica.cloud.jaxrs;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class Application extends javax.ws.rs.core.Application {
+
+    @Override
+    public Set&lt;Class&lt;?&gt;&gt; getClasses() {
+      final Set&lt;Class&lt;?&gt;&gt; classes = new HashSet&lt;&gt;();
+
+      <strong>classes.add(Resource.class);</strong>
+
+      return classes;
+    }
+}
+</pre>
+
+              </p>
+
+              <p>Congratulations, you've just written a JAX-RS 2.0 REST web service! Hopefully, the JUnit unit test still works. It is only a POJO test. Testing the REST web service over HTTP requires an additional effort.</p>
+
+            </div>
+          </div>
+        </section>
+        <!--
+        ================================================== -->
+
+        <!-- Unit Test
+        ================================================== -->
+        <section id="test-it">
+          <div class="page-header">
+            <h1>2. Unit Test Service with Embedded Tomcat</h1>
+          </div>
+          <div class="row-fluid">
+            <ul class="thumbnails">
+              <li class="span1">
+                <span class="thumbnail"><img src="./icons/apache-tomcat-150x150.png" alt=""></span>
+              </li>
+              <div class="lead">tbd.</div>
+            </ul>
+            <div class="accordion" id="accordion-embedded-tomcat">
+
+              <p>
+                Add Tomcat dependencies to <strong>abendrot-test-rest</strong> pom.xml, test-scoped:
+<pre class="prettyprint linenums xml">
+&lt;dependency&gt;
+  &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt;
+  &lt;artifactId&gt;tomcat-embed-core&lt;/artifactId&gt;
+  &lt;version&gt;7.0.32&lt;/version&gt;
+  &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt;
+  &lt;artifactId&gt;tomcat-embed-logging-juli&lt;/artifactId&gt;
+  &lt;version&gt;7.0.32&lt;/version&gt;
+  &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+</pre>
+
+
+              </p>
+
+              <p>
+                Create a <code>net.aequologica.cloud.jaxrs.ResourceInTomcatTest</code> test class. 
+                The class starts and stops a tomcat instance embbedded in the JVM of the test.
+                Below there is also some helper code (java7 BTW), to look for a free local port.
+<pre class="prettyprint linenums java">
+package net.aequologica.cloud.jaxrs;
+
+import static org.junit.Assert.fail;
+
+import java.io.Closeable;
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.util.concurrent.ExecutionException;
+
+import javax.servlet.ServletException;
+
+import org.apache.catalina.Host;
+import org.apache.catalina.LifecycleException;
+import org.apache.catalina.LifecycleState;
+import org.apache.catalina.core.StandardHost;
+import org.apache.catalina.startup.Tomcat;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+public class ResourceInTomcatTest {
+  
+  private static final String workingDir = System.getProperty("java.io.tmpdir");
+
+  // cf. http://www.hostettler.net/blog/2012/04/09/embedded-jee-web-application-integration-testing-using-tomcat-7/
+  
+  private Tomcat embeddedTomcat;
+  
+  @Before
+  public void setup() throws IOException, LifecycleException, ServletException {
+    
+    embeddedTomcat = new Tomcat();
+    
+    embeddedTomcat.setPort(findFreePort());
+    embeddedTomcat.setBaseDir(workingDir);
+    
+    Host host = embeddedTomcat.getHost();
+    if (host instanceof StandardHost) {
+      ((StandardHost)host).setUnpackWARs(false);
+    }
+    host.setAppBase(workingDir);
+    host.setAutoDeploy(true);
+    host.setDeployOnStartup(true);
+
+    embeddedTomcat.start();
+  }
+
+  @After
+  public final void teardown() throws Throwable {
+    if (embeddedTomcat.getServer() != null &amp;&amp; embeddedTomcat.getServer().getState() != LifecycleState.DESTROYED) {
+      if (embeddedTomcat.getServer().getState() != LifecycleState.STOPPED) {
+        embeddedTomcat.stop();
+      }
+      embeddedTomcat.destroy();
+    }
+  }
+
+  @Test
+  public void test() throws IOException, InterruptedException, ExecutionException {
+    fail();
+  }
+
+  private static class SocketHolder implements Closeable {
+
+    private final ServerSocket socket;
+
+    public SocketHolder(ServerSocket socket) {
+      this.socket = socket;
+    }
+
+    public ServerSocket getSocket() {
+      return socket;
+    }
+
+    @Override
+    public void close() throws IOException {
+      socket.close();
+    }
+  }
+
+  private static int findFreePort() throws IOException {
+    // cf. https://gist.github.com/3429822
+    try (SocketHolder holder = new SocketHolder(new ServerSocket(0))) {
+      holder.getSocket().setReuseAddress(true);
+      int port = holder.getSocket().getLocalPort();
+      return port;
+    }
+  }
+}
+</pre>
+
+              </p>
+
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <p>
+                    <span>Run the Tomcat-embedded test. Tomcat should start fine, and the test should fail.
+                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-embedded-tomcat" href="#collapse-embedded-tomcat-1"><i class="icon-chevron-right"></i></a>
+                  </p>
+                </div>
+                <div id="collapse-embedded-tomcat-1" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+                    <img src="./images/tomcat_test_fails.jpg" alt="">
+                  </div>
+                </div>
+              </div>
+
+              <p>Deploy in embedded tomcat a minimal web application, consisting only of the classes at test. 
+                For that we use jboss <a href="http://search.maven.org/#search%7Cga%7C1%7Cshrinkwrap">shrinkwrap</a> tool.
+                First declare a test-scoped dependency to shrinkwrap in pom.xml
+<pre class="prettyprint linenums xml">
+&lt;dependency&gt;
+  &lt;groupId&gt;org.jboss.shrinkwrap&lt;/groupId&gt;
+  &lt;artifactId&gt;shrinkwrap-api&lt;/artifactId&gt;
+  &lt;version&gt;1.1.1-alpha-2&lt;/version&gt;
+  &lt;scope&gt;test&lt;/scope&gt; 
+&lt;/dependency&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.jboss.shrinkwrap&lt;/groupId&gt;
+  &lt;artifactId&gt;shrinkwrap-impl-base&lt;/artifactId&gt;
+  &lt;version&gt;1.1.1-alpha-2&lt;/version&gt;
+  &lt;scope&gt;test&lt;/scope&gt; 
+&lt;/dependency&gt;
+</pre>
+              </p>
+
+              <p>Insert the creation part in <code>ResourceInTomcatTest</code> class, just before the start of Tomcat..
+<pre class="prettyprint linenums java">
+(...)
+<i>host.setDeployOnStartup(true);</i>
+
+// build archive
+WebArchive archive = ShrinkWrap.create(WebArchive.class); 
+archive.addPackage(Resource.class.getPackage());
+
+File webApp = new File(workingDir, archive.getName());
+webApp.deleteOnExit();
+new ZipExporterImpl(archive).exportTo(webApp, true);
+
+String contextName = "/<strong>tordneba</strong>"; // something else than 'abendrot' 
+                                                   // to verify that 'abendrot' is not hard-coded somewhere.
+embeddedTomcat.addWebapp(contextName, webApp.getAbsolutePath());
+
+<i>embeddedTomcat.start();</i>
+(...)
+</pre>
+
+
+              </p>
+              <p>
+                Write the test. The test connects to embedded Tomcat though an HTTP client. 
+                We use here the <a href="https://github.com/AsyncHttpClient/async-http-client">Async Http Client</a> library.
+                Declare a test-scoped dependency to Async Http Client in pom.xml:
+<pre class="prettyprint linenums xml">
+&lt;dependency&gt;
+  &lt;groupId&gt;com.ning&lt;/groupId&gt;
+  &lt;artifactId&gt;async-http-client&lt;/artifactId&gt;
+  &lt;version&gt;1.7.7&lt;/version&gt;
+  &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+</pre>                
+              </p>
+              <p>Write the test code
+
+<pre class="prettyprint linenums java">
+@Test
+public void test() throws IOException, InterruptedException, ExecutionException {
+  // cf. https://github.com/AsyncHttpClient/async-http-client 
+  AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
+  Future<Response> f = asyncHttpClient.prepareGet(
+                        "http://localhost:" + 
+                        embeddedTomcat.getConnector().getPort() + 
+                        "/<strong>tordneba</strong>/resources/hello").execute();
+  Response r = f.get();
+
+  assertEquals( 200, r.getStatusCode());
+  assertEquals("Hello, World!", r.getResponseBody());
+}
+</pre>                
+
+              </p>
+
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <p>
+                    <span>Run again the Tomcat-embedded test. Tomcat should start <i>nearly fine</i> <img src="./icons/smiley_frown.png">, and the test should be green.
+                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-embedded-tomcat" href="#collapse-embedded-tomcat-2"><i class="icon-chevron-right"></i></a>
+                  </p>
+                </div>
+                <div id="collapse-embedded-tomcat-2" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+                    <img src="./images/tomcat_test_nearly_green.jpg" alt="">
+                  </div>
+                </div>
+              </div>
+
+              <p>To go from <i>nearly fine</i> <img src="./icons/smiley_frown.png"> to <strong>fine</strong> <img src="./icons/smiley_wink.png">, add <a href="http://tomcat.apache.org/tomcat-7.0-doc/jasper-howto.html">jasper</a> + <a href="http://www.eclipse.org/jdt/core/index.php"></a>a java compiler as test-scoped dependencies in pom.xml:
+<pre class="prettyprint linenums xml">
+&lt;dependency&gt;
+  &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt;
+  &lt;artifactId&gt;tomcat-embed-jasper&lt;/artifactId&gt;
+  &lt;version&gt;7.0.32&lt;/version&gt;
+  &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;        
+&lt;dependency&gt;
+  &lt;groupId&gt;org.eclipse.jdt.core.compiler&lt;/groupId&gt;
+  &lt;artifactId&gt;ecj&lt;/artifactId&gt;
+  &lt;version&gt;3.7.2&lt;/version&gt;
+  &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+</pre>
+              The test should still be green, and there shouldn't be any exception in tomcat console output now.
+              </p>
+
+            </div>
+          </div>
+        </section>
+        <!--
+        ================================================== -->
+
+        <!-- Setup Logging
+        ================================================== -->
+        <section id="log-it">
+          <div class="page-header">
+            <h1>3. Setup Logging</h1>
+          </div>
+          <div class="row-fluid">
+            <ul class="thumbnails">
+              <li class="span1">
+                <span class="thumbnail"><img src="./icons/log.png" alt=""></span>
+              </li>
+              <div class="lead">How to convince Java Unified Logging (JUL) to write to SAP NetWeaver Logs.</div>
+            </ul>
+
+            <p>
+              It is always good to read <a href="https://help.netweaver.ondemand.com/default.htm?logging.html">Logging in an SAP NetWeaver Cloud Application</a>, but I am afraid that it will not help us much.
+              The problem is that Jersey uses Java Unified Logging (Hey, Jersey is from Sun, err... Oracle), and that SAP NetWeaver Cloud uses slf4j as a facade for your application, with a log4j implementation in the back-end.
+              Without some extra configuration, everything written to JUL is lost.
+            </p>
+
+            <p>After reading chapter 'jul-to-slf4j bridge' of page <a href="http://www.slf4j.org/legacy.html"></a>'Bridging legacy APIs' of <a href="http://www.slf4j.org">slf4j documentation</a>.
+<pre class="prettyprint linenums xml">
+&lt;dependency&gt;
+    &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
+    &lt;artifactId&gt;jul-to-slf4j&lt;/artifactId&gt;
+    &lt;version&gt;1.7.2&lt;/version&gt;
+&lt;/dependency&gt;
+</pre>              
+            </p>
+            <p>
+              Add a servlet listener annotated with @WebListener to project <strong>abendrot-test-rest</strong> :
+<pre class="prettyprint linenums java">
+package net.aequologica.cloud.servlet;
+
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
+
+import org.slf4j.bridge.SLF4JBridgeHandler;
+
+<strong>@WebListener</strong>
+public class Listener implements ServletContextListener {
+
+  public Listener() {
+  }
+
+  public void contextInitialized(ServletContextEvent sce) {
+    // Optionally remove existing handlers attached to j.u.l root logger
+    SLF4JBridgeHandler.removeHandlersForRootLogger(); // (since SLF4J 1.6.5)
+
+    // add SLF4JBridgeHandler to j.u.l's root logger, should be done once during
+    // the initialization phase of your application
+    <strong>SLF4JBridgeHandler.install();</strong>
+  }
+
+  public void contextDestroyed(ServletContextEvent sce) {
+    SLF4JBridgeHandler.uninstall();
+  }
+}
+</pre>
+
+            </p>
+
+            <div class="accordion" id="accordion-log-it">
+
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <p>Start Tomcat, Logging from Jersey is now displayed.
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-coming-soon" href="#collapse-log-it-1"><i class="icon-chevron-right"></i></a>
+                  </p>
+                </div>
+                <div id="collapse-log-it-1" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+                    <img src="images/logs_tomcat.jpg">
+                  </div>
+                </div>
+              </div>
+
+              <p>
+                Configure Jersey logging. Add to <code>net.aequologica.cloud.jaxrs.Application</code>:
+<pre class="prettyprint linenums java">
+@Override
+public Set&lt;Object&gt; getSingletons() {
+  final HashSet&lt;Object&gt; instances = new HashSet&lt;&gt;();
+
+  instances.add(new LoggingFilter(java.util.logging.Logger.getLogger(Application.class.getName()), false));
+
+  return instances;
+}
+</pre>                
+
+              </p>
+
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <p>Start Tomcat, browse to http://.../resources/hello, now Jersey logs the HTTP payload of the REST requests (scroll to the bottom of the iframe):
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-coming-soon" href="#collapse-log-it-2"><i class="icon-chevron-right"></i></a>
+                  </p>
+                </div>
+                <div id="collapse-log-it-2" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+                    <iframe src='tomcat_jersey_logs.txt' style="width:100%; height: 460px; border: none;"></iframe>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+        <!--
+        ================================================== -->
+
+        <!-- Run Service on Servers
+        ================================================== -->
+        <section id="run-it">
+          <div class="page-header">
+            <h1>4. Run Service on Servers</h1>
+          </div>
+          <div class="row-fluid">
+            <ul class="thumbnails">
+              <li class="span1">
+                <span class="thumbnail"><img src="./icons/dupont_dupond.jpg" alt=""></span>
+              </li>
+              <div class="lead">Thanks to the magic of Servlet 3, a mere include of the <strong>abendrot-test-rest</strong> jar in the web application is enough to publish the service</div>
+            </ul>
+            <p>
+              Be sure to run <code>mvn install</code> from the command line to make visible <strong>abendrot-test-rest</strong> to all other maven projects.
+<pre class="prettyprint linenums bash">
+$ cd abendrot-test-rest
+$ mvn clean install
+</pre>              
+            </p>
+
+            <p>
+              Add a dependency to <strong>abendrot-test-rest</strong> in the pom.xml of <strong>abenrot-test</strong> (i.e. the app constructed in <a href="index.html">part 1 of this tutorial</a>).
+<pre class="prettyprint linenums xml">
+&lt;dependencies&gt;
+  &lt;dependency&gt;
+    &lt;groupId&gt;[your groupId]&lt;/groupId&gt;
+    &lt;artifactId&gt;abendrot-test-rest&lt;/artifactId&gt;
+    &lt;version&gt;[your version]&lt;/version&gt;
+  &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</pre>              
+            </p>
+
+            <div class="accordion" id="accordion-run-it">
+
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <p>
+                    <span>Run index.jsp of <strong>abendrot-test</strong> in Tomcat.</span>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-run-it" href="#collapse-run-it-1"><i class="icon-chevron-right"></i></a>
+                  </p>
+                </div>
+                <div id="collapse-run-it-1" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+                    <img src="./images/start_index.jsp_in_tomcat.jpg" alt="">
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <p>
+                    <span>Replace <code>/index.jsp</code> with <code>/resources/hello</code> in the browser URL</span>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-run-it" href="#collapse-run-it-2"><i class="icon-chevron-right"></i></a>
+                  </p>
+                </div>
+                <div id="collapse-run-it-2" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+                    <img src="./images/start_resources.hello_in_tomcat.jpg" alt="">
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <p>
+                    <span>Run index.jsp of <strong>abendrot-test</strong> in SAP NetWeaver Cloud local test server.</span>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-run-it" href="#collapse-run-it-3"><i class="icon-chevron-right"></i></a>
+                  </p>
+                </div>
+                <div id="collapse-run-it-3" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+                    <img src="./images/start_index.jsp_in_local_nwcloud.jpg" alt="">
+                  </div>
+                </div>
+              </div>
+              
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <p>
+                    <span>Replace <code>/index.jsp</code> with <code>/resources/hello</code> in the browser URL</span>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-run-it" href="#collapse-run-it-4"><i class="icon-chevron-right"></i></a>
+                  </p>
+                </div>
+                <div id="collapse-run-it-4" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+                    <img src="./images/start_resources.hello_in_local_nwcloud.jpg" alt="">
+                  </div>
+                </div>
+              </div>
+
+              <p>etc.</p>
+
+              <!-- p>
+                <p><img src="images/Mission-Control-Houston-2010-04-17-300x230.jpg"></p>
+                <p>Houston, we have a problem. Instead of index.jsp, we have a miserable "HTTP Status 500 - Request failed.". Probably the jersey application did not start for whatever reason. Let's have a look at the logs. </p>
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-run-it" href="#collapse-run-it-5"><i class="icon-chevron-right"></i></a>
+              </p -->
+
+            </div>
+          </div>
+        </section>
+        <!--
+        ================================================== -->
+
+        <!-- Add JSON
+        ================================================== -->
+        <section id="json-it">
+          <div class="page-header">
+            <h1>5. Add JSON</h1>
+          </div>
+          <div class="row-fluid">
+            <ul class="thumbnails">
+              <li class="span1">
+                <span class="thumbnail"><img src="./icons/json_logo.jpg" alt=""></span>
+              </li>
+              <div class="lead">How to return complex objects from REST service in JSON format</div>
+            </ul>
+
+            <p>
+              Add a dependency to <code><a href="https://github.com/FasterXML/jackson-jaxrs-json-provider">jackson-jaxrs-json-provider</a></code> in <strong>abendrot-test-rest</strong> pom.xml. 
+<pre class="prettyprint linenums xml">
+&lt;dependency&gt;
+  &lt;groupId&gt;com.fasterxml.jackson.jaxrs&lt;/groupId&gt;
+  &lt;artifactId&gt;jackson-jaxrs-json-provider&lt;/artifactId&gt;
+  &lt;version&gt;2.1.1&lt;/version&gt;
+&lt;/dependency&gt;        
+</pre>
+            <strong>Done!</strong> You do not need anything else. The Jackson JSON provider is annotated with <code>@javax.ws.rs.ext.Provider</code>, and will be automatically detected.
+            </p>
+
+            <p>Say you have a POJO such as 
+<pre class="prettyprint linenums java">
+public class HelloWorld {
+
+  private String hello;
+
+  public String getHello() {
+    return hello;
+  }
+
+  public void setHello(String hello) {
+    this.hello = hello;
+  }
+}
+</pre>            
+            And a JAX-RS resource such as
+<pre class="prettyprint linenums java">
+@Path("hello2")
+public class Resource2 {
+
+  @GET
+  @Produces( { MediaType.APPLICATION_JSON } )
+  public HelloWorld getIt() {
+    HelloWorld hw = new HelloWorld();
+    hw.setHello("World!");
+    return new HelloWorld();
+  }
+}
+</pre>      
+            You have added the new resource <code>x.y.z.Resource2</code> to <code>net.aequologica.cloud.jaxrs.Application</code>.
+<pre class="prettyprint linenums java">
+classes.add(Resource2.class);
+</pre>      
+
+            A HTTP GET request to htpp://&lt;your_server&gt;/&lt;your_app&gt;/resources/hello2 will return something along
+<pre class="prettyprint linenums javascript">
+{"hello":"World!"}
+</pre>            
+          </p>
+
+        </section>
+        <!--
+        ================================================== -->
+
+        <!-- A Word on Refactoring
         ================================================== -->
         <section id="restructure">
           <div class="page-header">
-            <h1>1. A Bit of Structure</h1>
+            <h1>5. A Word on Refactoring</h1>
           </div>
           <div class="row-fluid">
             <ul class="thumbnails">
               <li class="span1">
                 <span class="thumbnail"><img src="./icons/structure.png" alt=""></span>
               </li>
-              <div class="lead">Before going into this chapter about REST, <a href="http://en.wikipedia.org/wiki/Representational_state_transfer">Representational State Transfer</a>, 
-                we need to restructure our code, otherwise quickly we'll end up with a big mess. We'll simply split the initial abendrot project in modules.</div>
+              <div class="lead">You can have a look at the source code of <strong>abendrot</strong> at this level of the tutorial. 
+                Have present that has been refactored from the first version of part 1. and 2. of this tutorial in a maven project with sub-modules.
+                Here is a short explanation of the refactoring.</div>
             </ul>
             <div class="accordion" id="accordion-restructure">
 
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    <span>We start at level <a href="https://github.com/cthiebaud/abendrot/tags">abendrot-0.0.3</a> of the code. cf. code tree (simplified):</span>
+                    <span>Starting at level <a href="https://github.com/cthiebaud/abendrot/tags">abendrot-0.0.3</a> of the code. cf. code tree (simplified):</span>
                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-restructure" href="#collapse-restructure-1"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
@@ -150,7 +965,7 @@ abendrot
 abendrot
 |   pom.xml
 |   README.md
-+---abendrot-rest : &lt;=== that's what this page is all about
++---abendrot-test-rest : &lt;=== that's what this page is all about
 \---abendrot-web
     |   pom.xml
     \---src
@@ -195,41 +1010,6 @@ abendrot
         <!--
         ================================================== -->
 
-        <!-- Coming soon
-        ================================================== -->
-        <section id="coming-soon">
-          <div class="page-header">
-            <h1>X. Coming Soon ...</h1>
-          </div>
-          <div class="row-fluid">
-            <ul class="thumbnails">
-              <li class="span1">
-                <span class="thumbnail"><img src="./images/coming-soon.jpg" alt=""></span>
-              </li>
-              <div class="lead">Coming soon ...</div>
-            </ul>
-            <div class="accordion" id="accordion-coming-soon">
-              <div class="accordion-group">
-                <div class="accordion-heading">
-                  <p>
-                    <span>Coming soon...</span>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-coming-soon" href="#collapse-coming-soon-1"><i class="icon-chevron-right"></i></a>
-                  </p>
-                </div>
-                <div id="collapse-coming-soon-1" class="accordion-body collapse out">
-                  <div class="accordion-inner">
-<pre class="prettyprint linenums">
-$ coming soon ...
-</pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <img src="./images/coming-soon.jpg" alt="">
-          </div>
-        </section>
-        <!--
-        ================================================== -->
 
         <!-- Conclusion
         ================================================== -->
