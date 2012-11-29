@@ -499,7 +499,7 @@ public class ResourceInTomcatTest {
                 </div>
                 <div id="collapse-embedded-tomcat-1" class="accordion-body collapse out">
                   <div class="accordion-inner">
-                    <img src="./images/tomcat_test_fails.jpg" alt="">
+                    <!-- img src="./images/tomcat_test_fails.jpg" alt="" --><span class="img_later" data-src="./images/tomcat_test_fails.jpg" alt=""></span>
                   </div>
                 </div>
               </div>
@@ -588,7 +588,7 @@ public void test() throws IOException, InterruptedException, ExecutionException 
                 </div>
                 <div id="collapse-embedded-tomcat-2" class="accordion-body collapse out">
                   <div class="accordion-inner">
-                    <img src="./images/tomcat_test_nearly_green.jpg" alt="">
+                    <!-- img src="./images/tomcat_test_nearly_green.jpg" alt="" --><span class="img_later" data-src="./images/tomcat_test_nearly_green.jpg" alt=""></span>
                   </div>
                 </div>
               </div>
@@ -690,7 +690,7 @@ public class Listener implements ServletContextListener {
                 </div>
                 <div id="collapse-log-it-1" class="accordion-body collapse out">
                   <div class="accordion-inner">
-                    <img src="images/logs_tomcat.jpg">
+                    <!-- img src="images/logs_tomcat.jpg" --><span class="img_later" data-src="images/logs_tomcat.jpg"></span>
                   </div>
                 </div>
               </div>
@@ -774,7 +774,7 @@ $ mvn clean install
                 </div>
                 <div id="collapse-run-it-1" class="accordion-body collapse out">
                   <div class="accordion-inner">
-                    <img src="./images/start_index.jsp_in_tomcat.jpg" alt="">
+                    <!-- img src="./images/start_index.jsp_in_tomcat.jpg" alt="" --><span class="img_later" data-src="./images/start_index.jsp_in_tomcat.jpg" alt=""></span>
                   </div>
                 </div>
               </div>
@@ -788,7 +788,7 @@ $ mvn clean install
                 </div>
                 <div id="collapse-run-it-2" class="accordion-body collapse out">
                   <div class="accordion-inner">
-                    <img src="./images/start_resources.hello_in_tomcat.jpg" alt="">
+                    <!-- img src="./images/start_resources.hello_in_tomcat.jpg" alt="" --><span class="img_later" data-src="./images/start_resources.hello_in_tomcat.jpg" alt=""></span>
                   </div>
                 </div>
               </div>
@@ -802,7 +802,7 @@ $ mvn clean install
                 </div>
                 <div id="collapse-run-it-3" class="accordion-body collapse out">
                   <div class="accordion-inner">
-                    <img src="./images/start_index.jsp_in_local_nwcloud.jpg" alt="">
+                    <!-- img src="./images/start_index.jsp_in_local_nwcloud.jpg" alt="" --><span class="img_later" data-src="./images/start_index.jsp_in_local_nwcloud.jpg" alt=""></span>
                   </div>
                 </div>
               </div>
@@ -816,7 +816,7 @@ $ mvn clean install
                 </div>
                 <div id="collapse-run-it-4" class="accordion-body collapse out">
                   <div class="accordion-inner">
-                    <img src="./images/start_resources.hello_in_local_nwcloud.jpg" alt="">
+                    <!-- img src="./images/start_resources.hello_in_local_nwcloud.jpg" alt="" --><span class="img_later" data-src="./images/start_resources.hello_in_local_nwcloud.jpg" alt=""></span>
                   </div>
                 </div>
               </div>
@@ -1074,9 +1074,10 @@ abendrot
 
   <script type="text/javascript">
   $(function() {
-      $("#your_app").click(function(event){
-        alert("Replace <your app>, <your user ID> and <your war name> with appropriate values");
-      });
+      $('span.img_later').prepend( function(index) {
+      var src = $(this).attr('data-src');
+      return '<img alt="" src="' + src + '">';
+    });
   });
   </script>
 
