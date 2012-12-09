@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import net.aequologica.cloud.persist.Hello;
 import net.aequologica.cloud.persist.HelloDao;
 
-@WebFilter("/hellocloud.jsp")
+@WebFilter("/socialhello.jsp")
 public final class PersistFilter implements Filter {
 
 	@EJB
