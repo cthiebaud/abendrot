@@ -1,90 +1,77 @@
-<%@page import="net.aequologica.cloud.git.GitRepositoryState"%>
-<%@page import="java.util.Properties"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c"   uri="http://java.sun.com/jstl/core_rt" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
+%><%@ taglib prefix="c"   uri="http://java.sun.com/jstl/core_rt" 
+%><%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" 
+%><!DOCTYPE html>
 <html>
-	<head>
+  <head>
 	<title>abendrot | hellocloud</title>
-	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	    
-	    <!-- Bootstrap CSS -->
-	    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
-	    <!-- DataTables CSS -->
-	    <link rel="stylesheet" type="text/css" href="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
-	  
-	    <style type="text/css">
-	    body {
-	      padding : 40px;
-	    }
-	    </style>
-	</head>
-	<body>
-		<h1>${requestScope.remoteUser}</h1>
 	
-        <table id="hellos" class="table table-striped table-bordered" cellpadding="0" cellspacing="0" border="0" >
-		    <thead>
-		      <tr>
-		        <th>#</th>
-		        <th>id</th>
-		        <th>when</th>
-		        <th>how much</th>
-		        <th>what</th>
-		        <th>from</th>
-		      </tr>
-		    </thead>
-		    <tbody>
-			    <c:forEach var="hello" items="${requestScope.helloDao.all}" varStatus="status">
-			      <tr>
-			        <td>${status.index}</td>
-			        <td>${hello.id}</td>
-			        <td><fmt:formatDate type="both" value="${hello.when}" /></td>
-			        <td>${hello.count}</td>
-			        <td>hello<c:if test = "${hello.count > 1}">s</c:if> from</td>
-			        <td>${hello.username}</td>
-			      </tr>
-			    </c:forEach>
-			</tbody>
-	    </table>	
+    <%@include file="/WEB-INF/jspf/header.jspf" %>
+    
+  </head>
+  <body>
+  
+    <%@include file="/WEB-INF/jspf/navbar.jspf" %>
+  
+    <div class="container">
+    <div class="span9">
+  
+	<table id="hellos" class="table table-condensed table-hover table-bordered" >
+	  <thead>
+		<tr>
+		  <th>row number</th>
+		  <th>database id</th>
+          <th>last</th>
+          <th>how much</th>
+          <th>what</th>
+          <th>from</th>
+        </tr>
+      </thead>
+      <tbody>
+		<c:forEach var="hello" items="${requestScope.helloDao.all}" varStatus="status">
+		  <tr>
+			<td>${status.index}</td>
+			<td>${hello.id}</td>
+			<td><fmt:formatDate type="both" value="${hello.when}" /></td>
+			<td>${hello.count}</td>
+			<td>hello<c:if test = "${hello.count > 1}">(s)</c:if> from</td>
+			<td>${hello.username}</td>
+		  </tr>
+        </c:forEach>
+      </tbody>
+	</table>	
 	
-<%
-Properties properties = new Properties();
-properties.load(this.getClass().getClassLoader().getResourceAsStream("git.properties"));
-GitRepositoryState gitRepositoryState = new GitRepositoryState(properties);
-if (gitRepositoryState.getCommitIdDescribe().indexOf("dirty") == -1) {
-%>    <a href="https://github.com/cthiebaud/abendrot/commit/<%=gitRepositoryState.getCommitId()%>" target="_blank">
-      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub">
-    </a>
-<%} %>
+    <%@include file="/WEB-INF/jspf/github-ribbon.jspf" %>
 	
-	</body>
-  <!-- Bootstrap -->
-  <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
-  <!-- jQuery -->
-  <script type="text/javascript" charset="utf8" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
-  <!-- DataTables -->
-  <script type="text/javascript" charset="utf8" src="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+    </div> <!-- span9 -->
+    </div> <!-- container -->
+
+  </body>
+	
+  <%@include file="/WEB-INF/jspf/footer.jspf" %>
   
   <script type="text/javascript">
   $(document).ready(function(){
-    $('#hellos').dataTable( {
-    	"sDom": "<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>",
-      "bAutoWidth": false,
-      "iDisplayLength": -1,
-      "bFilter": false,
-      "bInfo": false,
-      "bLengthChange": false,
-      "bPaginate": false,
-      "bScrollInfinite": true,
-      "bScrollCollapse": true,
-      "sScrollY": "200px",
-      "bSort": false,
-    });
+	  /*
+    $('#hellos').dataTable( {} );
     
-    $.extend( $.fn.dataTableExt.oStdClasses, {
-        "sWrapper": "dataTables_wrapper form-inline"
-    } );    
+"sDom": "<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>",
+"bAutoWidth": false,
+"iDisplayLength": -1,
+"bFilter": false,
+"bInfo": false,
+"bLengthChange": false,
+"bPaginate": false,
+"bScrollInfinite": true,
+"bScrollCollapse": true,
+"sScrollY": "200px",
+"bSort": false,
+    
+    
+$.extend( $.fn.dataTableExt.oStdClasses, {
+  "sWrapper": "dataTables_wrapper form-inline"
+});
+*/
   });
   </script>
   

@@ -1,56 +1,56 @@
-<!DOCTYPE html>
-<%@page import="net.aequologica.cloud.git.GitRepositoryState"%>
-<%@page import="java.util.Properties"%>
-<%@page import="java.lang.reflect.Method"%>
-<%@page import="javax.security.auth.login.LoginException"%>
-<%@page import="javax.security.auth.login.LoginContext"%>
+<%@  page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
+%><%
+  String result = "";
+  String reason = "";
 
-<%
-String result = "";
-String reason = "";
-
-LoginContext login = null;
-if (request.getRemoteUser() != null) {
-  try {
-    Class<?> loginContextFactoryClass = this.getClass().getClassLoader().loadClass("com.sap.security.auth.login.LoginContextFactory");
+  javax.security.auth.login.LoginContext login = null;
+  if (request.getRemoteUser() != null) {
+    try {
+      Class<?> loginContextFactoryClass = this.getClass().getClassLoader().loadClass("com.sap.security.auth.login.LoginContextFactory");
     
-    if (loginContextFactoryClass != null) {
-      Method method = loginContextFactoryClass.getMethod("createLoginContext");
-      login = (LoginContext)method.invoke(null);
-      login.logout();
-      result = "You have successfully logged out.";
-      reason = "Congratulations.";
+      if (loginContextFactoryClass != null) {
+    	java.lang.reflect.Method method = loginContextFactoryClass.getMethod("createLoginContext");
+        login = (javax.security.auth.login.LoginContext)method.invoke(null);
+        login.logout();
+        result = "You have successfully logged out.";
+        reason = "Congratulations.";
+      }
+    } catch (Exception e) {
+      // Servlet container handles the login exception. It throws it to the application for its information
+      result = "Logout failed.";
+      reason = e.getClass().getName() + " " + e.getMessage();
     }
-  } catch (Exception e) {
-    // Servlet container handles the login exception. It throws it to the application for its information
-    result = "Logout failed.";
-    reason = e.getClass().getName() + " " + e.getMessage();
   }
-}
-else {
+  else {
    result = "You were already logged out.";
    reason = "Current user is Guest.";
-}  
-%>
+  }  
+%><!DOCTYPE html>
   
 <html>
   <head>
     <title>abendrot | logout</title>
+    
+    <%@include file="/WEB-INF/jspf/header.jspf" %>
+    
   </head>
   <body>
+   
+    <%@include file="/WEB-INF/jspf/navbar.jspf" %>
+    
+    <div class="container">
+    <div class="span9">
+  
     <h1><%=result%></h1>
     <div><%=reason%></div>
     
-<%
-Properties properties = new Properties();
-properties.load(this.getClass().getClassLoader().getResourceAsStream("git.properties"));
-GitRepositoryState gitRepositoryState = new GitRepositoryState(properties);
-if (gitRepositoryState.getCommitIdDescribe().indexOf("dirty") == -1) {
-%>    <a href="https://github.com/cthiebaud/abendrot/commit/<%=gitRepositoryState.getCommitId()%>" target="_blank">
-      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub">
-    </a>
-<%} %>
+    <%@include file="/WEB-INF/jspf/github-ribbon.jspf" %>
     
-    
+    </div> <!-- span9 -->
+    </div> <!-- container -->
+
   </body>      
+  
+  <%@include file="/WEB-INF/jspf/footer.jspf" %>
+  
 </html>

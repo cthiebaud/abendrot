@@ -36,6 +36,7 @@
 		<web-resource-collection>
 			<web-resource-name>Protected Area</web-resource-name>
 			<url-pattern>/spy.jsp</url-pattern>
+            <url-pattern>/db.jsp</url-pattern>
 			<url-pattern>/socialhello.jsp</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
