@@ -10,6 +10,7 @@
 
     <modules>
         <module>abendrot-rest</module>
+        <module>abendrot-persist</module>
         <module>abendrot-web</module>
     </modules>
 
