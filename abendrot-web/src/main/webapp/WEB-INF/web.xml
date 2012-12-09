@@ -36,6 +36,7 @@
 		<web-resource-collection>
 			<web-resource-name>Protected Area</web-resource-name>
 			<url-pattern>/spy.jsp</url-pattern>
+			<url-pattern>/hellocloud.jsp</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
 			<role-name>Everyone</role-name>
@@ -46,4 +47,9 @@
 		<role-name>Everyone</role-name>
 	</security-role>
 	
+	<resource-ref>
+	    <res-ref-name>jdbc/DefaultDB</res-ref-name>
+	    <res-type>javax.sql.DataSource</res-type>
+	</resource-ref>
+  
 </web-app>
