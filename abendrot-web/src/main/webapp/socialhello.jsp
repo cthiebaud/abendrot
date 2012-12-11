@@ -33,8 +33,8 @@
 			<td>${status.index}</td>
 			<td>${hello.id}</td>
 			<td><fmt:formatDate type="both" value="${hello.when}" /></td>
-			<td>${hello.count}</td>
-			<td>hello<c:if test = "${hello.count > 1}">(s)</c:if> from</td>
+			<td>${hello.counter}</td>
+			<td>hello<c:if test = "${hello.counter > 1}">(s)</c:if> from</td>
 			<td>${hello.username}</td>
 		  </tr>
         </c:forEach>

@@ -40,6 +40,11 @@ public class Hello {
     	this.counter = 1;
 	}
 
+	@Transient
+	public void bumpCounter() {
+		this.counter++;
+	}
+
 	public Long getId() {
         return id;
     }
@@ -56,16 +61,12 @@ public class Hello {
 		this.username = username;
 	}
 
-    public int getCount() {
+    public int getCounter() {
 		return counter;
 	}
 
-	public void setCount(int counter) {
-	}
-
-	@Transient
-	public void bumpCounter() {
-		this.counter++;
+	public void setCounter(int counter) {
+        this.counter = counter;
 	}
 
     public Timestamp getWhen() {
