@@ -30,7 +30,7 @@
             <a href="./logout.jsp">Logout</a>
           </li>
           <li>
-            <a href="./logout.jsp">Read Blog</a>
+            <a href="http://cthiebaud.github.com/abendrot/">Read Blog</a>
           </li>
         </ul>
       </div>
