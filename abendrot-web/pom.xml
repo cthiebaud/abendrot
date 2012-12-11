@@ -61,25 +61,6 @@
         <!-- finalName>abendrot</finalName --> <!-- does not work with nwcloud-maven-plugin -->
         <plugins>
             <plugin>
-                <groupId>pl.project13.maven</groupId>
-                <artifactId>git-commit-id-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>revision</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <!-- forces the plugin to generate the git.properties file -->
-                    <generateGitPropertiesFile>true</generateGitPropertiesFile>
-
-                    <!-- The path for the to be generated properties file, it's relative 
-                        to ${project.basedir} -->
-                    <generateGitPropertiesFilename>abendrot-web/src/main/resources/git.properties</generateGitPropertiesFilename>
-                </configuration>
-            </plugin>
-            <plugin>
                 <groupId>com.sap.research</groupId>
                 <artifactId>nwcloud-maven-plugin</artifactId>
                 <executions>
