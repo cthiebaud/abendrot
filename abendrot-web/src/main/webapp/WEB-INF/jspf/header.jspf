@@ -13,6 +13,9 @@
 body {
   padding : 40px;
 }
+body > .navbar .brand {
+  color: #CA8B4C;
+}
 </style>
 
 <link rel="shortcut icon" href="favicon.ico">
