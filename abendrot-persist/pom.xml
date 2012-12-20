@@ -28,6 +28,13 @@
             <artifactId>ejb-api</artifactId>
             <version>3.0</version>
         </dependency>
+        <!-- get @WebFilter annotations -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${javax.servlet-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
 	</dependencies>
 	
 </project>
