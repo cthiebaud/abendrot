@@ -17,6 +17,17 @@
     <link href="assets/css/prettify.css" rel="stylesheet">
 
     <link href="style.css" rel="stylesheet">
+    <style>
+    th, td {
+      margin: 0 5px 0 0; padding:  0 15px 2px 0;
+    }
+    th {
+      text-align: left;
+    }
+    ul#no {
+       list-style-type: none;
+    }
+    </style>
 
     <link rel="shortcut icon" href="favicon.ico">
 
@@ -85,44 +96,479 @@
     <div class="row">
       <div class="span3 bs-docs-sidebar">
         <ul class="nav nav-list bs-docs-sidenav affix-top">
-          <li class="active"><a href="#coming-soon">   <i class="icon-chevron-right"></i> Coming Soon ...</a></li>
-          <li class=""><a href="#cconlusion"> <i class="icon-chevron-right"></i> Conclusion</a></li>
+          <li class="active"><a href="#persist-intro">   <i class="icon-chevron-right"></i>Java SE is ok. Java EE is evil.</a></li>
+          <li class=""><a href="#persist-hello">   <i class="icon-chevron-right"></i>Hello, Persistent World!</a></li>
+          <li class=""><a href="#persist-conclusion"> <i class="icon-chevron-right"></i> Conclusion</a></li>
           <!-- li class=""><a href="#coming-soon"><i class="icon-chevron-right"></i> Coming soon ...</a></li -->
         </ul>
       </div>
       <div class="span9">
 
-        <!-- Coming soon
+        <!-- persist-intro
         ================================================== -->
-        <section id="coming-soon">
+        <section id="persist-intro">
           <div class="page-header">
-            <h1>X. Coming Soon ...</h1>
+            <h1>1. Java SE is ok. Java EE is evil.
           </div>
           <div class="row-fluid">
             <ul class="thumbnails">
-              <li class="span1">
-                <span class="thumbnail"><img src="./images/coming-soon.jpg" alt=""></span>
+              <li class="span2">
+                <span class="thumbnail"><img border="0" height="200" src="http://1.bp.blogspot.com/-2UBlukErqLI/UMSKGyo7XeI/AAAAAAAAAAQ/spqIawcwLSc/s200/java-evil-edition.png" width="124" /></span>
               </li>
-              <div class="lead">Coming soon ...</div>
+              <div class="lead">That's what I used to think. Well, not anymore, now. Let me share my experience.</div>
+              <p>Some weeks ago, I started thinking about porting a legacy spring+hibernate+tomcat application to <a href="http://scn.sap.com/community/developer-center/cloud-platform">SAP NetWeaver Cloud</a>. The configuration of the spring layer of this legacy application is xml-based (it has been written before annotations came in the game). I was dreaded by the prospect of diving into - my own - xml horror again. </p>
+               <p>Then came this tweet : </p>
             </ul>
-            <div class="accordion" id="accordion-coming-soon">
+            <div class="accordion" id="accordion-persist-intro">
               <div class="accordion-group">
                 <div class="accordion-heading">
-                  <p>
-                    <span>Coming soon...</span>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-coming-soon" href="#collapse-coming-soon-1"><i class="icon-chevron-right"></i></a>
-                  </p>
-                </div>
-                <div id="collapse-coming-soon-1" class="accordion-body collapse out">
-                  <div class="accordion-inner">
-<pre class="prettyprint linenums">
-$ coming soon ...
-</pre>
-                  </div>
+                    
+                   
+
+<blockquote class="twitter-tweet"><p>Welcome @<a href="https://twitter.com/sap">sap</a> to <a href="https://twitter.com/search/%23JavaEE6">#JavaEE6</a> party, NetWeaver Cloud is now Java EE 6 Web Profile Certified: <a href="http://t.co/KPaqdE0m" title="http://bit.ly/Wf8VNS">bit.ly/Wf8VNS</a></p>&mdash; GlassFish (@glassfish) <a href="https://twitter.com/glassfish/status/269500651917160450" data-datetime="2012-11-16T18:02:17+00:00">November 16, 2012</a></blockquote>
+<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>                      
+
+and, a few days later, this documentation : <a href="https://help.netweaver.ondemand.com/default.htm?add_persistence_ejb.html#concept_8D93CDC977F049309942563E819F9A08_77">Adding Persistence Using JPA (SDK 2.x Beta)</a>. And I tried it out. And it worked. And I changed my mind about Java EE. </p>
+
+<p>There is a <a href="http://bill.burkecentral.com/2012/03/13/java-ee-wins-over-spring/">'Java-EE wins over spring'</a> blog post by 'Bill the Plumber', that nicely wraps up my thoughts after this experience.</p>
+
+
                 </div>
               </div>
             </div>
-            <img src="./images/coming-soon.jpg" alt="">
+          </div>
+        </section>
+        <!-- persist-intro
+        ================================================== -->
+        <section id="persist-hello">
+          <div class="page-header">
+            <h1>2. Hello, Persistent World!
+          </div>
+          <div class="row-fluid">
+            <ul class="thumbnails">
+              <li class="span2">
+                <span class="thumbnail"><img border="0" height="200" src="icons/persistentworld.png" width="124" /></span>
+              </li>
+              <div class="lead">So much with the bla bla bla. Let's start coding!</div>
+            </ul>
+            <div class="accordion" id="accordion-persist-intro">
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                </div>
+
+<p>Before cutting and pasting like mad, let's describe briefly what the code below is about. We will construct and deploy to SAP NetWeaver Cloud application that
+  <ol>
+    <li>logs in the user (you'll need a <a href="http://scn.sap.com/docs/DOC-18437">SAP Community Network</a> account, don't worry it's free),</li>
+    <li>upon login, says 'hello' to the rest of the world on behalf of the user, </li>
+    <li>upon successive logins, instead of saying 'hello' again and again, merely store in a database how many 'hellos' were said, and </li>
+    <li>that's it.</li>
+  </ol>
+</p>
+
+<p>To achieve that, we'll need one java interface, three java classes, one java server page, and a final touch of persistence.xml (for the database configuration) and web.xml (for security constraint wizardry).
+</p>
+
+ <div class="alert alert-block media unstyled">
+  <img src="images/infoicon70.png" class="pull-left">
+  <div class="media-body">
+      Java EE 6 Web Profile compliance is only available from SAP NetWeaver Cloud SDK <strong>version 2</strong> on (currently in beta mode at the time of this writing).
+  </div>
+</div>
+<i>For the sake of brevity, packages, imports, getters and setters are omitted from the code below.</i>
+<p>Write one <a href="https://github.com/cthiebaud/adventscloud/blob/d326c2d95f3676250cca66ac2bc480353390c60a/src/main/java/net/aequologica/adventscloud/Hello.java" target="_blank">Hello.java</a> POJO
+ that will store in a <code>counter</code>, for each <code>username</code>, how many time the user hit the index.jsp of our app, and <code>when</code> was the last time.
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-persist-intro" href="#collapse-persist-intro-1"><i class="icon-chevron-right"></i></a>
+</p>                    
+                  </p>
+                </div>
+                <div id="collapse-persist-intro-1" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+<pre class="prettyprint linenums java">public class Hello {
+  
+  private Long      id;
+  private String    username;
+  private Integer   counter;
+  private Timestamp when;
+  // ... getters and setters ...
+}</pre>
+
+                  </div>
+                </div>
+                <div class="accordion-heading">
+                  <p>Annotate this <a href="https://github.com/cthiebaud/adventscloud/blob/78060ded939419d8d8981c5060dff58d23e336c7/src/main/java/net/aequologica/adventscloud/Hello.java" target="_blank">Hello.java POJO with JPA annotations</a>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-persist-intro" href="#collapse-persist-intro-2"><i class="icon-chevron-right"></i></a>
+                  </p>
+                </div>
+                <div id="collapse-persist-intro-2" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+<pre class="prettyprint linenums java">@Entity
+@Table(name="T_HELLO")
+@NamedQueries( {
+  @NamedQuery(name = "allHellos", query = "select h from Hello h"),
+  @NamedQuery(name = "helloFromUsername", query = "select h from Hello h where h.username = :username")
+})
+public class Hello {
+  
+  @Id
+  @GeneratedValue
+  private Long      id;
+  @Column(name="A_USER", unique=true, nullable=false)
+  private String    username;
+  @Column(name="A_COUNTER", nullable=false)
+  private Integer   counter;
+  @Version
+  @Column(name="A_TIMESTAMP", nullable=false)
+  private Timestamp when;
+
+  public Hello() {
+    this.counter = 1;
+  }
+  // ... getters and setters ...
+}</pre>
+                  </div>
+                </div>
+                <div class="accordion-heading">
+                  <p>
+                    Write one <a href="https://github.com/cthiebaud/adventscloud/blob/4d6c98f252b0b7cb5f0a94d525d3ea7b222cb283/src/main/java/net/aequologica/adventscloud/HelloDao.java" target="_blank">HelloDao.java</a> interface, annotated with <code>javax.ejb.Local</code> annotation, to access the POJO
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-persist-intro" href="#collapse-persist-intro-3"><i class="icon-chevron-right"></i></a>
+                  </p>
+                </div>
+                <div id="collapse-persist-intro-3" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+<pre class="prettyprint linenums java">@Local
+public interface HelloDao {
+ 
+  List&lt;hello&gt; getAll();
+  Hello fromUsername(String username);
+  Hello save(Hello hello);
+}</pre>
+                  </div>
+                </div>
+
+                <div class="accordion-heading">
+                  <p>
+                    Write one <a href="https://github.com/cthiebaud/adventscloud/blob/78060ded939419d8d8981c5060dff58d23e336c7/src/main/java/net/aequologica/adventscloud/HelloBean.java" target="_blank">HelloBean.java</a>, annotated with <code>javax.ejb.Stateless</code> annotation (among others), implementing the HelloDao interface
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-persist-intro" href="#collapse-persist-intro-4"><i class="icon-chevron-right"></i></a>
+                  </p>
+                </div>
+                <div id="collapse-persist-intro-4" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+<pre class="prettyprint linenums java">@Stateless
+public class HelloBean implements HelloDao {
+
+  <strong>@PersistenceContext
+  private EntityManager em;</strong>
+
+  @Override
+  public List&lt;hello&gt; getAll() {
+    @SuppressWarnings("unchecked")
+    List&lt;hello&gt; hellos = (List&lt;hello&gt;)em.createNamedQuery("allHellos").getResultList();
+    
+    Collections.sort(hellos, new Comparator&lt;hello&gt;() {
+      @Override
+      public int compare(Hello o1, Hello o2) {
+        return o2.getWhen().compareTo(o1.getWhen()); // latest first
+      }
+    });
+    
+    return hellos;
+  }
+
+  @Override
+  public Hello fromUsername(String username) {
+    Query query = em.createNamedQuery("helloFromUsername");
+    query.setParameter("username", username);
+    Hello hello = null;
+    try {
+      hello = (Hello)query.getSingleResult();
+    } catch (NoResultException ignored) {
+    }
+    
+    return hello;
+  }
+
+  @TransactionAttribute
+  @Override
+  public Hello save(Hello hello) {
+    hello = em.merge(hello);
+    return hello;
+  }
+}</pre>
+                  </div>
+                </div>
+
+                <div class="accordion-heading">
+                  <p>
+Write one Java Servlet 3 Filter, <a href="https://github.com/cthiebaud/adventscloud/blob/06fc6790bf6d3dfe8b40cce9ca3e313bbeb7d773/src/main/java/net/aequologica/adventscloud/HelloFilter.java" target="_blank">HelloFilter.java</a>, that <ol><li>bumps the counter upon login, and </li><li>exposes the HelloBean instance to the Java Server Page further below
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-persist-intro" href="#collapse-persist-intro-5"><i class="icon-chevron-right"></i></a>
+                    </li></ol>
+                  </p>
+                </div>
+                <div id="collapse-persist-intro-5" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+<pre class="prettyprint linenums java"><strong>@WebFilter("/index.jsp")</strong>
+public final class HelloFilter implements Filter {
+
+  <strong>@EJB
+  HelloDao  helloDao;</strong>
+
+  @Override
+  public void init(FilterConfig fConfig) throws ServletException {
+  }
+
+  @Override
+  public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+  try {
+    request.setAttribute("helloDao", helloDao);
+    
+    String username = ((HttpServletRequest)request).getRemoteUser();
+    Hello hello = helloDao.fromUsername(username);
+    if (hello == null) {
+      hello = new Hello();
+      hello.setUsername(username);
+    } else {
+      hello.setCounter(hello.getCounter()+1);
+    }
+    hello = helloDao.save(hello);
+    
+    chain.doFilter(request, response);
+    
+  } finally {
+    request.removeAttribute("helloDao");
+  }
+  }
+
+  @Override
+  public void destroy() {
+  }
+}</pre>
+                  </div>
+                </div>
+
+                <div class="accordion-heading">
+                  <p>
+NB. (in bold in the sources above) the Java EE 6 Web Profile magic annotations-based plumbing : 
+<ul style="list-style: none;">
+<li style="height:40px;"><code class="prettyprint java"><strong>@PersistenceContext</strong> EntityManager em;</code> <a href="http://jcp.org/en/jsr/detail?id=317">JSR 317</a>: Java Persistence 2.0</li>
+<li style="height:40px;"><code class="prettyprint java"><strong>@EJB</strong> HelloDao helloDao;</code>               <a href="http://jcp.org/en/jsr/detail?id=318">JSR 318</a>: Enterprise JavaBeans 3.1</li>
+<li style="height:40px;"><code class="prettyprint java"><strong>@WebFilter</strong>("/index.jsp")</code>              <a href="http://jcp.org/en/jsr/detail?id=340">JSR 340</a>: Java Servlet 3.1</li>
+</ul>
+                  Java Web Profile is not - yet ? - completely xml-free, we still need to create persistence.xml and web.xml.</p>
+          <p>Write one <a href="https://github.com/cthiebaud/adventscloud/blob/78060ded939419d8d8981c5060dff58d23e336c7/src/main/resources/META-INF/persistence.xml" target="_blank">persistence.xml</a> JPA configuration
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-persist-intro" href="#collapse-persist-intro-6"><i class="icon-chevron-right"></i></a>
+                  </p>
+                </div>
+                <div id="collapse-persist-intro-6" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+<pre class="prettyprint linenums xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"&gt;
+  &lt;persistence-unit name="adventscloud-persist" transaction-type="JTA"&gt;
+    &lt;provider&gt;org.eclipse.persistence.jpa.PersistenceProvider&lt;/provider&gt;
+    <strong>&lt;jta-data-source&gt;jdbc/DefaultDB&lt;/jta-data-source&gt;</strong>
+    <strong>&lt;class&gt;net.aequologica.adventscloud.Hello&lt;/class&gt;</strong>
+    &lt;properties&gt;
+      &lt;property name="eclipselink.ddl-generation" value="create-or-extend-tables" /&gt;
+    &lt;/properties&gt;
+  &lt;/persistence-unit&gt;
+&lt;/persistence&gt;</pre>
+                  </div>
+                </div>
+
+                <div class="accordion-heading">
+                  <p>Write one <a href="https://github.com/cthiebaud/adventscloud/blob/1a1b3e86fdaf776c66fd85b7e09ae0dc8822b6f7/src/main/webapp/WEB-INF/web.xml" target="_blank">web.xml</a>, 
+                    <ol>
+                      <li>to trigger form-based login when a user accesses index.jsp (more details on the <a href="./identity.html">identity</a> page of this site), and </li>
+                      <li>to inform the web application of the presence of a container managed database
+<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-persist-intro" href="#collapse-persist-intro-7"><i class="icon-chevron-right"></i></a>
+                      </li>
+                    </ol>
+                    
+                  </p>
+                </div>
+                <div id="collapse-persist-intro-7" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+<pre class="prettyprint linenums java">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;web-app
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://java.sun.com/xml/ns/javaee"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+  version="3.0"&gt;
+
+  &lt;login-config&gt;
+    &lt;auth-method&gt;FORM&lt;/auth-method&gt;
+  &lt;/login-config&gt;
+
+  &lt;security-constraint&gt;
+    &lt;web-resource-collection&gt;
+      &lt;web-resource-name&gt;Protected Area&lt;/web-resource-name&gt;
+      &lt;url-pattern&gt;/index.jsp&lt;/url-pattern&gt;
+    &lt;/web-resource-collection&gt;
+    &lt;auth-constraint&gt;
+      &lt;role-name&gt;Everyone&lt;/role-name&gt;
+    &lt;/auth-constraint&gt;
+  &lt;/security-constraint&gt;
+  &lt;security-role&gt;
+    &lt;description&gt;All SAP NetWeaver Cloud users&lt;/description&gt;
+    &lt;role-name&gt;Everyone&lt;/role-name&gt;
+  &lt;/security-role&gt;
+  
+  &lt;resource-ref&gt;
+    <strong>&lt;res-ref-name&gt;jdbc/DefaultDB&lt;/res-ref-name&gt;</strong>
+    &lt;res-type&gt;javax.sql.DataSource&lt;/res-type&gt;
+  &lt;/resource-ref&gt;
+  
+&lt;/web-app&gt;</pre>
+                  </div>
+                </div>
+
+                <div class="accordion-heading">
+                  <p>
+                    Again, NB. (in bold in the sources above) the further Java EE 6 Web Profile magic xml-based plumbing: 
+
+<ul style="list-style: none;">
+<li style="height:40px;"><code class="prettyprint xml">&lt;jta-data-source&gt;<strong>jdbc/DefaultDB</strong>&lt;/jta-data-source&gt;</code> in persistence.xml
+<li style="height:40px;"><code class="prettyprint xml">&lt;class&gt;<strong>net.aequologica.adventscloud.Hello</strong>&lt;/class&gt;</code> in persistence.xml
+<li style="height:40px;"><code class="prettyprint xml">&lt;res-ref-name&gt;<strong>jdbc/DefaultDB</strong>&lt;/res-ref-name&gt;</code> in web.xml     
+</ul>
+
+                  </p>
+                  <p>Finally, write one <a href="https://github.com/cthiebaud/adventscloud/blob/78060ded939419d8d8981c5060dff58d23e336c7/src/main/webapp/index.jsp" target="_blank">index.jsp</a> Java Server Page that displays all 'hellos'
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-persist-intro" href="#collapse-persist-intro-8"><i class="icon-chevron-right"></i></a>
+                  </p>
+
+                <div id="collapse-persist-intro-8" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+<pre class="prettyprint linenums java">&lt;%@ taglib prefix="c"   uri="http://java.sun.com/jstl/core_rt" %&gt;
+&lt;%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;adventscloud&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;table&gt;
+    &lt;tbody&gt;
+      &lt;c:forEach var="hello" items="${requestScope.helloDao.all}" varStatus="status"&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;fmt:formatDate type="both" value="${hello.when}" /&gt;&lt;/td&gt;
+          &lt;td&gt;${hello.counter}&lt;/td&gt;
+          &lt;td&gt;hello&lt;c:if test = "${hello.counter &gt; 1}"&gt;(s)&lt;/c:if&gt; from&lt;/td&gt;
+          &lt;td&gt;${hello.username}&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/c:forEach&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;  
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+                  </div>
+                </div>
+
+                <div class="accordion-heading">
+<p>We're nearly done ... two last things: 
+<ol>
+  <li>classpath hell, and </li>
+  <li>JPA 2.0 metamodel generation with javac -processor</li>
+</ol>
+</p>
+
+<p><strong>1. Classpath hell.</strong></p>
+  In order to compile all this stuff, you'll need somehow to have the following jars on the classpath :
+<table>
+<tr>
+  <th>
+    group
+  </th>
+  <th>
+    artifact
+  </th>
+  <th>
+    version
+  </th>
+</tr>
+<tr>
+  <td>
+    javax.persistence
+  </td>
+  <td>
+    <a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22javax.persistence%22%20AND%20a%3A%22persistence-api%22%20AND%20v%3A%221.0.2%22" target="_blank">persistence-api</a>
+  </td>
+  <td>
+    &gt;= 3.0 
+  </td>
+</tr>
+<tr>
+  <td>
+    javax.ejb
+  </td>
+  <td>
+    <a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22javax.ejb%22%20AND%20a%3A%22ejb-api%22%20AND%20v%3A%223.0%22" target="_blank">ejb-api</a>
+  </td>
+  <td>
+    &gt;= 1.0 
+  </td>
+</tr>
+<tr>
+  <td>
+    javax.servlet 
+  </td>
+  <td>
+    <a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22javax.servlet%22%20AND%20a%3A%22javax.servlet-api%22%20AND%20v%3A%223.0.1%22" target="_blank">javax.servlet-api</a>
+  </td>
+  <td>
+    &gt;= 3.0 
+  </td>
+</tr>
+<tr>
+  <td>
+    javax.servlet
+  </td>
+  <td>
+    <a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22javax.servlet%22%20AND%20a%3A%22jstl%22%20AND%20v%3A%221.2%22" target="_blank">jstl              </a>
+  </td>
+  <td>
+    &gt;= 1.2</pre>
+  </td>
+</tr>
+</table>
+
+<p>Of course the easiest way is to declare these dependencies in <a href="https://github.com/cthiebaud/adventscloud/blob/78060ded939419d8d8981c5060dff58d23e336c7/pom.xml">a maven project like mine</a>, but if you are maven-averse, I took the time to hyperlink to the jars above to <a href="http://search.maven.org/">maven central</a> to spare you some time chasing the jars.
+</p>
+
+<p><strong>2. JPA 2.0 metamodel generation with javac -processor.</strong></p>
+<p>Finally , the build must be able to <a href="http://stackoverflow.com/questions/3037593/how-to-generate-jpa-2-0-metamodel">generate JPA 2.0 metamodel classes</a>. </p>
+<p>Here I choose the eclipselink generator, as eventually eclipselink is the JPA implementation used by SAP NetWeaver Cloud. I believe that any JPA 2.0 compliant generator should do the job as well.</p> 
+<p>Here also, maven does help, with the following xml fragment in the &lt;build&gt;&lt;plugins&gt; section of the pom.xml <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-persist-intro" href="#collapse-persist-intro-9"><i class="icon-chevron-right"></i></a>
+                  </p>
+                </div>
+                <div id="collapse-persist-intro-9" class="accordion-body collapse out">
+                  <div class="accordion-inner">
+<pre style="border: solid thin gray;"><code class="prettyprint xml">&lt;plugin&gt;
+  &lt;groupId&gt;org.bsc.maven&lt;/groupId&gt;
+  &lt;artifactId&gt;maven-processor-plugin&lt;/artifactId&gt;
+  &lt;version&gt;2.1.0&lt;/version&gt;
+  &lt;executions&gt;
+    &lt;execution&gt;
+      &lt;id&gt;process&lt;/id&gt;
+      &lt;goals&gt;
+         &lt;goal&gt;process&lt;/goal&gt;
+      &lt;/goals&gt;
+      &lt;phase&gt;generate-sources&lt;/phase&gt;
+      &lt;configuration&gt;
+        &lt;processors&gt;
+          &lt;processor&gt;org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor&lt;/processor&gt;
+        &lt;/processors&gt;
+      &lt;/configuration&gt;
+    &lt;/execution&gt;
+  &lt;/executions&gt;
+&lt;/plugin&gt;
+</code></pre>
+<p><i>Maven-averse can refer to <a href="http://wiki.eclipse.org/UserGuide/JPA/Using_the_Canonical_Model_Generator_%28ELUG%29">eclipselink documentation about JPA 2.0 matamodel generation</a> for alternative means to generate JPA 2.0 metamodel classes.</i></p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
           </div>
         </section>
         <!--
@@ -130,25 +576,44 @@ $ coming soon ...
 
         <!-- Conclusion
         ================================================== -->
-        <section id="conclusion">
+        <section id="persist-conclusion">
           <div class="page-header">
             <h1>Conclusion</h1>
           </div>
           <div class="row-fluid">
             <ul class="thumbnails">
-              <li class="span2">
+              <li class="span3">
                 <span class="thumbnail">
-                    <img src="icons/7504885-stressed-young-black-woman--sitting-at-a-table-among-books-and-laptop-on-a-white-background.jpg" alt="">
+                    <img src="icons/stock-photo-yawning-young-business-man-on-the-desk-isolated-on-white-background-72609853.jpg" alt="">
                 </span>
               </li>
-              <div class="lead">Still with me ?</div>
+              <div class="lead">Still with me ? At this point, we have a adventscloud.war file that should run verbatim on <a href="http://www.oracle.com/technetwork/java/javaee/overview/compatibility-jsp-136984.html">any Java EE 6 Web Profile compliant container</a>. But why choosing something else than SAP NetWeaver Cloud <img src="icons/smiley_wink.png"/> ?
+              </div>
             </ul>
+
+
+<p>You can have a look at the application running at my <a href="https://abendrotp1630844092trial.nwtrial.ondemand.com/abendrot-web/socialhello.jsp" target="_blank">lifelong-free trial instance of SAP NetWeaver Cloud</a> (again, provided that you have a -free as well- <a href="http://scn.sap.com/docs/DOC-18437">SAP Community Network</a> account). The application there is a bit richer than the code shown in this blog post, with a spark of<a href="http://twitter.github.com/bootstrap/" target="_blank"> twitter bootstrap</a> bells and whistles.</p>
+
+If you'd like to get <strong>your</strong> lifelong-free trial instance of SAP NetWeaver Cloud, follow the initial steps described <a href="http://cthiebaud.github.com/abendrot/" target="_blank">here</a>.
+
             <p><a href="http://fr.wikipedia.org/wiki/Salut">Salut!</a></p>
-            <p>
-<a href="https://twitter.com/abenrot_chef" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @abenrot_chef</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-<strong>abendrot</strong> on Twitter to be notified of the coming chapters (if time permits, no promises).
-            </p>
+<i><p>This post is a slightly modified verion of an <a href="http://www.javaadvent.com/2012/12/java-ee-6-web-profile-on-cloud-easy.html">original post of mine</a> at the great <a href="http://javaadvent.com/">Java Advent Calendar</a> 
+  by <a href="https://plus.google.com/117787425622336625762/posts">Attila Balazs</a>
+  and is licensed under the <a href="https://creativecommons.org/licenses/by/3.0/">Creative Commons 3.0 Attribution</a> license.<p></i>
+  <p>
+<ul id="no">
+  <li>
+[0] <a href="http://bill.burkecentral.com/2012/03/13/java-ee-wins-over-spring/">Java EE wins over spring</a>
+ </li>
+  <li>
+[1] <a href="http://www.oracle.com/technetwork/java/javaee/overview/compatibility-jsp-136984.html">Official Java EE compatibility page</a>
+ </li>
+  <li>
+[2] <a href="http://scn.sap.com/community/developer-center/cloud-platform/blog/2012/11/15/sap-netweaver-cloud-is-java-ee-6-web-profile-compatible">'SAP Netweaver Cloud is Java EE 6 Web Profile Compatible' announcement on SAP Community Network</a>
+ </li>
+</ul>
+</p>        
+
             <p>
               <img src="images/abendrot-600x400.jpg" class="center">
             </p>
