@@ -4,7 +4,7 @@
     <parent>
         <groupId>net.aequologica</groupId>
         <artifactId>abendrot</artifactId>
-        <version>0.1.3</version>
+        <version>0.1.4-SNAPSHOT</version>
     </parent>
 
 	<artifactId>abendrot-persist</artifactId>
@@ -31,7 +31,7 @@
             <version>3.0</version>
             <scope>provided</scope>
         </dependency>
-        < ! - - get @WebFilter annotations  - - >
+        < ! - - get @WebFilter annotations - - >
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
