@@ -10,31 +10,62 @@
 	<artifactId>abendrot-persist</artifactId>
 	
 	<dependencies>
+        <!-- get JPA annotations - - > 
 		<dependency>
 		    <groupId>org.eclipse.persistence</groupId>
 		    <artifactId>javax.persistence</artifactId>
 		    <version>2.0.0</version>
             <scope>provided</scope>
 		</dependency>
-        <!-- get jta annotations -->
+        < ! - - get JTA annotations  - - >
         <dependency>
             <groupId>javax.transaction</groupId>
             <artifactId>jta</artifactId>
             <version>1.1</version>
+            <scope>provided</scope>
         </dependency>
-        <!-- get @EJB annotations -->
+        < ! - - get @EJB annotations  - - >
         <dependency>
             <groupId>javax.ejb</groupId>
             <artifactId>ejb-api</artifactId>
             <version>3.0</version>
+            <scope>provided</scope>
         </dependency>
-        <!-- get @WebFilter annotations -->
+        < ! - -  get @WebFilter annotations  - - >
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>${javax.servlet-api.version}</version>
             <scope>provided</scope>
         </dependency>
+        -->
+        
+        <!-- Required for compilation and provided at runtime (SAP NetWeaver SDK API libraries) -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet</artifactId>
+            <version>3.0.0.v201103241009</version>
+            <scope>system</scope>
+            <systemPath>${nw.cloud.sdk.path}/api/javax.servlet-3.0.0.v201103241009.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.download.tools</groupId>
+            <artifactId>javax.ejb</artifactId>
+            <version>3.1.1.v201204261316</version>
+            <scope>system</scope>
+            <systemPath>${nw.cloud.sdk.path}/api/javax.ejb-3.1.1.v201204261316.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>javax.persistence</artifactId>
+            <version>2.0.4.v201112200901</version>
+            <scope>system</scope>
+            <systemPath>${nw.cloud.sdk.path}/api/javax.persistence-2.0.4.v201112200901.jar</systemPath>
+        </dependency>
+        
 	</dependencies>
 	
+    <properties>
+        <nw.cloud.sdk.path>${basedir}/../neo/neo-sdk-2.0.5</nw.cloud.sdk.path>
+    </properties>
 </project>

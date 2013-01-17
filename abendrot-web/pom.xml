@@ -34,24 +34,18 @@
 		<dependency>
 			<groupId>javax.servlet.jsp.jstl</groupId>
 			<artifactId>javax.servlet.jsp.jstl-api</artifactId>
-			<version>1.2.1</version>
-			<scope>provided</scope>
-		</dependency>
-		<!-- get @EJB annotations -->
-		<dependency>
-			<groupId>javax.ejb</groupId>
-			<artifactId>ejb-api</artifactId>
-			<version>3.0</version>
-			<scope>provided</scope>
-		</dependency>
-		<!-- get jta annotations -->
-		<dependency>
-			<groupId>javax.transaction</groupId>
-			<artifactId>jta</artifactId>
-			<version>1.1</version>
+			<version>${javax.servlet.jsp.jstl-api.version}</version>
 			<scope>provided</scope>
 		</dependency>
 
+        <!-- Required for compilation and required at runtime (additional web application libraries) -->
+        <dependency>
+            <groupId>com.sap.security.core.server</groupId>
+            <artifactId>csi</artifactId>
+            <version>1.0.1</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/com.sap.security.core.server.csi_1.0.1.jar</systemPath>
+        </dependency>        
 	</dependencies>
 
 	<build>
@@ -86,8 +80,7 @@
 					<!-- forces the plugin to generate the git.properties file -->
 					<generateGitPropertiesFile>true</generateGitPropertiesFile>
 
-					<!-- The path for the to be generated properties file, it's relative 
-						to ${project.basedir} -->
+					<!-- The path for the to be generated properties file, it's relative to ${project.basedir} -->
 					<generateGitPropertiesFilename>src/main/resources/git.properties</generateGitPropertiesFilename>
 				</configuration>
 			</plugin>
