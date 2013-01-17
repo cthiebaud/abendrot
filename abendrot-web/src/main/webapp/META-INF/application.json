@@ -1,11 +1,2 @@
 {
-  "serviceReferences": [
-    {
-      "referenceName":"abendrot-persistence",
-      "serviceName":"persistence",
-      "qualifiers": {
-        "tenantIsolationType":"SHARED"
-      }
-    }
-  ]
 }
