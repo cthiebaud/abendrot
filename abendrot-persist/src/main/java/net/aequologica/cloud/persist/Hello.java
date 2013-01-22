@@ -25,7 +25,7 @@ public class Hello {
     @GeneratedValue
     private Long id;
     
-    @Column(name="A_USER", unique=true, nullable=false)
+    @Column(name="A_USER", unique=true, nullable=false, length=40)
     private String username;
     
     @Basic

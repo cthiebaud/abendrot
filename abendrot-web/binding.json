@@ -1,0 +1,18 @@
+{
+    "serviceLinks": [
+        {
+            "referenceName": "abendrot-persist",
+            "instanceName": "abendrotinst001"
+        }
+    ],
+    "serviceInstances": [
+        {
+            "serviceName": "persistence",
+            "instanceName": "abendrotinst001",
+            "props": {
+                "dbType": "hana",
+		        "tenantIsolationType": "SHARED"
+            }
+        }
+    ]
+}

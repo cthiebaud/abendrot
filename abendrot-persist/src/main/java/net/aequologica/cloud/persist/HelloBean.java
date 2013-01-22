@@ -5,20 +5,26 @@ import java.util.Comparator;
 import java.util.List;
 
 import javax.ejb.Stateless;
-import javax.ejb.TransactionAttribute;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @Stateless
 public class HelloBean implements HelloDao {
 
+	private final static Logger log = LoggerFactory.getLogger(HelloBean.class);      
+	
 	@PersistenceContext
 	private EntityManager em;
 
 	@Override
 	public List<Hello> getAll() {
+		log.debug("entity manager = {}", em);
+		
 		@SuppressWarnings("unchecked")
 		List<Hello> hellos = (List<Hello>)em.createNamedQuery("allHellos").getResultList();
 		
@@ -40,12 +46,13 @@ public class HelloBean implements HelloDao {
 		try {
 			hello = (Hello)query.getSingleResult();
 		} catch (NoResultException ignored) {
+			log.error("NoResultException in helloFromUsername", ignored);
 		}
 		
 		return hello;
 	}
 
-	@TransactionAttribute
+//	@TransactionAttribute
 	@Override
 	public Hello save(Hello hello) {
 		hello = em.merge(hello);

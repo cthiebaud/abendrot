@@ -15,8 +15,13 @@ import javax.servlet.http.HttpServletRequest;
 import net.aequologica.cloud.persist.Hello;
 import net.aequologica.cloud.persist.HelloDao;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @WebFilter("/socialhello.jsp")
 public final class PersistFilter implements Filter {
+	
+	private final static Logger log = LoggerFactory.getLogger(PersistFilter.class);      
 
 	@EJB
 	HelloDao  helloDao;
@@ -29,9 +34,13 @@ public final class PersistFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		try {
 			request.setAttribute("helloDao", helloDao);
+			log.debug("request.setAttribute(\"helloDao\", {})", helloDao);
 			
 			String username = ((HttpServletRequest)request).getRemoteUser();
+			log.debug("username = {}", username);
+			
 			Hello hello = helloDao.fromUsername(username);
+			log.debug("hello = {}", hello);
 			if (hello == null) {
 				hello = new Hello();
 				hello.setUsername(username);
@@ -39,11 +48,13 @@ public final class PersistFilter implements Filter {
 				hello.bumpCounter();
 			}
 			hello = helloDao.save(hello);
+			log.debug("hello (after save)= {}", hello);
 			
 			chain.doFilter(request, response);
 			
 		} finally {
 			request.removeAttribute("helloDao");
+			log.debug("request.removeAttribute(\"helloDao\")");
 		}
 	}
 
