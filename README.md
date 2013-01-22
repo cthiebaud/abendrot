@@ -1,3 +1,5 @@
+documentation is here : http://cthiebaud.github.com/abendrot
+
 abendrot
 ========
 
