@@ -1,6 +1,8 @@
 package net.aequologica.abendrot.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import javax.ejb.EJB;
 import javax.servlet.Filter;
@@ -12,6 +14,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
+import net.aequologica.cloud.persist.Address;
 import net.aequologica.cloud.persist.Hello;
 import net.aequologica.cloud.persist.HelloDao;
 
@@ -36,19 +39,17 @@ public final class PersistFilter implements Filter {
 			request.setAttribute("helloDao", helloDao);
 			log.debug("request.setAttribute(\"helloDao\", {})", helloDao);
 			
-			String username = ((HttpServletRequest)request).getRemoteUser();
-			log.debug("username = {}", username);
-			
-			Hello hello = helloDao.fromUsername(username);
-			log.debug("hello = {}", hello);
-			if (hello == null) {
-				hello = new Hello();
-				hello.setUsername(username);
-			} else {
-				hello.bumpCounter();
+			if (request instanceof HttpServletRequest) {
+				HttpServletRequest httpServletRequest = (HttpServletRequest)request; 
+				
+				String ip       = httpServletRequest.getRemoteAddr();
+				String username = httpServletRequest.getRemoteUser();
+				
+				log.debug("ip       = {}", ip);
+				log.debug("username = {}", username);
+				
+				helloDao.sayHello(username,  ip);
 			}
-			hello = helloDao.save(hello);
-			log.debug("hello (after save)= {}", hello);
 			
 			chain.doFilter(request, response);
 			

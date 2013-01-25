@@ -5,10 +5,13 @@ import java.util.Comparator;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+
+import net.aequologica.abendrot.servlet.GeoLocator;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,6 +24,8 @@ public class HelloBean implements HelloDao {
 	@PersistenceContext
 	private EntityManager em;
 
+	private GeoLocator geoLocator = new GeoLocator();
+	
 	@Override
 	public List<Hello> getAll() {
 		log.debug("entity manager = {}", em);
@@ -39,7 +44,53 @@ public class HelloBean implements HelloDao {
 	}
 
 	@Override
-	public Hello fromUsername(String username) {
+	@TransactionAttribute
+	public Hello sayHello(String username, String ip) {
+		Hello hello = fromUsername(username);
+		/*
+		Address address = addressDao.fromIP(ip);
+		if (address == null) {
+			address = new Address();
+			address.setIp4(ip);
+			
+			geoLocator.locate(address);
+			
+			address = addressDao.save(address);
+		}
+		Collection<Address> addresses = null;
+			hello.setAddresses(addresses = new ArrayList<Address>());
+			addresses = hello.getAddresses();
+		assert(addresses != null);
+		address = new Address();
+		address.setIp4(ip);
+		geoLocator.locate(address);
+		
+		if (!addresses.contains(addresses)) {
+			addresses.add(address);
+			hello.setAddresses(addresses);
+		}
+		
+		
+		 */
+		Address address = new Address();
+		address.setIp4(ip);
+		geoLocator.locate(address);
+		
+		if (hello == null) {
+			hello = new Hello();
+			hello.setUsername(username);
+		} else {
+			hello.bumpCounter();
+		}
+		
+		hello.addAddress(address);
+		
+		hello = save(hello);
+		
+		return hello;
+	}
+	
+	private Hello fromUsername(String username) {
 		Query query = em.createNamedQuery("helloFromUsername");
 		query.setParameter("username", username);
 		Hello hello = null;
@@ -52,11 +103,27 @@ public class HelloBean implements HelloDao {
 		return hello;
 	}
 
-//	@TransactionAttribute
-	@Override
-	public Hello save(Hello hello) {
+	private Hello save(Hello hello) {
 		hello = em.merge(hello);
 		return hello;
 	}
+
+	private Address fromIP(String ip) {
+		Query query = em.createNamedQuery("addressFromIP");
+		query.setParameter("ip4", ip);
+		Address address = null;
+		try {
+			address = (Address)query.getSingleResult();
+		} catch (NoResultException ignored) {
+			log.error("NoResultException in addressFromIP", ignored);
+		}
+		
+		return address;
+	}
 	
+	private Address save(Address address) {
+		address = em.merge(address);
+		return address;
+	}
+
 }

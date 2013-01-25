@@ -25,6 +25,7 @@
           <th>how much</th>
           <th>what</th>
           <th>from</th>
+          <th>IPs</th>
         </tr>
       </thead>
       <tbody>
@@ -36,6 +37,11 @@
 			<td>${hello.counter}</td>
 			<td>hello<c:if test = "${hello.counter > 1}">(s)</c:if> from</td>
 			<td>${hello.username}</td>
+            <td>
+                <c:forEach var="address" items="${hello.addresses}" >
+                    <span>${address.ip4}</span>
+                </c:forEach>
+            </td>
 		  </tr>
         </c:forEach>
       </tbody>

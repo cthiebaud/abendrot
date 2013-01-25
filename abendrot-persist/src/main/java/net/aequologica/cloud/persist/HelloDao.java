@@ -8,6 +8,9 @@ import javax.ejb.Local;
 public interface HelloDao {
 	
 	 List<Hello> getAll();
+	 /*
 	 Hello fromUsername(String username);
 	 Hello save(Hello hello);
+	 */
+	 Hello sayHello(String username, String ip);
 }

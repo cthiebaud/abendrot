@@ -1,12 +1,15 @@
 package net.aequologica.cloud.persist;
 
 import java.sql.Timestamp;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -36,6 +39,9 @@ public class Hello {
 	@Column(name="A_TIMESTAMP", nullable=false)
     private Timestamp when;
 
+	@ManyToMany
+	private Set<Address> addresses = new HashSet<Address>(); 
+	
     public Hello() {
     	this.counter = 1;
 	}
@@ -77,4 +83,19 @@ public class Hello {
 		this.when = when;
 	}
 
+	public Set<Address> getAddresses() {
+		return addresses;
+	}
+
+	public void addAddress(Address address) {
+		if (!this.addresses.contains(address)) {
+			this.addresses.add(address);
+		}
+	}
+
+	public void removeAddress(Address address) {
+		if (!this.addresses.contains(address)) {
+			this.addresses.remove(address);
+		}
+	}
 }
