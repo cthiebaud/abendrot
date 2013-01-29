@@ -1380,24 +1380,24 @@ $ mvn clean deploy -DaltDeploymentRepository=my_repo::default::file:///tmp/my_re
                   <div class="accordion-inner">
 <pre class="linenums">
 &lt;scm&gt;
-    &lt;connection&gt;&lt;scm:git:https://github.com/cthiebaud/abendrot.git&lt;/connection&gt;
-    &lt;url&gt;&lt;scm:git:https://github.com/cthiebaud/abendrot.git&lt;/url&gt;
-    &lt;developerConnection&gt;&lt;scm:git:https://github.com/cthiebaud/abendrot.git&lt;/developerConnection&gt;
-    &lt;tag&gt;&lt;HEAD&lt;/tag&gt;
+    &lt;connection&gt;scm:git:https://github.com/cthiebaud/abendrot.git&lt;/connection&gt;
+    &lt;url&gt;scm:git:https://github.com/cthiebaud/abendrot.git&lt;/url&gt;
+    &lt;developerConnection&gt;scm:git:https://github.com/cthiebaud/abendrot.git&lt;/developerConnection&gt;
+    &lt;tag&gt;HEAD&lt;/tag&gt;
 &lt;/scm&gt;
 
 &lt;distributionManagement&gt;
     &lt;repository&gt;
-        &lt;uniqueVersion&gt;&lt;false&lt;/uniqueVersion&gt;
-        &lt;id&gt;&lt;beh_releases&lt;/id&gt;
-        &lt;url&gt;&lt;http://buildeventhub.net:8081/nexus/content/repositories/releases/&lt;/url&gt;
-        &lt;layout&gt;&lt;default&lt;/layout&gt;
+        &lt;uniqueVersion&gt;false&lt;/uniqueVersion&gt;
+        &lt;id&gt;beh_releases&lt;/id&gt;
+        &lt;url&gt;http://buildeventhub.net:8081/nexus/content/repositories/releases/&lt;/url&gt;
+        &lt;layout&gt;default&lt;/layout&gt;
     &lt;/repository&gt;
     &lt;snapshotRepository&gt;
-        &lt;uniqueVersion&gt;&lt;true&lt;/uniqueVersion&gt;
-        &lt;id&gt;&lt;beh_snapshots&lt;/id&gt;
-        &lt;url&gt;&lt;http://buildeventhub.net:8081/nexus/content/repositories/snapshots/&lt;/url&gt;
-        &lt;layout&gt;&lt;default&lt;/layout&gt;
+        &lt;uniqueVersion&gt;true&lt;/uniqueVersion&gt;
+        &lt;id&gt;beh_snapshots&lt;/id&gt;
+        &lt;url&gt;http://buildeventhub.net:8081/nexus/content/repositories/snapshots/&lt;/url&gt;
+        &lt;layout&gt;default&lt;/layout&gt;
     &lt;/snapshotRepository&gt;
 &lt;/distributionManagement&gt;
 </pre>
