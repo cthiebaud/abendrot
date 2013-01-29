@@ -1379,27 +1379,27 @@ $ mvn clean deploy -DaltDeploymentRepository=my_repo::default::file:///tmp/my_re
                 <div id="collapse-auto-release-2" class="accordion-body collapse out">
                   <div class="accordion-inner">
 <pre class="linenums">
-&lt;scm&gt;&lt;
-    &lt;connection&gt;&lt;scm:git:https://github.com/cthiebaud/abendrot.git&lt;/connection&gt;&lt;
-    &lt;url&gt;&lt;scm:git:https://github.com/cthiebaud/abendrot.git&lt;/url&gt;&lt;
-    &lt;developerConnection&gt;&lt;scm:git:https://github.com/cthiebaud/abendrot.git&lt;/developerConnection&gt;&lt;
-    &lt;tag&gt;&lt;HEAD&lt;/tag&gt;&lt;
-&lt;/scm&gt;&lt;
+&lt;scm&gt;
+    &lt;connection&gt;&lt;scm:git:https://github.com/cthiebaud/abendrot.git&lt;/connection&gt;
+    &lt;url&gt;&lt;scm:git:https://github.com/cthiebaud/abendrot.git&lt;/url&gt;
+    &lt;developerConnection&gt;&lt;scm:git:https://github.com/cthiebaud/abendrot.git&lt;/developerConnection&gt;
+    &lt;tag&gt;&lt;HEAD&lt;/tag&gt;
+&lt;/scm&gt;
 
-&lt;distributionManagement&gt;&lt;
-    &lt;repository&gt;&lt;
-        &lt;uniqueVersion&gt;&lt;false&lt;/uniqueVersion&gt;&lt;
-        &lt;id&gt;&lt;beh_releases&lt;/id&gt;&lt;
-        &lt;url&gt;&lt;http://buildeventhub.net:8081/nexus/content/repositories/releases/&lt;/url&gt;&lt;
-        &lt;layout&gt;&lt;default&lt;/layout&gt;&lt;
-    &lt;/repository&gt;&lt;
-    &lt;snapshotRepository&gt;&lt;
-        &lt;uniqueVersion&gt;&lt;true&lt;/uniqueVersion&gt;&lt;
-        &lt;id&gt;&lt;beh_snapshots&lt;/id&gt;&lt;
-        &lt;url&gt;&lt;http://buildeventhub.net:8081/nexus/content/repositories/snapshots/&lt;/url&gt;&lt;
-        &lt;layout&gt;&lt;default&lt;/layout&gt;&lt;
-    &lt;/snapshotRepository&gt;&lt;
-&lt;/distributionManagement&gt;&lt;
+&lt;distributionManagement&gt;
+    &lt;repository&gt;
+        &lt;uniqueVersion&gt;&lt;false&lt;/uniqueVersion&gt;
+        &lt;id&gt;&lt;beh_releases&lt;/id&gt;
+        &lt;url&gt;&lt;http://buildeventhub.net:8081/nexus/content/repositories/releases/&lt;/url&gt;
+        &lt;layout&gt;&lt;default&lt;/layout&gt;
+    &lt;/repository&gt;
+    &lt;snapshotRepository&gt;
+        &lt;uniqueVersion&gt;&lt;true&lt;/uniqueVersion&gt;
+        &lt;id&gt;&lt;beh_snapshots&lt;/id&gt;
+        &lt;url&gt;&lt;http://buildeventhub.net:8081/nexus/content/repositories/snapshots/&lt;/url&gt;
+        &lt;layout&gt;&lt;default&lt;/layout&gt;
+    &lt;/snapshotRepository&gt;
+&lt;/distributionManagement&gt;
 </pre>
                   </div>
                 </div>
