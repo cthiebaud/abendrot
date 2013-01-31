@@ -35,6 +35,18 @@ accordion-heading:hover {
   margin-bottom:  0;
 }
 
+ul#done {
+   list-style-image: url(icons/caracteristica_icon.png);
+}
+ul#coming-soon {
+   list-style-image: url(icons/icon_comingsoon_sml.jpg);
+}
+li {
+  vertical-align: top;
+}
+
+
+
 /* BEGIN twitter bootstrap overrides */
 
 body {
