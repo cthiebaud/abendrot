@@ -11,7 +11,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import net.aequologica.abendrot.servlet.GeoLocator;
+import net.aequologica.cloud.servlet.GeoLocator;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

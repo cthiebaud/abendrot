@@ -1,4 +1,4 @@
-package net.aequologica.abendrot.servlet;
+package net.aequologica.cloud.servlet;
 
 import java.net.URL;
 import java.net.URLConnection;
