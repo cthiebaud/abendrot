@@ -37,7 +37,6 @@
 			<version>${javax.servlet.jsp.jstl-api.version}</version>
 			<scope>provided</scope>
 		</dependency>
-
         <!-- Required for compilation and required at runtime (additional web application libraries) -->
         <dependency>
             <groupId>com.sap.security.core.server</groupId>
@@ -87,7 +86,7 @@
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
 				<configuration>
-				    <warName>${project.artifactId}</warName>
+				    <!-- warName>${project.artifactId}</warName -->
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
 			</plugin>
