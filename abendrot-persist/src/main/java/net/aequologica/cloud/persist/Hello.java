@@ -89,12 +89,14 @@ public class Hello {
 
 	public void addAddress(Address address) {
 		if (!this.addresses.contains(address)) {
+			address.addHello(this);
 			this.addresses.add(address);
 		}
 	}
 
 	public void removeAddress(Address address) {
 		if (!this.addresses.contains(address)) {
+			address.removeHello(this);
 			this.addresses.remove(address);
 		}
 	}

@@ -1,8 +1,6 @@
 package net.aequologica.abendrot.servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
 
 import javax.ejb.EJB;
 import javax.servlet.Filter;
@@ -14,8 +12,6 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
-import net.aequologica.cloud.persist.Address;
-import net.aequologica.cloud.persist.Hello;
 import net.aequologica.cloud.persist.HelloDao;
 
 import org.slf4j.Logger;

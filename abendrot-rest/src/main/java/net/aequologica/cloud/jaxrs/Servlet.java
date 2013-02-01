@@ -8,7 +8,11 @@ import org.glassfish.jersey.servlet.ServletContainer;
 
 @WebServlet( 
 	urlPatterns = "/resources/*" , 
-	initParams 	= @WebInitParam(name = "javax.ws.rs.Application", value = "net.aequologica.cloud.jaxrs.Application"))					
+	initParams 	= {
+			@WebInitParam(name = "javax.ws.rs.Application", value = "net.aequologica.cloud.jaxrs.Application"),
+			@WebInitParam(name = "com.sun.jersey.api.json.POJOMappingFeature", value = "true")			
+	}
+)
 public class Servlet extends ServletContainer {
 
 	private static final long serialVersionUID = -7330108202178070064L;

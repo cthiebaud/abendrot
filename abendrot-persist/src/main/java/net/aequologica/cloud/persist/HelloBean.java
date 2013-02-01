@@ -83,7 +83,7 @@ public class HelloBean implements HelloDao {
 			hello.bumpCounter();
 		}
 		
-		hello.addAddress(address);
+		// hello.addAddress(address);
 		
 		hello = save(hello);
 		
@@ -106,24 +106,6 @@ public class HelloBean implements HelloDao {
 	private Hello save(Hello hello) {
 		hello = em.merge(hello);
 		return hello;
-	}
-
-	private Address fromIP(String ip) {
-		Query query = em.createNamedQuery("addressFromIP");
-		query.setParameter("ip4", ip);
-		Address address = null;
-		try {
-			address = (Address)query.getSingleResult();
-		} catch (NoResultException ignored) {
-			log.error("NoResultException in addressFromIP", ignored);
-		}
-		
-		return address;
-	}
-	
-	private Address save(Address address) {
-		address = em.merge(address);
-		return address;
 	}
 
 }

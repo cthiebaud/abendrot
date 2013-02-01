@@ -13,6 +13,7 @@ public class Application extends javax.ws.rs.core.Application {
 			final Set<Class<?>> classes = new HashSet<>();
 
 			classes.add(Resource.class);
+			// classes.add(ResourceComplex.class);
 
 			return classes;
 		}
