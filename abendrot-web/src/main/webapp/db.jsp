@@ -79,7 +79,7 @@
                     if (tables != null) {
                       try {
                         tables.close();
-                      } catch (java.lang.Error ignored) {
+                      } catch (java.sql.SQLException ignored) {
                       }
                     }
                   } %>                
@@ -93,7 +93,7 @@
             if (connection != null) {
               try {
                 connection.close();
-              } catch (java.lang.Error ignored) {
+              } catch (java.sql.SQLException ignored) {
               }
             }
           } %>
