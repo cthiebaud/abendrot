@@ -54,17 +54,35 @@ Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
 [INFO] 
 [INFO] --- maven-deploy-plugin:2.7:deploy (default-deploy) @ abendrot ---
 Downloading: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/0.0.3-SNAPSHOT/maven-metadata.xml
-773/773 B               Downloaded: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/0.0.3-SNAPSHOT/maven-metadata.xml (773 B at 2.2 KB/sec)
+773/773 B   
+            
+Downloaded: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/0.0.3-SNAPSHOT/maven-metadata.xml (773 B at 2.2 KB/sec)
 Uploading: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/0.0.3-SNAPSHOT/abendrot-0.0.3-20121111.200739-6.war
-2/9 KB      4/9 KB   6/9 KB   8/9 KB   9/9 KB            Uploaded: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/0.0.3-SNAPSHOT/abendrot-0.0.3-20121111.200739-6.war (9 KB at 14.5 KB/sec)
+2/9 KB      
+4/9 KB   
+6/9 KB   
+8/9 KB   
+9/9 KB   
+         
+Uploaded: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/0.0.3-SNAPSHOT/abendrot-0.0.3-20121111.200739-6.war (9 KB at 14.5 KB/sec)
 Uploading: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/0.0.3-SNAPSHOT/abendrot-0.0.3-20121111.200739-6.pom
-2/6 KB   4/6 KB   6/6 KB            Uploaded: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/0.0.3-SNAPSHOT/abendrot-0.0.3-20121111.200739-6.pom (6 KB at 15.1 KB/sec)
+2/6 KB   
+4/6 KB   
+6/6 KB   
+         
+Uploaded: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/0.0.3-SNAPSHOT/abendrot-0.0.3-20121111.200739-6.pom (6 KB at 15.1 KB/sec)
 Downloading: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/maven-metadata.xml
-323/323 B               Downloaded: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/maven-metadata.xml (323 B at 1.8 KB/sec)
+323/323 B   
+            
+Downloaded: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/maven-metadata.xml (323 B at 1.8 KB/sec)
 Uploading: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/0.0.3-SNAPSHOT/maven-metadata.xml
-773/773 B               Uploaded: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/0.0.3-SNAPSHOT/maven-metadata.xml (773 B at 1.7 KB/sec)
+773/773 B   
+            
+Uploaded: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/0.0.3-SNAPSHOT/maven-metadata.xml (773 B at 1.7 KB/sec)
 Uploading: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/maven-metadata.xml
-323/323 B               Uploaded: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/maven-metadata.xml (323 B at 1.2 KB/sec)
+323/323 B   
+            
+Uploaded: http://buildeventhub.net:8081/nexus/content/repositories/snapshots/net/aequologica/abendrot/maven-metadata.xml (323 B at 1.2 KB/sec)
 [INFO] 
 [INFO] --- nwcloud-maven-plugin:1.0.2:stop (after.package) @ abendrot ---
 
@@ -76,11 +94,11 @@ stop:
      [java] 
      [java] Requesting stop for:
      [java]    application: abendrot
-     [java]    account    : p1630844092trial
+     [java]    account    : p1742770407trial
      [java]    host       : https://nwtrial.ondemand.com
      [java]    synchronous: true
      [java]    SDK version: 1.12.0
-     [java]    user       : p1630844092
+     [java]    user       : p1742770407
      [java] 
      [java] 
      [java] Stop request performed successfully.
@@ -104,14 +122,14 @@ deploy:
      [java] 
      [java] Requesting deployment for:
      [java]    application    : abendrot
-     [java]    account        : p1630844092trial
+     [java]    account        : p1742770407trial
      [java]    source         : c:/^/abendrot-release/target/abendrot.war
      [java]    JVM version    : 7
      [java]    elasticity data: [1 .. 1]
      [java]    severity       : ERROR
      [java]    host           : https://nwtrial.ondemand.com
      [java]    SDK version    : 1.12.0
-     [java]    user           : p1630844092
+     [java]    user           : p1742770407
      [java] 
      [java] 
      [java] Deployment finished successfully.
@@ -127,11 +145,11 @@ start:
      [java] 
      [java] Requesting start for:
      [java]    application: abendrot
-     [java]    account    : p1630844092trial
+     [java]    account    : p1742770407trial
      [java]    host       : https://nwtrial.ondemand.com
      [java]    synchronous: true
      [java]    SDK version: 1.12.0
-     [java]    user       : p1630844092
+     [java]    user       : p1742770407
      [java] 
      [java] 
      [java] Start request performed successfully.
