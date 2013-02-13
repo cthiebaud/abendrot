@@ -5,9 +5,11 @@
 <meta name="keywords"    content="Christophe Thiébaud, SAP, NetWeaver, Cloud, Tutorial">
 
 <!-- Bootstrap CSS -->
-<link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href='<%= org.webjars.AssetLocator.getWebJarPath("css/bootstrap.min.css") %>'>
 <!-- DataTables CSS -->
-<link rel="stylesheet" type="text/css" href="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
+<link rel="stylesheet" type="text/css" href='<%= org.webjars.AssetLocator.getWebJarPath("media/css/jquery.dataTables.css") %>'>
+<!-- DataTables bootstrap plugin CSS -->
+<link rel="stylesheet" type="text/css" href='<%= org.webjars.AssetLocator.getWebJarPath("integration/bootstrap/dataTables.bootstrap.css") %>'>
 
 <style type="text/css">
 body {

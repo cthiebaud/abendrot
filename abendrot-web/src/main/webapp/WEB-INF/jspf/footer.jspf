@@ -1,7 +1,8 @@
+<!-- jQuery --> 
+<script type="text/javascript" charset="utf8" src='<%= org.webjars.AssetLocator.getWebJarPath("jquery.min.js") %>'></script>
 <!-- Bootstrap -->
-<script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
-<!-- jQuery -->
-<script type="text/javascript" charset="utf8" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js"></script>
-<!-- DataTables -->
-<script type="text/javascript" charset="utf8" src="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
-
+<script type="text/javascript" charset="utf8" src='<%= org.webjars.AssetLocator.getWebJarPath("js/bootstrap.js") %>'></script>
+<!-- DataTables --> 
+<script type="text/javascript" charset="utf8" src='<%= org.webjars.AssetLocator.getWebJarPath("media/js/jquery.dataTables.min.js") %>'></script>
+<!-- DataTables bootstrap plugin -->
+<script type="text/javascript" charset="utf8" src='<%= org.webjars.AssetLocator.getWebJarPath("integration/bootstrap/dataTables.bootstrap.js") %>'></script>
