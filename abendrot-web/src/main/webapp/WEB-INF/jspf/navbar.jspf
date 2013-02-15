@@ -21,6 +21,9 @@
             <a href="./whoami.jsp">Who Am I ?</a>
           </li>
           <li>
+            <a href="./rest.jsp">REST</a>
+          </li>
+          <li>
             <a href="./db.jsp">${applicationScope.databaseProductName}</a>
           </li>
           <li>

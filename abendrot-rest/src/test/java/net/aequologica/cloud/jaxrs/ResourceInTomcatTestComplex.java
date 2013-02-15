@@ -53,4 +53,30 @@ public class ResourceInTomcatTestComplex extends ResourceInTomcatTestAbstract {
 		assertEquals(new Output(), output);
 	}
 
+	public static void main(String[] args) throws Exception {
+		// cf. https://github.com/AsyncHttpClient/async-http-client
+		SimpleAsyncHttpClient asyncHttpClient = new SimpleAsyncHttpClient.Builder()
+				.setUrl("http://localhost:9876/abendrot-web/resources/complex")
+				.addHeader("Accept", "application/json")
+				.addHeader("Content-Type", "application/json")
+				.build();
+		
+		Input input = new Input();
+		StringWriter sw = new StringWriter();
+		mapper.writeValue(sw, input);
+		System.out.println("% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %");
+		System.out.println(sw.toString());
+		System.out.println("% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %");
+
+		BodyGenerator bd = new ByteArrayBodyGenerator(sw.toString().getBytes("UTF8")); 		
+		Future<Response> f = asyncHttpClient.post(bd);
+		Response r = f.get();
+
+		System.out.println(r.getStatusCode());
+		if (r.getStatusCode() == 200) {
+			Output output = mapper.readValue(r.getResponseBody(), Output.class); 
+			System.out.println(output);
+		}
+	}
+	
 }

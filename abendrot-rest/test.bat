@@ -1,0 +1,1 @@
+curl -X POST -d @input.json --header "Content-Type:application/json" http://localhost:9876/abendrot-web/resources/complex

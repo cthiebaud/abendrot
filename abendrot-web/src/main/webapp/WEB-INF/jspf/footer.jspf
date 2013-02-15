@@ -1,8 +1,11 @@
-<!-- jQuery --> 
+<!-- jQuery http://jquery.com/ --> 
 <script type="text/javascript" charset="utf8" src='<%= org.webjars.AssetLocator.getWebJarPath("jquery.min.js") %>'></script>
-<!-- Bootstrap -->
+<!-- Bootstrap http://twitter.github.com/bootstrap/ -->
 <script type="text/javascript" charset="utf8" src='<%= org.webjars.AssetLocator.getWebJarPath("js/bootstrap.js") %>'></script>
-<!-- DataTables --> 
+<!-- DataTables http://www.datatables.net/ --> 
 <script type="text/javascript" charset="utf8" src='<%= org.webjars.AssetLocator.getWebJarPath("media/js/jquery.dataTables.min.js") %>'></script>
-<!-- DataTables bootstrap plugin -->
+<!-- DataTables bootstrap plugin https://github.com/DataTables/Plugins/tree/master/integration/bootstrap -->
 <script type="text/javascript" charset="utf8" src='<%= org.webjars.AssetLocator.getWebJarPath("integration/bootstrap/dataTables.bootstrap.js") %>'></script>
+<!-- Moment http://momentjs.com/ -->
+<script type="text/javascript" charset="utf8" src='<%= org.webjars.AssetLocator.getWebJarPath("moment.js") %>'></script>
+
