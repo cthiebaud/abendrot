@@ -861,6 +861,24 @@ $ mvn clean install
             <strong>Done!</strong> You do not need anything else. The Jackson JSON provider is annotated with <code>@javax.ws.rs.ext.Provider</code>, and will be automatically detected.
             </p>
 
+              <div class="alert alert-block media unstyled">
+                <img src="icons/warnings_thumb.png" class="pull-left">
+                <img src="images/mzm.wpmgstwx.175x175-75.jpg" class="pull-right">
+                <div class="media-body">
+                    <p>
+                      Alas, <code><a href="https://github.com/FasterXML/jackson-jaxrs-json-provider">jackson-jaxrs-json-provider</a></code> is not compatible with SAP NetWeaver Cloud SDK <strong>version 2</strong> (currently in beta mode at the time of this writing). 
+                    </p>
+                    <p>
+                      Fortunately, you can use <code><a href="https://code.google.com/p/google-gson/">gson</a></code> as an alternative, although it requires a little bit more coding. 
+                    </p>
+
+                      Have a look at abendrot 
+                        <code><a href="https://github.com/cthiebaud/abendrot/blob/df8a47d02993504c290d014e6671764faf9ee991/abendrot-rest/src/main/java/net/aequologica/cloud/jaxrs/util/GsonMessageBodyHandler.java">GsonMessageBodyHandler.java</a></code>,
+                    borrowed from the great SAP <span class="label label-success">Paul Predicts</span> application, available on <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&ved=0CDQQFjAA&url=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fpaulpredicts%2Fid501014029%3Fmt%3D8&ei=T18eUcCELIvktQbopIDQDA&usg=AFQjCNEwH_W2hEogkRdQyBgdR5m38tZT0g&sig2=2VMiNKANsVUxTzHuOg4gVQ&bvm=bv.42553238,d.Yms">iTunes</a>, and open sourced on <a href="https://github.com/sapnwcloud/paulpredicts">github</a>.
+                </div>
+              </div>
+
+
             <p>Say you have a POJO such as 
 <pre class="prettyprint linenums java">
 public class HelloWorld {
