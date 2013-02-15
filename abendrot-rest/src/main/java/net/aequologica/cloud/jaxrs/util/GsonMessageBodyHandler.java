@@ -1,5 +1,9 @@
 package net.aequologica.cloud.jaxrs.util;
 
+/**
+ * borrowed from https://github.com/sapnwcloud/paulpredicts/blob/master/src/main/java/com/sap/pto/services/util/GsonMessageBodyHandler.java
+ */
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
