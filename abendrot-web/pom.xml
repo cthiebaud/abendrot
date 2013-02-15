@@ -35,12 +35,13 @@
 			<groupId>javax.servlet.jsp.jstl</groupId>
 			<artifactId>javax.servlet.jsp.jstl-api</artifactId>
 			<version>${javax.servlet.jsp.jstl-api.version}</version>
-			<!-- scope>provided</scope-->
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 		    <groupId>org.glassfish.web</groupId>
 		    <artifactId>javax.servlet.jsp.jstl</artifactId>
 		    <version>1.2.2</version>
+			<scope>provided</scope>
 		</dependency>		
         <!-- Required for compilation and required at runtime (additional web application libraries) -->
         <dependency>
