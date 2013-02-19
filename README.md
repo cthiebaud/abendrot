@@ -1,4 +1,6 @@
-documentation is here : http://cthiebaud.github.com/abendrot
+sources are here : http://src.abendrot.org
+
+documentation is here : http://doc.abendrot.org
 
 application is live here : http://www.abendrot.org
 
