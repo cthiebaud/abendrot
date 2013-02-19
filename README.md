@@ -1,5 +1,7 @@
 documentation is here : http://cthiebaud.github.com/abendrot
 
+application is live here : http://www.abendrot.org
+
 abendrot
 ========
 
