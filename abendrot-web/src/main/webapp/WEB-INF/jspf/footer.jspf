@@ -9,7 +9,6 @@
 <!-- Moment http://momentjs.com/ -->
 <script type="text/javascript" charset="utf8" src='<%= org.webjars.AssetLocator.getWebJarPath("moment.js") %>'></script>
 
-<!-- 
 <script type="text/javascript">
 var clickstream = {
     pubToken: 'cES3TiUnYwQsE8Gm', 
@@ -21,4 +20,3 @@ var clickstream = {
 clickstream.jsNode.src = 'https://clickstreamdst01.prod.jpaas.sapbydesign.com/clickStream/js/' + clickstream.scriptName;
 clickstream.appTarg.appendChild(clickstream.jsNode);
 </script>
--->
