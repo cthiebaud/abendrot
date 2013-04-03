@@ -66,7 +66,7 @@ stop:
      [java] Requesting stop for:
      [java]    application: abendrot
      [java]    account    : p1742770407trial
-     [java]    host       : https://nwtrial.ondemand.com
+     [java]    host       : https://hanatrial.ondemand.com
      [java]    synchronous: true
      [java]    SDK version: 1.12.0
      [java]    user       : p1742770407
@@ -98,7 +98,7 @@ deploy:
      [java]    JVM version    : 7
      [java]    elasticity data: [1 .. 1]
      [java]    severity       : ERROR
-     [java]    host           : https://nwtrial.ondemand.com
+     [java]    host           : https://hanatrial.ondemand.com
      [java]    SDK version    : 1.12.0
      [java]    user           : p1742770407
      [java] 
@@ -117,7 +117,7 @@ start:
      [java] Requesting start for:
      [java]    application: abendrot
      [java]    account    : p1742770407trial
-     [java]    host       : https://nwtrial.ondemand.com
+     [java]    host       : https://hanatrial.ondemand.com
      [java]    synchronous: true
      [java]    SDK version: 1.12.0
      [java]    user       : p1742770407
@@ -135,10 +135,10 @@ start:
      [java] [Fri Nov 09 23:55:49 CET 2012] Reached STARTED status
      [java] web: STARTED
      [java] 
-     [java] URL: https://abendrotp1742770407trial.nwtrial.ondemand.com
+     [java] URL: https://abendrotp1742770407trial.hanatrial.ondemand.com
      [java] 
      [java] Access points:
-     [java]   https://abendrotp1742770407trial.nwtrial.ondemand.com
+     [java]   https://abendrotp1742770407trial.hanatrial.ondemand.com
      [java] 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
