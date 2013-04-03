@@ -941,7 +941,7 @@ jdk:
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    <p><span>There is a <a href="https://github.com/sapnwcloudlabs/nwcloud-maven-plugin">SAP HANA Cloud Maven Plugin</a> named <code>nwcloud-maven-plugin</code> on Github ! It has been developed by SAP Research, but it is not included in HANA Cloud distribution. The reason for it being that SAP HANA Cloud is build tool agnostic, as already mentionned.</span></p>
+                    <p><span>There is a <a href="https://github.com/SAP/cloud-maven-plugin">SAP HANA Cloud Deployment Plugin for Maven</a> named <code>nwcloud-maven-plugin</code> on Github ! It has been developed by SAP Research, but it is not included in HANA Cloud distribution. The reason for it being that SAP HANA Cloud is build tool agnostic, as already mentionned.</span></p>
                     <p><span>There does not seem to be any public version of the <code>nwcloud-maven-plugin</code> binaries, at least not in any well known repository such as <a href="http://search.maven.org/">maven central</a>, therefore, to use it, one must build it.</span>
                     <span>That's what I did, build worked like a charm: version 1.0.1.RELEASE is published to <a href="http://buildeventhub.net:8081/nexus/content/repositories/releases/com/sap/research/nwcloud-maven-plugin/1.0.1.RELEASE/">my personal public nexus repositoy</a>.</span>
                     <span>Even if compiling the plugin was a snap, you may not want to go through the exercice. Include the <code>pluginRepositories</code> section below in your pom.xml, your maven build will directly grab <code>nwcloud-maven-plugin</code> binaries  from my personal nexus repository, no need to compile.</span></p>
@@ -979,9 +979,9 @@ jdk:
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    <span>Configuration of <code>nwcloud-maven-plugin</code> is done through a <code>nwcloud.properties</code> file. This is well documented in the <a href="https://github.com/sapnwcloudlabs/nwcloud-maven-plugin/blob/master/README.md">plugin documentation</a>. Since version 1.0.1.RELEASE, it isn't necessary to include the HANA Cloud account password in the <code>nwcloud.properties</code> file; 
+                    <span>Configuration of <code>nwcloud-maven-plugin</code> is done through a <code>nwcloud.properties</code> file. This is well documented in the <a href="https://github.com/SAP/cloud-maven-plugin/blob/master/README.md">plugin documentation</a>. Since version 1.0.1.RELEASE, it isn't necessary to include the HANA Cloud account password in the <code>nwcloud.properties</code> file; 
                       credential can be stored in the user home, à la maven, in the ~/.m2/settings.xml maven file; just follow the the 
-                      <a href="https://github.com/sapnwcloudlabs/nwcloud-maven-plugin/blob/master/README.md#using-encrypted-passwords">Using encrypted passwords</a> section of the documentation for the complete how-to.
+                      <a href="https://github.com/SAP/cloud-maven-plugin/blob/master/README.md#using-encrypted-passwords">Using encrypted passwords</a> section of the documentation for the complete how-to.
 
                       If you choose to keep the password in the <code>nwcloud.properties</code> file, to avoid submitting inadvertently your <strong>private</strong> password to your <strong>public</strong> github, you should include immediately nwcloud.properties in .gitignore, commit localy and push to remote. </span>
                     <a class="accordion-toggle btn btn-link" data-toggle="collapse" data-parent="#accordion-auto-deploy" href="#collapse-auto-deploy-1"><i class="icon-chevron-right"></i></a>
@@ -1338,7 +1338,7 @@ $ mvn clean deploy -DaltDeploymentRepository=my_repo::default::file:///tmp/my_re
                 <span class="thumbnail"><img src="./icons/little-rabbit-in-a-top-magic-hat-isolated-on-a-white-background.jpg" alt=""></span>
               </li>
               <div class="lead">We are nearly done. Last-but-not-least step is to automate the release of <strong>abendrot</strong>. 
-                After <code><a href="https://github.com/sapnwcloudlabs/nwcloud-maven-plugin">nwcloud-maven-plugin</a></code> 
+                After <code><a href="https://github.com/SAP/cloud-maven-plugin">nwcloud-maven-plugin</a></code> 
                 and <code><a href="https://github.com/ktoso/maven-git-commit-id-plugin">git-commit-id-plugin</a></code>, 
                 enters our last maven magic trick, <code><a href="https://github.com/apache/maven-release">maven-release-plugin</a></code>.</div>
             </ul>
