@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title>abendrot | index</title>
     <meta name="viewport"    content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="SAP NetWeaver Cloud Tutorial">
-    <meta name="keywords"    content="SAP, NetWeaver, Cloud, Tutorial">
+    <meta name="description" content="SAP HANA Cloud Tutorial">
+    <meta name="keywords"    content="SAP, HANA, Cloud, Tutorial">
     <meta name="author"      content="Christophe Thiébaud">
 
     <!-- Le styles -->
@@ -81,13 +81,13 @@
     <div class="row">
       <div class="span3 bs-docs-sidebar">
         <ul class="nav nav-list bs-docs-sidenav affix-top">
-          <li class="active"><a href="#setup-nwcloud">   <i class="icon-chevron-right"></i> Setup SAP NetWeaver Cloud</a></li>
+          <li class="active"><a href="#setup-nwcloud">   <i class="icon-chevron-right"></i> Setup SAP HANA Cloud</a></li>
           <li class=""><a href="#install-maven-and-git"> <i class="icon-chevron-right"></i> Install Maven and Git</a></li>
           <li class=""><a href="#create-github-repo">    <i class="icon-chevron-right"></i> Create Github Repository</a></li>
           <li class=""><a href="#create-eclipse-project"><i class="icon-chevron-right"></i> Create Eclipse Project</a></li>
           <li class=""><a href="#create-content">        <i class="icon-chevron-right"></i> Create Content</a></li>
           <li class=""><a href="#run-local-tomcat">      <i class="icon-chevron-right"></i> Run on local Tomcat</a></li>
-          <li class=""><a href="#run-nwcloud">           <i class="icon-chevron-right"></i> Run on NetWeaver Cloud</a></li>
+          <li class=""><a href="#run-nwcloud">           <i class="icon-chevron-right"></i> Run on HANA Cloud</a></li>
           <li class=""><a href="#egit">                  <i class="icon-chevron-right"></i> Submit to Github</a></li>
           <li class=""><a href="#travis-ci">             <i class="icon-chevron-right"></i> Continously Integrate</a></li>
           <li class=""><a href="#auto-deploy">           <i class="icon-chevron-right"></i> Automate Deploy</a></li>
@@ -100,11 +100,11 @@
       </div>
       <div class="span9">
 
-        <!-- Setup SAP NetWeaver Cloud
+        <!-- Setup SAP HANA Cloud
         ================================================== -->
         <section id="setup-nwcloud">
           <div class="page-header">
-            <h1>1. Setup SAP NetWeaver Cloud</h1>
+            <h1>1. Setup SAP HANA Cloud</h1>
           </div>
           <div class="row-fluid">
             <ul class="thumbnails">
@@ -113,7 +113,7 @@
                     <img src="icons/sap-logo-without-trademark-150x150.png" alt="">
                 </a>
               </li>
-              <div class="lead"><a href="https://www.sdn.sap.com/irj/scn/register">Register</a> <strong>free</strong> to <a href="https://www.sdn.sap.com">SAP Community Network</a> as a public user. Open <a href="http://scn.sap.com/community/developer-center/cloud-platform">SAP NetWeaver Cloud Developer Center</a>, get your <strong>free</strong> developer edition, and perform all the steps covered under the "Step by step" section.</div>
+              <div class="lead"><a href="https://www.sdn.sap.com/irj/scn/register">Register</a> <strong>free</strong> to <a href="https://www.sdn.sap.com">SAP Community Network</a> as a public user. Open <a href="http://scn.sap.com/community/developer-center/cloud-platform">SAP HANA Cloud Developer Center</a>, get your <strong>free</strong> developer edition, and perform all the steps covered under the "Step by step" section.</div>
             </ul>              
 
             <div class="accordion" id="accordion-setup-nwcloud">
@@ -148,10 +148,10 @@
                     <img src="icons/open_source-150x150.jpg" alt="">
                 </a>
               </li>
-              <div class="lead">SAP NetWeaver Cloud is <em>build technology</em> and <em>source code management system</em> agnostic, 
+              <div class="lead">SAP HANA Cloud is <em>build technology</em> and <em>source code management system</em> agnostic, 
                 hence these two topics are not covered in the step by step guide of section 1. of this tutorial. 
                 <strong>abendrot</strong> uses <strong>maven</strong> as build technology and <strong>git</strong> as source code management system. 
-                You have to update SAP NetWeaver Cloud eclipse environment installed in section 1. of this tutorial:
+                You have to update SAP HANA Cloud eclipse environment installed in section 1. of this tutorial:
               </div>
             </ul>              
 
@@ -186,7 +186,7 @@
                     <img src="icons/octocat-150x150.png" alt="">
                 </a>
               </li>
-              <div class="lead"><strong>abendrot</strong> is a tutorial on how to write a SAP NetWeaver Cloud application. You will use a github repository to host and monitor your work. 
+              <div class="lead"><strong>abendrot</strong> is a tutorial on how to write a SAP HANA Cloud application. You will use a github repository to host and monitor your work. 
                 You may want clone <strong>abendrot</strong> itself to another directory. 
                 You may then use your favorite compare tool - mine is <a href="http://www.scootersoftware.com/">Beyond Compare</a> - to diff the two directories at various stages of the tutorial.</div>
             </ul>              
@@ -547,16 +547,16 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
                     <img src="icons/apache-tomcat-150x150.png" alt="">
                 </a>
               </li>
-              <div class="lead">We will run the 'Hello World' index.html page on three different servers: 1. a plain Tomcat, 2. a local test server for SAP NetWeaver Cloud, and 3. the actual SAP NetWeaver Cloud on the internet.</div>
+              <div class="lead">We will run the 'Hello World' index.html page on three different servers: 1. a plain Tomcat, 2. a local test server for SAP HANA Cloud, and 3. the actual SAP HANA Cloud on the internet.</div>
             </ul>
 
             <div class="alert alert-block media unstyled">
               <img src="images/infoicon70.png" class="pull-left">
               <div class="media-body">
-                  'Official' SAP NetWeaver Cloud tutorials are usually targetting only NetWeaver Cloud servers 2. (local) and 3. (on the cloud). We need server 1. (plain Tomcat) for two reasons:
+                  'Official' SAP HANA Cloud tutorials are usually targetting only HANA Cloud servers 2. (local) and 3. (on the cloud). We need server 1. (plain Tomcat) for two reasons:
                   <ol>
-                    <li>We aim to have zero coupling with SAP NetWeaver Cloud proprietary APIs. Tomcat plain server will tell us if we have.</li>
-                    <li>The development cycle with Tomcat is still faster than with SAP NetWeaver Cloud local test server.</li>
+                    <li>We aim to have zero coupling with SAP HANA Cloud proprietary APIs. Tomcat plain server will tell us if we have.</li>
+                    <li>The development cycle with Tomcat is still faster than with SAP HANA Cloud local test server.</li>
                   </ol>
               </div>
             </div>
@@ -646,11 +646,11 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
         <!--
         ================================================== -->        
 
-        <!-- Run on NetWeaver Cloud
+        <!-- Run on HANA Cloud
         ================================================== -->
         <section id="run-nwcloud">
           <div class="page-header">
-            <h1>7. Run on NetWeaver Cloud</h1>
+            <h1>7. Run on HANA Cloud</h1>
           </div>
           <div class="row-fluid">
             <ul class="thumbnails">
@@ -658,9 +658,9 @@ $ git checkout 4d427b99f3b60947e3535e045cdf4b35f979ed7f
                 <span class="thumbnail">
                 <img src="icons/cloud-150x113.png" alt="">
               </li>
-              <div class="lead">Steps to run on both local and remote NetWeaver Cloud are fully documented in the 
-                '<a href="https://help.netweaver.ondemand.com/help/frameset.htm?e5f57785bb571014be2afed4838b9114.html">Deploying from the Eclipse IDE</a>' 
-                page of the SAP NetWeaver Cloud Developer Center. Just use 'index.html' instead of 'HelloWorldServlet'.
+              <div class="lead">Steps to run on both local and remote SAP HANA Cloud are fully documented in the 
+                '<a href="https://help.hana.ondemand.com/help/frameset.htm?e5f57785bb571014be2afed4838b9114.html">Deploying from the Eclipse IDE</a>' 
+                page of the SAP HANA Cloud Developer Center. Just use 'index.html' instead of 'HelloWorldServlet'.
               </div>
             </ul>
           </div>
@@ -933,7 +933,7 @@ jdk:
                     <img src="icons/robot-150x150.jpg" alt="">
                 </a>
               </li>
-              <div class="lead">In a previous step, we saw how easy it was to deploy from Eclipse to the Cloud. For automated, unattended deployment, SAP NetWeaver Cloud comes with a <a href="https://help.netweaver.ondemand.com/default.htm?deploy_console.html#concept_CA421D77C6184898B157103613C99A96_85">powerful command-line interface</a>. 
+              <div class="lead">In a previous step, we saw how easy it was to deploy from Eclipse to the Cloud. For automated, unattended deployment, SAP HANA Cloud comes with a <a href="https://help.hana.ondemand.com/default.htm?deploy_console.html#concept_CA421D77C6184898B157103613C99A96_85">powerful command-line interface</a>. 
               I'd like to show here a third way : how to perform unattended deployment with maven</div>
             </ul>
 
@@ -941,7 +941,7 @@ jdk:
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    <p><span>There is a <a href="https://github.com/sapnwcloudlabs/nwcloud-maven-plugin">SAP NetWeaver Cloud Maven Plugin</a> named <code>nwcloud-maven-plugin</code> on Github ! It has been developed by SAP Research, but it is not included in NetWeaver Cloud distribution. The reason for it being that SAP NetWeaver Cloud is build tool agnostic, as already mentionned.</span></p>
+                    <p><span>There is a <a href="https://github.com/sapnwcloudlabs/nwcloud-maven-plugin">SAP HANA Cloud Maven Plugin</a> named <code>nwcloud-maven-plugin</code> on Github ! It has been developed by SAP Research, but it is not included in HANA Cloud distribution. The reason for it being that SAP HANA Cloud is build tool agnostic, as already mentionned.</span></p>
                     <p><span>There does not seem to be any public version of the <code>nwcloud-maven-plugin</code> binaries, at least not in any well known repository such as <a href="http://search.maven.org/">maven central</a>, therefore, to use it, one must build it.</span>
                     <span>That's what I did, build worked like a charm: version 1.0.1.RELEASE is published to <a href="http://buildeventhub.net:8081/nexus/content/repositories/releases/com/sap/research/nwcloud-maven-plugin/1.0.1.RELEASE/">my personal public nexus repositoy</a>.</span>
                     <span>Even if compiling the plugin was a snap, you may not want to go through the exercice. Include the <code>pluginRepositories</code> section below in your pom.xml, your maven build will directly grab <code>nwcloud-maven-plugin</code> binaries  from my personal nexus repository, no need to compile.</span></p>
@@ -979,7 +979,7 @@ jdk:
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    <span>Configuration of <code>nwcloud-maven-plugin</code> is done through a <code>nwcloud.properties</code> file. This is well documented in the <a href="https://github.com/sapnwcloudlabs/nwcloud-maven-plugin/blob/master/README.md">plugin documentation</a>. Since version 1.0.1.RELEASE, it isn't necessary to include the NetWeaver Cloud account password in the <code>nwcloud.properties</code> file; 
+                    <span>Configuration of <code>nwcloud-maven-plugin</code> is done through a <code>nwcloud.properties</code> file. This is well documented in the <a href="https://github.com/sapnwcloudlabs/nwcloud-maven-plugin/blob/master/README.md">plugin documentation</a>. Since version 1.0.1.RELEASE, it isn't necessary to include the HANA Cloud account password in the <code>nwcloud.properties</code> file; 
                       credential can be stored in the user home, à la maven, in the ~/.m2/settings.xml maven file; just follow the the 
                       <a href="https://github.com/sapnwcloudlabs/nwcloud-maven-plugin/blob/master/README.md#using-encrypted-passwords">Using encrypted passwords</a> section of the documentation for the complete how-to.
 
@@ -1013,13 +1013,13 @@ jdk:
                     <p><code>nwcloud.properties</code>
 <pre class="prettyprint linenums">
 # =============================================================================
-# SAP NetWeaver Cloud - Deployment Configuration
+# SAP HANA Cloud - Deployment Configuration
 # =============================================================================
 
 # -----------------------------------------------------------------------------
 # Location of Neo SDK
 # -----------------------------------------------------------------------------
-#  - Download Neo SDK from: https://tools.netweaver.ondemand.com/
+#  - Download Neo SDK from: https://tools.hana.ondemand.com/
 #  - Extract Neo SDK to a directory and specify its path in sdk.dir setting.
 #     - Windows users: Please use double backslash instead of single backslash (e.g. c:\\Program Files\\Neo-SDK)
 #     - Linux/Mac users: Just use normal slash as usual (e.g. /home/myuser/bin/neo-sdk)
@@ -1034,7 +1034,7 @@ sdk.proxy=-Dhttp.proxyHost=proxy -Dhttp.proxyPort=8080 -Dhttps.proxyHost=proxy -
 # -----------------------------------------------------------------------------
 # Target for deployment (host, account, application)
 # -----------------------------------------------------------------------------
-#  - host: The target platform to deploy to (e.g. https://netweaver.ondemand.com)
+#  - host: The target platform to deploy to (e.g. https://hana.ondemand.com)
 #  - account: The account to deploy to
 #  - application:
 #     - Name/ID of the application to deploy (non-empty, alphanumeric, lowercase letters, starting with a letter, max. 30 characters).
@@ -1346,7 +1346,7 @@ $ mvn clean deploy -DaltDeploymentRepository=my_repo::default::file:///tmp/my_re
             <div class="accordion" id="accordion-auto-release">
               <div class="accordion-group">
                 <div class="accordion-heading">
-                  <p>First of all, to perform a release, it is mandatory to store the NetWeaver Cloud account password outside the project directory, in the user home (~/.m2/settings.xml) as described in the 
+                  <p>First of all, to perform a release, it is mandatory to store the HANA Cloud account password outside the project directory, in the user home (~/.m2/settings.xml) as described in the 
                     <a href="http://localhost/#auto-deploy">Automate Section</a> above.
                   </p>
                 </div>
@@ -1581,7 +1581,7 @@ $ mvn release:perform --batch-mode
 
                 <div class="accordion-group">
                   <div class="accordion-heading">
-                    <p><i>Application</i>. Verify that the application has been redeployed. Go to your SAP NetWeaver Cloud Application, and Click on the Github ribbon. E.g. @ abendrot application on the cloud:
+                    <p><i>Application</i>. Verify that the application has been redeployed. Go to your SAP HANA Cloud Application, and Click on the Github ribbon. E.g. @ abendrot application on the cloud:
                       <a class="accordion-toggle btn btn-link" data-toggle="collapse" data-parent="#accordion-auto-release" href="#collapse-auto-release-8"><i class="icon-chevron-right"></i></a>
                     </p>
                   </div>
@@ -1644,7 +1644,7 @@ $ mvn release:perform --batch-mode
               </ul>
             </p>
             <p>You sure be thinking as well <i>"your tutorial is OK, but going through all these just to push a mere "Hello, World!" to the cloud ... isn't it mega-supra-hyper overkill?"</i></p>
-            <p>Stay tuned, I'll try to find time to add meat to the tutorial using NetWeaver Cloud Services:</p>
+            <p>Stay tuned, I'll try to find time to add meat to the tutorial using HANA Cloud Services:</p>
             <ul id="done">
               <li><a href="./identity.html">Identity Service</a></li>
               <li><a href="./persist.html">Persistence Service</a></li>
@@ -1656,11 +1656,13 @@ $ mvn release:perform --batch-mode
               <li>Document Service</li>
             </ul>
             <p><a href="http://en.wiktionary.org/wiki/tsch%C3%BCss">Tschüß!</a></p>
+            <!--
             <p>
 <a href="https://twitter.com/abenrot_chef" class="twitter-follow-button" data-show-count="false" data-show-screen-name="true">Follow</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 on Twitter to be notified of the coming chapters (if time permits, no promises).
             </p>
+            -->
             <p>
               <!-- img src="images/abendrot-600x400.jpg" class="center" alt=""--><span class="img_later" data-src="images/abendrot-600x400.jpg" class="center"></span>
             </p>
@@ -1675,12 +1677,16 @@ on Twitter to be notified of the coming chapters (if time permits, no promises).
   <!-- Le javascript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
+  <!--
   <script type="text/javascript" src="./assets/js/widgets.js"></script>
+  -->
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
   <!-- script src="./assets/js/jquery.js"></script -->
   <script src="./assets/js/prettify.js"></script>
+  <script src="./assets/js/bootstrap.min.js"></script>
+  <!--
   <script src="./assets/js/bootstrap-transition.js"></script>
   <script src="./assets/js/bootstrap-alert.js"></script>
   <script src="./assets/js/bootstrap-modal.js"></script>
@@ -1694,6 +1700,7 @@ on Twitter to be notified of the coming chapters (if time permits, no promises).
   <script src="./assets/js/bootstrap-carousel.js"></script>
   <script src="./assets/js/bootstrap-typeahead.js"></script>
   <script src="./assets/js/bootstrap-affix.js"></script>
+  -->
   <script src="./assets/js/application.js"></script>
 
   <script src="./script.js"></script>

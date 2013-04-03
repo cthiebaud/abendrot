@@ -5,8 +5,8 @@
     <title>abendrot | persist</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="description" content="SAP NetWeaver Cloud Tutorial persistence">
-    <meta name="keywords"    content="SAP, NetWeaver, Cloud, Tutorial">
+    <meta name="description" content="SAP HANA Cloud Tutorial persistence">
+    <meta name="keywords"    content="SAP, HANA, Cloud, Tutorial">
     <meta name="author" content="Christophe Thiébaud">
 
     <!-- Le styles -->
@@ -113,7 +113,7 @@
                 <span class="thumbnail"><img border="0" height="200" src="http://1.bp.blogspot.com/-2UBlukErqLI/UMSKGyo7XeI/AAAAAAAAAAQ/spqIawcwLSc/s200/java-evil-edition.png" width="124" /></span>
               </li>
               <div class="lead">That's what I used to think. Well, not anymore, now. Let me share my experience.</div>
-              <p>Some weeks ago, I started thinking about porting a legacy spring+hibernate+tomcat application to <a href="http://scn.sap.com/community/developer-center/cloud-platform">SAP NetWeaver Cloud</a>. The configuration of the spring layer of this legacy application is xml-based (it has been written before annotations came in the game). I was dreaded by the prospect of diving into - my own - xml horror again. </p>
+              <p>Some weeks ago, I started thinking about porting a legacy spring+hibernate+tomcat application to <a href="http://scn.sap.com/community/developer-center/cloud-platform">SAP HANA Cloud</a>. The configuration of the spring layer of this legacy application is xml-based (it has been written before annotations came in the game). I was dreaded by the prospect of diving into - my own - xml horror again. </p>
                <p>Then came this tweet : </p>
             </ul>
             <div class="accordion" id="accordion-persist-intro">
@@ -122,10 +122,10 @@
                     
                    
 
-<blockquote class="twitter-tweet"><p>Welcome @<a href="https://twitter.com/sap">sap</a> to <a href="https://twitter.com/search/%23JavaEE6">#JavaEE6</a> party, NetWeaver Cloud is now Java EE 6 Web Profile Certified: <a href="http://t.co/KPaqdE0m" title="http://bit.ly/Wf8VNS">bit.ly/Wf8VNS</a></p>&mdash; GlassFish (@glassfish) <a href="https://twitter.com/glassfish/status/269500651917160450" data-datetime="2012-11-16T18:02:17+00:00">November 16, 2012</a></blockquote>
+<blockquote class="twitter-tweet"><p>Welcome @<a href="https://twitter.com/sap">sap</a> to <a href="https://twitter.com/search/%23JavaEE6">#JavaEE6</a> party, SAP HANA Cloud is now Java EE 6 Web Profile Certified: <a href="http://t.co/KPaqdE0m" title="http://bit.ly/Wf8VNS">bit.ly/Wf8VNS</a></p>&mdash; GlassFish (@glassfish) <a href="https://twitter.com/glassfish/status/269500651917160450" data-datetime="2012-11-16T18:02:17+00:00">November 16, 2012</a></blockquote>
 <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>                      
 
-and, a few days later, this documentation : <a href="https://help.netweaver.ondemand.com/default.htm?add_persistence_ejb.html#concept_8D93CDC977F049309942563E819F9A08_77">Adding Persistence Using JPA (SDK 2.x Beta)</a>. And I tried it out. And it worked. And I changed my mind about Java EE. </p>
+and, a few days later, this documentation : <a href="https://help.hana.ondemand.com/default.htm?add_persistence_ejb.html#concept_8D93CDC977F049309942563E819F9A08_77">Adding Persistence Using JPA (SDK 2.x Beta)</a>. And I tried it out. And it worked. And I changed my mind about Java EE. </p>
 
 <p>There is a <a href="http://bill.burkecentral.com/2012/03/13/java-ee-wins-over-spring/">'Java-EE wins over spring'</a> blog post by 'Bill the Plumber', that nicely wraps up my thoughts after this experience.</p>
 
@@ -153,7 +153,7 @@ and, a few days later, this documentation : <a href="https://help.netweaver.onde
                 <div class="accordion-heading">
                 </div>
 
-<p>Before cutting and pasting like mad, let's describe briefly what the code below is about. We will construct and deploy to SAP NetWeaver Cloud application that
+<p>Before cutting and pasting like mad, let's describe briefly what the code below is about. We will construct and deploy to SAP HANA Cloud application that
   <ol>
     <li>logs in the user (you'll need a <a href="http://scn.sap.com/docs/DOC-18437">SAP Community Network</a> account, don't worry it's free),</li>
     <li>upon login, says 'hello' to the rest of the world on behalf of the user, </li>
@@ -168,7 +168,7 @@ and, a few days later, this documentation : <a href="https://help.netweaver.onde
  <div class="alert alert-block media unstyled">
   <img src="images/infoicon70.png" class="pull-left">
   <div class="media-body">
-      Java EE 6 Web Profile compliance is only available from SAP NetWeaver Cloud SDK <strong>version 2</strong> on (currently in beta mode at the time of this writing).
+      Java EE 6 Web Profile compliance is only available from SAP HANA Cloud SDK <strong>version 2</strong> on (currently in beta mode at the time of this writing).
   </div>
 </div>
 <i>For the sake of brevity, packages, imports, getters and setters are omitted from the code below.</i>
@@ -406,7 +406,7 @@ NB. (in bold in the sources above) the Java EE 6 Web Profile magic annotations-b
     &lt;/auth-constraint&gt;
   &lt;/security-constraint&gt;
   &lt;security-role&gt;
-    &lt;description&gt;All SAP NetWeaver Cloud users&lt;/description&gt;
+    &lt;description&gt;All SAP HANA Cloud users&lt;/description&gt;
     &lt;role-name&gt;Everyone&lt;/role-name&gt;
   &lt;/security-role&gt;
   
@@ -534,7 +534,7 @@ NB. (in bold in the sources above) the Java EE 6 Web Profile magic annotations-b
 
 <p><strong>2. JPA 2.0 metamodel generation with javac -processor.</strong></p>
 <p>Finally , the build must be able to <a href="http://stackoverflow.com/questions/3037593/how-to-generate-jpa-2-0-metamodel">generate JPA 2.0 metamodel classes</a>. </p>
-<p>Here I choose the eclipselink generator, as eventually eclipselink is the JPA implementation used by SAP NetWeaver Cloud. I believe that any JPA 2.0 compliant generator should do the job as well.</p> 
+<p>Here I choose the eclipselink generator, as eventually eclipselink is the JPA implementation used by SAP HANA Cloud. I believe that any JPA 2.0 compliant generator should do the job as well.</p> 
 <p>Here also, maven does help, with the following xml fragment in the &lt;build&gt;&lt;plugins&gt; section of the pom.xml <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-persist-intro" href="#collapse-persist-intro-9"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
@@ -584,14 +584,14 @@ NB. (in bold in the sources above) the Java EE 6 Web Profile magic annotations-b
                     <img src="icons/stock-photo-yawning-young-business-man-on-the-desk-isolated-on-white-background-72609853.jpg" alt="">
                 </span>
               </li>
-              <div class="lead">Still with me ? At this point, we have a adventscloud.war file that should run verbatim on <a href="http://www.oracle.com/technetwork/java/javaee/overview/compatibility-jsp-136984.html">any Java EE 6 Web Profile compliant container</a>. But why choosing something else than SAP NetWeaver Cloud <img src="icons/smiley_wink.png"/> ?
+              <div class="lead">Still with me ? At this point, we have a adventscloud.war file that should run verbatim on <a href="http://www.oracle.com/technetwork/java/javaee/overview/compatibility-jsp-136984.html">any Java EE 6 Web Profile compliant container</a>. But why choosing something else than SAP HANA Cloud <img src="icons/smiley_wink.png"/> ?
               </div>
             </ul>
 
 
-<p>You can have a look at the application running at my <a href="https://abendrotp1742770407trial.nwtrial.ondemand.com/abendrot-web/socialhello.jsp" target="_blank">lifelong-free trial instance of SAP NetWeaver Cloud</a> (again, provided that you have a -free as well- <a href="http://scn.sap.com/docs/DOC-18437">SAP Community Network</a> account). The application there is a bit richer than the code shown in this blog post, with a spark of<a href="http://twitter.github.com/bootstrap/" target="_blank"> twitter bootstrap</a> bells and whistles.</p>
+<p>You can have a look at the application running at my <a href="https://abendrotp1742770407trial.nwtrial.ondemand.com/abendrot-web/socialhello.jsp" target="_blank">lifelong-free trial instance of SAP HANA Cloud</a> (again, provided that you have a -free as well- <a href="http://scn.sap.com/docs/DOC-18437">SAP Community Network</a> account). The application there is a bit richer than the code shown in this blog post, with a spark of<a href="http://twitter.github.com/bootstrap/" target="_blank"> twitter bootstrap</a> bells and whistles.</p>
 
-If you'd like to get <strong>your</strong> lifelong-free trial instance of SAP NetWeaver Cloud, follow the initial steps described <a href="http://cthiebaud.github.com/abendrot/" target="_blank">here</a>.
+If you'd like to get <strong>your</strong> lifelong-free trial instance of SAP HANA Cloud, follow the initial steps described <a href="http://cthiebaud.github.com/abendrot/" target="_blank">here</a>.
 
             <p><a href="http://fr.wikipedia.org/wiki/Salut">Salut!</a></p>
 <i><p>This post is a slightly modified verion of an <a href="http://www.javaadvent.com/2012/12/java-ee-6-web-profile-on-cloud-easy.html">original post of mine</a> at the great <a href="http://javaadvent.com/">Java Advent Calendar</a> 
@@ -606,7 +606,7 @@ If you'd like to get <strong>your</strong> lifelong-free trial instance of SAP N
 [1] <a href="http://www.oracle.com/technetwork/java/javaee/overview/compatibility-jsp-136984.html">Official Java EE compatibility page</a>
  </li>
   <li>
-[2] <a href="http://scn.sap.com/community/developer-center/cloud-platform/blog/2012/11/15/sap-netweaver-cloud-is-java-ee-6-web-profile-compatible">'SAP Netweaver Cloud is Java EE 6 Web Profile Compatible' announcement on SAP Community Network</a>
+[2] <a href="http://scn.sap.com/community/developer-center/cloud-platform/blog/2012/11/15/sap-netweaver-cloud-is-java-ee-6-web-profile-compatible">'SAP HANA Cloud is Java EE 6 Web Profile Compatible' announcement on SAP Community Network</a>
  </li>
 </ul>
 </p>        
@@ -624,12 +624,15 @@ If you'd like to get <strong>your</strong> lifelong-free trial instance of SAP N
   <!-- Le javascript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
+  <!--
   <script type="text/javascript" src="./assets/js/widgets.js"></script>
-
+  -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>    
 
   <!-- script src="./assets/js/jquery.js"></script -->
   <script src="./assets/js/prettify.js"></script>
+  <script src="./assets/js/bootstrap.min.js"></script>
+  <!--
   <script src="./assets/js/bootstrap-transition.js"></script>
   <script src="./assets/js/bootstrap-alert.js"></script>
   <script src="./assets/js/bootstrap-modal.js"></script>
@@ -643,6 +646,7 @@ If you'd like to get <strong>your</strong> lifelong-free trial instance of SAP N
   <script src="./assets/js/bootstrap-carousel.js"></script>
   <script src="./assets/js/bootstrap-typeahead.js"></script>
   <script src="./assets/js/bootstrap-affix.js"></script>
+  -->
   <script src="./assets/js/application.js"></script>
 
   <script type="text/javascript">

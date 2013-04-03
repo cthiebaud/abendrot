@@ -5,8 +5,8 @@
     <title>abendrot | index</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="description" content="SAP NetWeaver Cloud Tutorial">
-    <meta name="keywords"    content="SAP, NetWeaver, Cloud, Tutorial">
+    <meta name="description" content="SAP HANA Cloud Tutorial">
+    <meta name="keywords"    content="SAP, HANA, Cloud, Tutorial">
     <meta name="author" content="Christophe Thiébaud">
 
     <!-- Le styles -->
@@ -184,7 +184,7 @@
               </div>
               <div class="accordion-group">
                 <div class="accordion-heading">
-                  <p>Looking at these properties, we learn a few things about this SAP NetWeaver Cloud instance : for example, it runs on Java 7, it runs on OSGi and it uses Tomcat to serve HTTP requests.
+                  <p>Looking at these properties, we learn a few things about this SAP HANA Cloud instance : for example, it runs on Java 7, it runs on OSGi and it uses Tomcat to serve HTTP requests.
                   </p>
                 </div>
               </div>
@@ -233,7 +233,7 @@
 &lt;/security-constraint&gt;
 
 &lt;security-role&gt;
-  &lt;description&gt;All SAP NetWeaver Cloud users&lt;/description&gt;
+  &lt;description&gt;All SAP HANA Cloud users&lt;/description&gt;
   &lt;role-name&gt;Everyone&lt;/role-name&gt;
 &lt;/security-role&gt;
 </pre>                    
@@ -243,7 +243,7 @@
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    <span>In Eclipse, in the servers view, double click on the Local Test Server for SAP NetWeaver Cloud to open the server configuration page, 
+                    <span>In Eclipse, in the servers view, double click on the Local Test Server for SAP HANA Cloud to open the server configuration page, 
                       select the 'Users' tab, then click New User.</span>
                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-add-security-constraint" href="#collapse-add-security-constraint-2"><i class="icon-chevron-right"></i></a>
                   </p>
@@ -270,7 +270,7 @@
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <p>
-                    <span>Run <code>spy.jsp</code> in the Local Test Server for SAP NetWeaver Cloud. Bing, an authentication form is displayed. Enter the Credentials for the user you've just created, and you are in.</span>
+                    <span>Run <code>spy.jsp</code> in the Local Test Server for SAP HANA Cloud. Bing, an authentication form is displayed. Enter the Credentials for the user you've just created, and you are in.</span>
                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-add-security-constraint" href="#collapse-add-security-constraint-4"><i class="icon-chevron-right"></i></a>
                   </p>
                 </div>
@@ -315,10 +315,10 @@
                   </p>
                   <p>
                   For this, a bi-directionnal trust relationship must exist between your app and SAP Community Network: your app trusts that the authentication token provided by SAP Community Network truly identifies <strong>you</strong>, 
-                  but before, SAP Community Network has trusted your app to be entitled to query - and make good usage - of authentication tokens. Fortunately, SAP Community Network and SAP NetWeaver Cloud are managed by the same guy (SAP), which helps fostering a strong trust relationship.
+                  but before, SAP Community Network has trusted your app to be entitled to query - and make good usage - of authentication tokens. Fortunately, SAP Community Network and SAP HANA Cloud are managed by the same guy (SAP), which helps fostering a strong trust relationship.
                   </p>
                   <p>
-                  For SAP NetWeaver Cloud customers that have their own authentication provider. e.g. corporate LDAP, it is possible to setup the same trust relationship and communication process, cf. <a href="https://help.netweaver.ondemand.com/default.htm?using_identity_provider.html#concept_0B49F10346C94249845EC16364FFF66D_100">Using a Custom Identity Provider</a>.
+                  For SAP HANA Cloud customers that have their own authentication provider. e.g. corporate LDAP, it is possible to setup the same trust relationship and communication process, cf. <a href="https://help.hana.ondemand.com/default.htm?using_identity_provider.html#concept_0B49F10346C94249845EC16364FFF66D_100">Using a Custom Identity Provider</a>.
                   <!-- It is as well possible for the authentication provider of customer to pass extended attributes to the application, such as group information (e.g. admins, super-users, users, guests), upon which the application can react accordingly. -->
                   </p>
                   <p>
@@ -361,7 +361,7 @@
   &lt;auth-method&gt;FORM&lt;/auth-method&gt;
 &lt;/login-config&gt;
 </pre>              
-                    ... every servlet container expects a HTML form to be implemented somewhere to handle the authentication. SAP NetWeaver Cloud (local as well as remote on he cloud) provides default HTML forms (we've seen both).
+                    ... every servlet container expects a HTML form to be implemented somewhere to handle the authentication. SAP HANA Cloud (local as well as remote on he cloud) provides default HTML forms (we've seen both).
                     However, Tomcat has no default. Trying to run <code>spy.jsp</code> on Tomcat leads to a miserable "No login page was defined for FORM authentication" error:
                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-get-back-tomcat-in-the-game" href="#collapse-get-back-tomcat-in-the-game-1"><i class="icon-chevron-right"></i></a>
                   </p>
@@ -376,10 +376,10 @@
                 <div class="accordion-heading">
                   <p>At least the error message is clear. We are left with these options:</p>
                   <ol>
-                    <li>Implement such a FORM in your application. Not trivial. More important, the application code will diverge between Tomcat and SAP NetWeaver Cloud. We do not want that, do we?</li>
-                    <li>Comment and un-comment the security section in web.xml at each switch from testing with Tomcat to testing with SAP NetWeaver Cloud. I even did that for some time. No comment.</li>
+                    <li>Implement such a FORM in your application. Not trivial. More important, the application code will diverge between Tomcat and SAP HANA Cloud. We do not want that, do we?</li>
+                    <li>Comment and un-comment the security section in web.xml at each switch from testing with Tomcat to testing with SAP HANA Cloud. I even did that for some time. No comment.</li>
                     <li>Implement some kind of scripting, or some <a href="http://maven.apache.org/plugins/maven-resources-plugin/examples/filter.html">maven resources filtering</a> or even write a maven plugin to rewrite the web.xml file at build time based on some profile or parameter. Tecnically feasable, but a pain in the neck.</li>
-                    <li>Stop using Tomcat. But we need Tomcat ! First to ensure that our application is not overly coupled with SAP NetWeaver Cloud, second, because hot reloading of jsp is unvaluable to speed up development, and I did not find how to get hot reload with SAP NetWeaver Cloud local test server. If you know that it is possible, please wave your hand.</li>
+                    <li>Stop using Tomcat. But we need Tomcat ! First to ensure that our application is not overly coupled with SAP HANA Cloud, second, because hot reloading of jsp is unvaluable to speed up development, and I did not find how to get hot reload with SAP HANA Cloud local test server. If you know that it is possible, please wave your hand.</li>
                   </ol>
                   <p>Enters <a href="http://dblock.github.com/waffle/">WAFFLE</a>, open source <i>Windows &amp; Active Directory Authentication Framework for C# and Java.</i>. Download latest version from  <a href="https://github.com/downloads/dblock/waffle/Waffle.1.5.zip">here</a>, uzip it it somewhere and copy ...
 <pre class="prettyprint linenums">
@@ -488,11 +488,13 @@ waffle-tomcat7.jar
               <p>You must be registered as a <a href="http://scn.sap.com/welcome">SAP Community Network</a> member to access <code>spy.jsp</code>. Hey, it's SAP! :)<p> 
             </ul>
             <p><a href="http://en.wikipedia.org/wiki/Ciao">Ciao!</a></p>
+            <!--
             <p>
 <a href="https://twitter.com/abenrot_chef" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @abenrot_chef</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 <strong>abendrot</strong> on Twitter to be notified of the coming chapters (if time permits, no promises).
             </p>
+            -->
             <p>
               <img src="images/abendrot-600x400.jpg" class="center">
             </p>
@@ -507,12 +509,16 @@ waffle-tomcat7.jar
   <!-- Le javascript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
+  <!--
   <script type="text/javascript" src="./assets/js/widgets.js"></script>
+  -->
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>    
 
   <!-- script src="./assets/js/jquery.js"></script -->
   <script src="./assets/js/prettify.js"></script>
+  <script src="./assets/js/bootstrap.min.js"></script>
+  <!--
   <script src="./assets/js/bootstrap-transition.js"></script>
   <script src="./assets/js/bootstrap-alert.js"></script>
   <script src="./assets/js/bootstrap-modal.js"></script>
@@ -526,6 +532,7 @@ waffle-tomcat7.jar
   <script src="./assets/js/bootstrap-carousel.js"></script>
   <script src="./assets/js/bootstrap-typeahead.js"></script>
   <script src="./assets/js/bootstrap-affix.js"></script>
+  -->
   <script src="./assets/js/application.js"></script>
 
   <script src="./script.js"></script>
