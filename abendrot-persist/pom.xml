@@ -67,18 +67,18 @@
 		<dependency>
 		    <groupId>com.fasterxml.jackson.core</groupId>
 		    <artifactId>jackson-databind</artifactId>
-		    <version>2.1.3</version>
+		    <version>${jackson.version}</version>
 		</dependency>    
 
         <!--  for hashcode, equals and toString -->        
 		<dependency>
 		    <groupId>com.google.guava</groupId>
 		    <artifactId>guava</artifactId>
-		    <version>14.0-rc2</version>
+		    <version>14.0.1</version>
 		</dependency>
 	</dependencies>
 	
     <properties>
-        <nw.cloud.sdk.path>${basedir}/../neo/neo-sdk-2.0.5</nw.cloud.sdk.path>
+                <nw.cloud.sdk.path>${basedir}/../neo</nw.cloud.sdk.path>
     </properties>
 </project>

@@ -45,8 +45,8 @@
 		</dependency>		
         <!-- Required for compilation and required at runtime (additional web application libraries) -->
         <dependency>
-            <groupId>com.sap.security.core.server</groupId>
-            <artifactId>csi</artifactId>
+            <groupId>com.sap.security.core.server.csi</groupId>
+            <artifactId>com.sap.security.core.server.csi</artifactId>
             <version>1.0.1</version>
             <scope>system</scope>
             <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/com.sap.security.core.server.csi_1.0.1.jar</systemPath>
@@ -55,7 +55,7 @@
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>webjars-locator</artifactId>
-            <version>0.2</version>
+            <version>0.3</version>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
@@ -65,7 +65,7 @@
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>bootstrap</artifactId>
-            <version>2.3.0</version>
+            <version>2.3.1</version>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
@@ -75,7 +75,7 @@
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>momentjs</artifactId>
-			<version>1.7.2</version>
+			<version>2.0.0</version>
 		</dependency>
         <dependency>
             <groupId>org.webjars</groupId>
