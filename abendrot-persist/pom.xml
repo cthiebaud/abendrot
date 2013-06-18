@@ -10,36 +10,6 @@
 	<artifactId>abendrot-persist</artifactId>
 	
 	<dependencies>
-        <!-- get JPA annotations - - > 
-		<dependency>
-		    <groupId>org.eclipse.persistence</groupId>
-		    <artifactId>javax.persistence</artifactId>
-		    <version>2.0.0</version>
-            <scope>provided</scope>
-		</dependency>
-        < ! - - get JTA annotations - - >
-        <dependency>
-            <groupId>javax.transaction</groupId>
-            <artifactId>jta</artifactId>
-            <version>1.1</version>
-            <scope>provided</scope>
-        </dependency>
-        < ! - - get @EJB annotations - - >
-        <dependency>
-            <groupId>javax.ejb</groupId>
-            <artifactId>ejb-api</artifactId>
-            <version>3.0</version>
-            <scope>provided</scope>
-        </dependency>
-        < ! - - get @WebFilter annotations - - >
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>${javax.servlet-api.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        -->
-        
         <!-- Required for compilation and provided at runtime (SAP NetWeaver SDK API libraries) -->
         <dependency>
             <groupId>javax.servlet</groupId>

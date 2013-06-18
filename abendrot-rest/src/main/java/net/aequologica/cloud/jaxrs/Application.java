@@ -4,9 +4,9 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Logger;
 
-import net.aequologica.cloud.jaxrs.util.GsonMessageBodyHandler;
-
 import org.glassfish.jersey.filter.LoggingFilter;
+
+import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 
 public class Application extends javax.ws.rs.core.Application {
 
@@ -25,7 +25,7 @@ public class Application extends javax.ws.rs.core.Application {
 		final HashSet<Object> instances = new HashSet<>();
 
 		instances.add(new LoggingFilter(Logger.getLogger(Application.class.getName()), false));
-		instances.add(new GsonMessageBodyHandler<Object>());
+		instances.add(new JacksonJsonProvider());
 
 		return instances;
 	}

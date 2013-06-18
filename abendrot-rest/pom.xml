@@ -43,19 +43,19 @@
 		    <version>${jackson.version}</version>        
             <scope>test</scope>
 		</dependency>
-        <!-- 
 		<dependency>
 			<groupId>com.fasterxml.jackson.jaxrs</groupId>
 			<artifactId>jackson-jaxrs-json-provider</artifactId>
 			<version>${jackson.version}</version>
 		</dependency>
-		--> 		
         <!-- get gson -->
+        <!-- 
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.2.2</version>
         </dependency>
+		--> 		
         <!-- get joda -->
         <dependency>
             <groupId>joda-time</groupId>
