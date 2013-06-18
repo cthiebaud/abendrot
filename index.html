@@ -948,37 +948,15 @@ jdk:
                 <div class="accordion-heading">
                   <p>
                     <p><span>There is a <a href="https://github.com/SAP/cloud-maven-plugin">SAP HANA Cloud Deployment Plugin for Maven</a> named <code>nwcloud-maven-plugin</code> on Github ! It has been developed by SAP Research, but it is not included in HANA Cloud distribution. The reason for it being that SAP HANA Cloud is build tool agnostic, as already mentionned.</span></p>
-                    <p><span>There does not seem to be any public version of the <code>nwcloud-maven-plugin</code> binaries, at least not in any well known repository such as <a href="http://search.maven.org/">maven central</a>, therefore, to use it, one must build it.</span>
-                    <span>That's what I did, build worked like a charm: version 1.0.1.RELEASE is published to <a href="http://buildeventhub.net:8081/nexus/content/repositories/releases/com/sap/research/nwcloud-maven-plugin/1.0.1.RELEASE/">my personal public nexus repositoy</a>.</span>
-                    <span>Even if compiling the plugin was a snap, you may not want to go through the exercice. Include the <code>pluginRepositories</code> section below in your pom.xml, your maven build will directly grab <code>nwcloud-maven-plugin</code> binaries  from my personal nexus repository, no need to compile.</span></p>
-                    <!-- a class="accordion-toggle btn btn-link" data-toggle="collapse" data-parent="#accordion-auto-deploy" href="#collapse-auto-deploy-1"><i class="icon-chevron-right"></i></a -->
-<pre class="prettyprint linenums">
-  &lt;!-- my own repos were I deployed nwcloud-maven-plugin --&gt;
-  &lt;pluginRepositories&gt;
-    &lt;pluginRepository&gt;
-      &lt;id&gt;public.releases.buildeventhub.net&lt;/id&gt;
-      &lt;url&gt;http://buildeventhub.net:8081/nexus/content/repositories/releases/&lt;/url&gt;
-      &lt;releases&gt;
-        &lt;enabled&gt;true&lt;/enabled&gt;
-      &lt;/releases&gt;
-      &lt;snapshots&gt;
-        &lt;enabled&gt;false&lt;/enabled&gt;
-      &lt;/snapshots&gt;
-    &lt;/pluginRepository&gt;
-    &lt;pluginRepository&gt;
-      &lt;id&gt;public.snapshots.buildeventhub.net&lt;/id&gt;
-      &lt;url&gt;http://buildeventhub.net:8081/nexus/content/repositories/snapshots/&lt;/url&gt;
-      &lt;releases&gt;
-        &lt;enabled&gt;false&lt;/enabled&gt;
-      &lt;/releases&gt;
-      &lt;snapshots&gt;
-        &lt;enabled&gt;true&lt;/enabled&gt;
-      &lt;/snapshots&gt;
-    &lt;/pluginRepository&gt;
-  &lt;/pluginRepositories&gt;
-</pre>
 
-                  </p>
+              <div class="alert alert-block media unstyled">
+                <img src="images/infoicon70.png" class="pull-left">
+                <div class="media-body">
+                  <span>There does not seem to be any public version of the <code>nwcloud-maven-plugin</code> binaries, at least not in any well known repository such as <a href="http://search.maven.org/">maven central</a>, therefore, to use it, one must build it.</span>
+                </div>
+              </div>
+
+                    
                 </div>
               </div>
 
