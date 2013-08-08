@@ -1,48 +1,49 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-	<modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>net.aequologica</groupId>
-		<artifactId>abendrot</artifactId>
-		<version>0.2.0-SNAPSHOT</version>
-	</parent>
+    <parent>
+        <groupId>net.aequologica</groupId>
+        <artifactId>abendrot</artifactId>
+        <version>0.2.0-SNAPSHOT</version>
+    </parent>
 
-	<artifactId>abendrot-web</artifactId>
+    <artifactId>abendrot-web</artifactId>
 
-	<packaging>war</packaging>
+    <packaging>war</packaging>
 
-	<dependencies>
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>abendrot-rest</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>abendrot-persist</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<!-- get @WebServlet annotations -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>${javax.servlet-api.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		<!-- get jstl -->
-		<dependency>
-			<groupId>javax.servlet.jsp.jstl</groupId>
-			<artifactId>javax.servlet.jsp.jstl-api</artifactId>
-			<version>${javax.servlet.jsp.jstl-api.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-		    <groupId>org.glassfish.web</groupId>
-		    <artifactId>javax.servlet.jsp.jstl</artifactId>
-		    <version>1.2.2</version>
-			<scope>provided</scope>
-		</dependency>		
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>abendrot-rest</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>abendrot-persist</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!-- get @WebServlet annotations -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${javax.servlet-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- get jstl -->
+        <dependency>
+            <groupId>javax.servlet.jsp.jstl</groupId>
+            <artifactId>javax.servlet.jsp.jstl-api</artifactId>
+            <version>${javax.servlet.jsp.jstl-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>javax.servlet.jsp.jstl</artifactId>
+            <version>${javax.servlet.jsp.jstl.version}</version>
+            <scope>provided</scope>
+        </dependency>
         <!-- Required for compilation and required at runtime (additional web application libraries) -->
         <dependency>
             <groupId>com.sap.security.core.server.csi</groupId>
@@ -51,32 +52,32 @@
             <scope>system</scope>
             <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/com.sap.security.core.server.csi_1.0.1.jar</systemPath>
         </dependency>
-        <!-- webjars -->        
+        <!-- webjars -->
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>webjars-locator</artifactId>
-            <version>0.5</version>
+            <version>${webjars-locator.version}</version>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>jquery</artifactId>
-            <version>1.10.2</version>
+            <version>${jquery.version}</version>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>bootstrap</artifactId>
-            <version>2.3.2</version>
+            <version>${bootstrap.version}</version>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>datatables</artifactId>
-            <version>1.9.4-2</version>
+            <version>${datatables.version}</version>
         </dependency>
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>momentjs</artifactId>
-			<version>2.1.0</version>
-		</dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>momentjs</artifactId>
+            <version>${momentjs.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>datatables-plugins</artifactId>
@@ -84,53 +85,53 @@
             <scope>system</scope>
             <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/datatables-plugins-0.0.1-SNAPSHOT.jar</systemPath>
         </dependency>
-        <!-- webjars -->        
-	</dependencies>
+        <!-- webjars -->
+    </dependencies>
 
-	<build>
-		<!-- finalName>abendrot</finalName --> <!-- does not work with nwcloud-maven-plugin -->
-		<plugins>
-			<plugin>
-				<groupId>com.sap.research</groupId>
-				<artifactId>nwcloud-maven-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>after.package</id>
-						<phase>deploy</phase>
-						<goals>
-							<goal>stop</goal>
-							<goal>deploy</goal>
-							<goal>start</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>pl.project13.maven</groupId>
-				<artifactId>git-commit-id-plugin</artifactId>
-				<executions>
-					<execution>
-						<goals>
-							<goal>revision</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<!-- forces the plugin to generate the git.properties file -->
-					<generateGitPropertiesFile>true</generateGitPropertiesFile>
+    <build>
+        <!-- finalName>abendrot</finalName --> <!-- does not work with nwcloud-maven-plugin -->
+        <plugins>
+            <plugin>
+                <groupId>com.sap.research</groupId>
+                <artifactId>nwcloud-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>after.package</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>stop</goal>
+                            <goal>deploy</goal>
+                            <goal>start</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>pl.project13.maven</groupId>
+                <artifactId>git-commit-id-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>revision</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!-- forces the plugin to generate the git.properties file -->
+                    <generateGitPropertiesFile>true</generateGitPropertiesFile>
 
-					<!-- The path for the to be generated properties file, it's relative to ${project.basedir} -->
-					<generateGitPropertiesFilename>src/main/resources/git.properties</generateGitPropertiesFilename>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-war-plugin</artifactId>
-				<configuration>
-				    <!-- warName>${project.artifactId}</warName -->
-					<failOnMissingWebXml>false</failOnMissingWebXml>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+                    <!-- The path for the to be generated properties file, it's relative to ${project.basedir} -->
+                    <generateGitPropertiesFilename>src/main/resources/git.properties</generateGitPropertiesFilename>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <!-- warName>${project.artifactId}</warName -->
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

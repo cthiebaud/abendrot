@@ -1,5 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>net.aequologica</groupId>
@@ -7,9 +8,9 @@
         <version>0.2.0-SNAPSHOT</version>
     </parent>
 
-	<artifactId>abendrot-persist</artifactId>
-	
-	<dependencies>
+    <artifactId>abendrot-persist</artifactId>
+
+    <dependencies>
         <!-- Required for compilation and provided at runtime (SAP NetWeaver SDK API libraries) -->
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -32,23 +33,23 @@
             <scope>system</scope>
             <systemPath>${nw.cloud.sdk.path}/api/javax.persistence-2.0.4.v201112200901.jar</systemPath>
         </dependency>
-        
-        <!--  json parser -->
-		<dependency>
-		    <groupId>com.fasterxml.jackson.core</groupId>
-		    <artifactId>jackson-databind</artifactId>
-		    <version>${jackson.version}</version>
-		</dependency>    
 
-        <!--  for hashcode, equals and toString -->        
-		<dependency>
-		    <groupId>com.google.guava</groupId>
-		    <artifactId>guava</artifactId>
-		    <version>14.0.1</version>
-		</dependency>
-	</dependencies>
-	
+        <!-- json parser -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <!-- for hashcode, equals and toString -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
+    </dependencies>
+
     <properties>
-                <nw.cloud.sdk.path>${basedir}/../neo</nw.cloud.sdk.path>
+        <nw.cloud.sdk.path>${basedir}/../neo</nw.cloud.sdk.path>
     </properties>
 </project>
