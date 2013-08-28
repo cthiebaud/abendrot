@@ -82,7 +82,7 @@
             <artifactId>datatables-plugins</artifactId>
             <version>0.0.1</version>
             <scope>system</scope>
-            <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/datatables-plugins-0.0.1-SNAPSHOT.jar</systemPath>
+            <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/datatables-plugins-0.0.1-sap-04.jar</systemPath>
         </dependency>
         <!-- webjars -->
     </dependencies>
