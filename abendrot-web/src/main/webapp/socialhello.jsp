@@ -12,7 +12,8 @@
     <%@include file="/WEB-INF/jspf/navbar.jspf" %>
   
     <div class="container">
-    <div class="span9">
+    <div class="row">
+    <div class="col-lg-9">
   
 	<table id="hellos" class="table table-condensed table-hover table-bordered" >
 	  <thead>
@@ -45,9 +46,8 @@
       </tbody>
 	</table>	
 	
-    <%@include file="/WEB-INF/jspf/github-ribbon.jspf" %>
-	
-    </div> <!-- span9 -->
+    </div> <!-- col-lg-9 -->
+    </div>
     </div> <!-- container -->
 
   </body>
@@ -59,7 +59,7 @@
 	  /*
     $('#hellos').dataTable( {} );
     
-"sDom": "<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>",
+"sDom": "<'row'<'col-lg-6'l><'col-lg-6'f>r>t<'row'<'col-lg-6'i><'col-lg-6'p>>",
 "bAutoWidth": false,
 "iDisplayLength": -1,
 "bFilter": false,

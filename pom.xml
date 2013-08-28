@@ -125,15 +125,15 @@
         <javax.servlet.jsp.jstl-api.version>1.2.1</javax.servlet.jsp.jstl-api.version>
         <javax.servlet.jsp.jstl.version>1.2.2</javax.servlet.jsp.jstl.version>
         <junit.version>4.11</junit.version>
-        <jersey.version>2.1</jersey.version>
+        <jersey.version>2.2</jersey.version>
         <tomcat.version>8.0.0-RC1</tomcat.version>
-        <jackson.version>2.2.2</jackson.version>
+        <jackson.version>2.2.3</jackson.version>
         <guava.version>14.0.1</guava.version>
         <joda.version>2.2</joda.version>
         <ecj.version>4.2.2</ecj.version>
         <webjars-locator.version>0.5</webjars-locator.version>
         <jquery.version>1.10.2</jquery.version>
-        <bootstrap.version>2.3.2</bootstrap.version>
+        <bootstrap.version>3.0.0</bootstrap.version>
         <datatables.version>1.9.4-2</datatables.version>
         <momentjs.version>2.1.0</momentjs.version>
 

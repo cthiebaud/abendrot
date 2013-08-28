@@ -16,7 +16,8 @@
     <%@include file="/WEB-INF/jspf/navbar.jspf" %>
     
     <div class="container">
-    <div class="span9">
+    <div class="row">
+    <div class="col-lg-9">
   
     <table id="properties" class="table table-striped table-bordered">
       <caption>java system properties</caption>
@@ -38,19 +39,18 @@ for (String key : keys) { %>
       </tbody>
     </table>
 
-    <%@include file="/WEB-INF/jspf/github-ribbon.jspf" %>
-    
-    </div> <!-- span9 -->
+    </div> <!-- col-lg-9 -->
+    </div> <!--  row -->
     </div> <!-- container -->
 
   </body>
   
+  <%@include file="/WEB-INF/jspf/footer.jspf" %>
+  
   <script type="text/javascript">
   $(document).ready(function(){
-    $('#properties').dataTable( {} );
+   //  $('#properties').dataTable( {} );
   });
   </script>
 
-  <%@include file="/WEB-INF/jspf/footer.jspf" %>
-  
 </html>

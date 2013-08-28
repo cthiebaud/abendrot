@@ -11,13 +11,14 @@
     <%@include file="/WEB-INF/jspf/navbar.jspf" %>
     
     <div class="container">
-    <div class="span9">
+    <div class="row">
+    <div class="col-lg-9">
   
     <h1>Hello, World!</h1>
     
-    <%@include file="/WEB-INF/jspf/github-ribbon.jspf" %>
     
-    </div> <!-- span9 -->
+    </div> <!-- col-lg-9 -->
+    </div>
     </div> <!-- container -->
 
   </body>

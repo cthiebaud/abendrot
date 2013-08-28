@@ -1,42 +1,42 @@
-<!-- Navbar
-================================================== -->
-<div class="navbar navbar-inverse navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+<header class="navbar navbar-inverse navbar-fixed-top" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="brand" href=".">a&nbsp;b&nbsp;e&nbsp;n&nbsp;d&nbsp;r&nbsp;o&nbsp;t</a>
-      <div class="nav-collapse collapse">
-        <ul class="nav">
-          <li>
-            <a href="./index.jsp">Hello, World!</a>
-          </li>
-          <li>
-            <a href="./spy.jsp">System Properties</a>
-          </li>
-          <li>
-            <a href="./whoami.jsp">Who Am I ?</a>
-          </li>
-          <li>
-            <a href="./rest.jsp">REST</a>
-          </li>
-          <li>
-            <a href="./db.jsp">${applicationScope.databaseProductName}</a>
-          </li>
-          <li>
-            <a href="./socialhello.jsp">Say Hello</a>
-          </li>
-          <li>
-            <a href="./logout.jsp">Logout</a>
-          </li>
-          <li>
-            <a href="http://cthiebaud.github.com/abendrot/">Read Blog</a>
-          </li>
-        </ul>
-      </div>
+      <a href="<c:url value='/index.jsp'/>" class="navbar-brand">a&nbsp;b&nbsp;e&nbsp;n&nbsp;d&nbsp;r&nbsp;o&nbsp;t</a>
     </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="<c:url value='/index.jsp'/>">Hello, World!</a>
+        </li>
+        <li>
+          <a href="<c:url value='/spy.jsp'/>">System Properties</a>
+        </li>
+        <li>
+          <a href="<c:url value='/whoami.jsp'/>">Who Am I ?</a>
+        </li>
+        <li>
+          <a href="<c:url value='/rest.jsp'/>">REST</a>
+        </li>
+        <li>
+          <a href="<c:url value='/db.jsp'/>">${applicationScope.databaseProductName}</a>
+        </li>
+        <li>
+          <a href="<c:url value='/socialhello.jsp'/>">Say Hello</a>
+        </li>
+        <li>
+          <a href="<c:url value='/logout.jsp'/>">Logout</a>
+        </li>
+        <li>
+          <a href="http://cthiebaud.github.com/abendrot/">Read Blog</a>
+        </li>
+      </ul>
+    </nav>
   </div>
-</div>
+</header>
+<%@include file="/WEB-INF/jspf/github-ribbon.jspf" %>

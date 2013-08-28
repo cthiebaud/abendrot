@@ -1,22 +1,12 @@
-<!-- jQuery http://jquery.com/ --> 
-<script type="text/javascript" charset="utf8" src='<%= org.webjars.AssetLocator.getWebJarPath("jquery.min.js") %>'></script>
-<!-- Bootstrap http://twitter.github.com/bootstrap/ -->
-<script type="text/javascript" charset="utf8" src='<%= org.webjars.AssetLocator.getWebJarPath("js/bootstrap.js") %>'></script>
-<!-- DataTables http://www.datatables.net/ --> 
-<script type="text/javascript" charset="utf8" src='<%= org.webjars.AssetLocator.getWebJarPath("media/js/jquery.dataTables.min.js") %>'></script>
-<!-- DataTables bootstrap plugin https://github.com/DataTables/Plugins/tree/master/integration/bootstrap -->
-<script type="text/javascript" charset="utf8" src='<%= org.webjars.AssetLocator.getWebJarPath("integration/bootstrap/dataTables.bootstrap.js") %>'></script>
-<!-- Moment http://momentjs.com/ -->
-<script type="text/javascript" charset="utf8" src='<%= org.webjars.AssetLocator.getWebJarPath("moment.js") %>'></script>
-
-<script type="text/javascript">
-var clickstream = {
-    pubToken: 'cES3TiUnYwQsE8Gm', 
-    appTarg: document.getElementsByTagName('head')[0] || document.body || document.documentElement,
-    scriptName: ((typeof sap == 'undefined') || (typeof sap.ui == 'undefined')) ? 'clickStreamRemote.js' : 'clickStreamRemoteUI5.js',
-    jsNode: document.createElement('script'),
-}
-
-clickstream.jsNode.src = 'https://clickstreamdst01.prod.jpaas.sapbydesign.com/clickStream/js/' + clickstream.scriptName;
-clickstream.appTarg.appendChild(clickstream.jsNode);
-</script>
+<%
+request.setAttribute("jquery_js",               LOCATOR.getFullPath("1.10.2/jquery.js")                             .substring(META_INF_RESOUCE_PATH_LENGTH) );
+request.setAttribute("bootstrap_js",            LOCATOR.getFullPath("js/bootstrap.js")                              .substring(META_INF_RESOUCE_PATH_LENGTH) );
+request.setAttribute("jquery_dataTables_js",    LOCATOR.getFullPath("media/js/jquery.dataTables.js")                .substring(META_INF_RESOUCE_PATH_LENGTH) );
+request.setAttribute("dataTables_bootstrap_js", LOCATOR.getFullPath("integration/bootstrap/3/dataTables.bootstrap.js").substring(META_INF_RESOUCE_PATH_LENGTH) );
+request.setAttribute("moment_js",               LOCATOR.getFullPath("moment.js")                                    .substring(META_INF_RESOUCE_PATH_LENGTH) );
+%>
+<script type="text/javascript" charset="utf8" src="<c:url value='/${jquery_js}'               />" ></script>
+<script type="text/javascript" charset="utf8" src="<c:url value='/${bootstrap_js}'            />" ></script>
+<script type="text/javascript" charset="utf8" src="<c:url value='/${jquery_dataTables_js}'    />" ></script>
+<script type="text/javascript" charset="utf8" src="<c:url value='/${dataTables_bootstrap_js}' />" ></script>
+<script type="text/javascript" charset="utf8" src="<c:url value='/${moment_js}'               />" ></script>
