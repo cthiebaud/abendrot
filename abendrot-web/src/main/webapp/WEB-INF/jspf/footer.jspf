@@ -1,5 +1,5 @@
 <%
-request.setAttribute("jquery_js",               LOCATOR.getFullPath("1.10.2/jquery.js")                             .substring(META_INF_RESOUCE_PATH_LENGTH) );
+request.setAttribute("jquery_js",               LOCATOR.getFullPath("2.0.3-1/jquery.js")                             .substring(META_INF_RESOUCE_PATH_LENGTH) );
 request.setAttribute("bootstrap_js",            LOCATOR.getFullPath("js/bootstrap.js")                              .substring(META_INF_RESOUCE_PATH_LENGTH) );
 request.setAttribute("jquery_dataTables_js",    LOCATOR.getFullPath("media/js/jquery.dataTables.js")                .substring(META_INF_RESOUCE_PATH_LENGTH) );
 request.setAttribute("dataTables_bootstrap_js", LOCATOR.getFullPath("integration/bootstrap/3/dataTables.bootstrap.js").substring(META_INF_RESOUCE_PATH_LENGTH) );
