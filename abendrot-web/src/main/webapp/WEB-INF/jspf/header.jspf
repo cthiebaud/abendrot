@@ -10,13 +10,9 @@
 
     <%
     request.setAttribute("bootstrap_css",             LOCATOR.getFullPath("css/bootstrap.css")                             .substring(META_INF_RESOUCE_PATH_LENGTH) );
-    request.setAttribute("jquery_dataTables_css",     LOCATOR.getFullPath("media/css/jquery.dataTables.css")               .substring(META_INF_RESOUCE_PATH_LENGTH) );
-    request.setAttribute("dataTables_bootstrap_css",  LOCATOR.getFullPath("integration/bootstrap/3/dataTables.bootstrap.css").substring(META_INF_RESOUCE_PATH_LENGTH) );
     %>    
     
     <link rel="stylesheet" type="text/css" href="<c:url value='/${bootstrap_css}'            />" />
-    <link rel="stylesheet" type="text/css" href="<c:url value='/${jquery_dataTables_css}'    />" />
-    <link rel="stylesheet" type="text/css" href="<c:url value='/${dataTables_bootstrap_css}' />" />
 
 
 <style type="text/css">

@@ -69,18 +69,8 @@
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
-            <artifactId>datatables</artifactId>
-            <version>${datatables.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.webjars</groupId>
             <artifactId>momentjs</artifactId>
             <version>${momentjs.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>datatables-plugins</artifactId>
-            <version>ca6ec50</version>
         </dependency>
         <!-- webjars -->
     </dependencies>

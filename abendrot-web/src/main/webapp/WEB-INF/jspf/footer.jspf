@@ -1,12 +1,8 @@
 <%
 request.setAttribute("jquery_js",               LOCATOR.getFullPath("2.0.3/jquery.js")                             .substring(META_INF_RESOUCE_PATH_LENGTH) );
 request.setAttribute("bootstrap_js",            LOCATOR.getFullPath("js/bootstrap.js")                              .substring(META_INF_RESOUCE_PATH_LENGTH) );
-request.setAttribute("jquery_dataTables_js",    LOCATOR.getFullPath("media/js/jquery.dataTables.js")                .substring(META_INF_RESOUCE_PATH_LENGTH) );
-request.setAttribute("dataTables_bootstrap_js", LOCATOR.getFullPath("integration/bootstrap/3/dataTables.bootstrap.js").substring(META_INF_RESOUCE_PATH_LENGTH) );
 request.setAttribute("moment_js",               LOCATOR.getFullPath("moment.js")                                    .substring(META_INF_RESOUCE_PATH_LENGTH) );
 %>
 <script type="text/javascript" charset="utf8" src="<c:url value='/${jquery_js}'               />" ></script>
 <script type="text/javascript" charset="utf8" src="<c:url value='/${bootstrap_js}'            />" ></script>
-<script type="text/javascript" charset="utf8" src="<c:url value='/${jquery_dataTables_js}'    />" ></script>
-<script type="text/javascript" charset="utf8" src="<c:url value='/${dataTables_bootstrap_js}' />" ></script>
 <script type="text/javascript" charset="utf8" src="<c:url value='/${moment_js}'               />" ></script>

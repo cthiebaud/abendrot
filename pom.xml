@@ -170,7 +170,6 @@
         <webjars-locator.version>0.5</webjars-locator.version>
         <jquery.version>2.0.3-1</jquery.version>
         <bootstrap.version>3.0.2</bootstrap.version>
-        <datatables.version>1.9.4-2</datatables.version>
         <momentjs.version>2.4.0</momentjs.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
