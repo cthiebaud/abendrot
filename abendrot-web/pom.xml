@@ -80,9 +80,7 @@
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>datatables-plugins</artifactId>
-            <version>0.0.1</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/datatables-plugins-0.0.1-sap-04.jar</systemPath>
+            <version>ca6ec50</version>
         </dependency>
         <!-- webjars -->
     </dependencies>
@@ -118,9 +116,12 @@
                 <configuration>
                     <!-- forces the plugin to generate the git.properties file -->
                     <generateGitPropertiesFile>true</generateGitPropertiesFile>
+                    <gitDescribe>
+                        <dirty>-dirty</dirty>
+                    </gitDescribe>
 
                     <!-- The path for the to be generated properties file, it's relative to ${project.basedir} -->
-                    <generateGitPropertiesFilename>src/main/resources/git.properties</generateGitPropertiesFilename>
+                    <!-- generateGitPropertiesFilename>src/main/resources/git.properties</generateGitPropertiesFilename-->
                 </configuration>
             </plugin>
             <plugin>
