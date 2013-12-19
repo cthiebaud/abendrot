@@ -17,62 +17,59 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>abendrot-rest</artifactId>
             <version>${project.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.inject</groupId>
+                    <artifactId>javax.inject</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.glassfish.hk2.external</groupId>
+                    <artifactId>javax.inject</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.validation</groupId>
+                    <artifactId>validation-api</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>abendrot-persist</artifactId>
             <version>${project.version}</version>
         </dependency>
+        
         <!-- get @WebServlet annotations -->
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>${javax.servlet-api.version}</version>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.servlet</artifactId>
             <scope>provided</scope>
         </dependency>
+        
         <!-- get jstl -->
         <dependency>
-            <groupId>javax.servlet.jsp.jstl</groupId>
-            <artifactId>javax.servlet.jsp.jstl-api</artifactId>
-            <version>${javax.servlet.jsp.jstl-api.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish.web</groupId>
+            <groupId>org.eclipse.jetty.orbit</groupId>
             <artifactId>javax.servlet.jsp.jstl</artifactId>
-            <version>${javax.servlet.jsp.jstl.version}</version>
             <scope>provided</scope>
         </dependency>
-        <!-- Required for compilation and required at runtime (additional web application libraries) -->
-        <dependency>
-            <groupId>com.sap.security.core.server.csi</groupId>
-            <artifactId>com.sap.security.core.server.csi</artifactId>
-            <version>1.0.1</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/com.sap.security.core.server.csi_1.0.1.jar</systemPath>
-        </dependency>
+
         <!-- webjars -->
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>webjars-locator</artifactId>
-            <version>${webjars-locator.version}</version>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>jquery</artifactId>
-            <version>${jquery.version}</version>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>bootstrap</artifactId>
-            <version>${bootstrap.version}</version>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>momentjs</artifactId>
-            <version>${momentjs.version}</version>
         </dependency>
-        <!-- webjars -->
+        
     </dependencies>
 
     <build>
@@ -104,14 +101,25 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <!-- forces the plugin to generate the git.properties file -->
+                    <!-- true is default here, it prints some more information during the build -->
+                    <verbose>true</verbose>
+                    <!-- this is false by default, forces the plugin to generate the git.properties file -->
                     <generateGitPropertiesFile>true</generateGitPropertiesFile>
-                    <gitDescribe>
-                        <dirty>-dirty</dirty>
-                    </gitDescribe>
-
                     <!-- The path for the to be generated properties file, it's relative to ${project.basedir} -->
-                    <!-- generateGitPropertiesFilename>src/main/resources/git.properties</generateGitPropertiesFilename-->
+                    <generateGitPropertiesFilename>${project.build.outputDirectory}/META-INF/resources/${project.artifactId}/git.properties</generateGitPropertiesFilename>
+                    <!-- true by default, controls whether the plugin will fail when no .git directory is found, when set to false the plugin will just skip execution -->
+                    <!-- @since 2.0.4 -->
+                    <failOnNoGitDirectory>false</failOnNoGitDirectory>
+                    <!-- 
+                        read up about git-describe on the in man, or it's homepage - it's a really powerful versioning helper 
+                        and the recommended way to use git-commit-id-plugin. The configuration bellow is optional, 
+                        by default describe will run "just like git-describe on the command line", even though it's a JGit reimplementation.
+                    -->
+                    <gitDescribe>
+                        <!-- https://github.com/ktoso/maven-git-commit-id-plugin/issues/61#issuecomment-27995746  -->
+                        <!-- don't generate the describe property -->
+                        <skip>true</skip> 
+                    </gitDescribe>
                 </configuration>
             </plugin>
             <plugin>

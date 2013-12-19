@@ -22,12 +22,229 @@
                 <artifactId>slf4j-api</artifactId>
                 <version>${slf4j.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jul-to-slf4j</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
     
+            <!-- junit -->
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit-dep</artifactId>
                 <version>${junit.version}</version>
             </dependency>
+    
+            <!-- neo -->
+            <dependency>
+                <groupId>javax.el</groupId>
+                <artifactId>javax.el-api</artifactId>
+                <version>2.2.1</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.inject</groupId>
+                <artifactId>javax.inject</artifactId>
+                <version>1</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.mail</groupId>
+                <artifactId>mail</artifactId>
+                <version>1.4.5</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>1.0.0.GA</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.websocket</groupId>
+                <artifactId>javax.websocket-api</artifactId>
+                <version>1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.chemistry.opencmis</groupId>
+                <artifactId>chemistry-opencmis-client-api</artifactId>
+                <version>0.10.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.chemistry.opencmis</groupId>
+                <artifactId>chemistry-opencmis-commons-api</artifactId>
+                <version>0.10.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.geronimo.specs</groupId>
+                <artifactId>geronimo-jcdi_1.0_spec</artifactId>
+                <version>1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>4.1.3</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpcore</artifactId>
+                <version>4.1.4</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty.orbit</groupId>
+                <artifactId>javax.annotation</artifactId>
+                <version>1.1.0.v201108011116</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty.orbit</groupId>
+                <artifactId>javax.servlet.jsp.jstl</artifactId>
+                <version>1.2.0.v201105211821</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty.orbit</groupId>
+                <artifactId>javax.servlet.jsp</artifactId>
+                <version>2.2.0.v201112011158</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty.orbit</groupId>
+                <artifactId>javax.transaction</artifactId>
+                <version>1.1.1.v201105210645</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.persistence</groupId>
+                <artifactId>javax.persistence</artifactId>
+                <version>2.0.5</version>
+            </dependency>
+            <dependency>
+                <groupId>org.glassfish</groupId>
+                <artifactId>javax.ejb</artifactId>
+                <version>3.1.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.glassfish</groupId>
+                <artifactId>javax.faces</artifactId>
+                <version>2.1.18</version>
+            </dependency>
+            <dependency>
+                <groupId>org.glassfish</groupId>
+                <artifactId>javax.servlet</artifactId>
+                <version>3.1-b33</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>1.7.2</version>
+            </dependency>
+            
+            <!-- jackson -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.jaxrs</groupId>
+                <artifactId>jackson-jaxrs-json-provider</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+    
+            <!-- guava -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            
+            <!-- jersey -->
+            <dependency>
+                <groupId>org.glassfish.jersey.containers</groupId>
+                <artifactId>jersey-container-servlet</artifactId>
+                <version>${jersey.version}</version>
+            </dependency>
+            
+            <!-- joda -->
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${joda.version}</version>
+            </dependency>
+
+            <!-- tomcat -->
+            <dependency>
+                <groupId>org.apache.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-core</artifactId>
+                <version>${tomcat.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-logging-juli</artifactId>
+                <version>${tomcat.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-jasper</artifactId>
+                <version>${tomcat.version}</version>
+                <scope>test</scope>
+            </dependency>
+            
+            <!-- ecj -->
+            <dependency>
+                <groupId>org.eclipse.jdt.core.compiler</groupId>
+                <artifactId>ecj</artifactId>
+                <version>${ecj.version}</version>
+                <scope>test</scope>
+            </dependency>
+            
+            <!-- shrinkwrap -->
+            <dependency>
+                <groupId>org.jboss.shrinkwrap</groupId>
+                <artifactId>shrinkwrap-api</artifactId>
+                <version>${shrinkwrap.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.shrinkwrap</groupId>
+                <artifactId>shrinkwrap-impl-base</artifactId>
+                <version>${shrinkwrap.version}</version>
+                <scope>test</scope>
+            </dependency>
+            
+            <!-- async-http-client -->
+            <dependency>
+                <groupId>com.ning</groupId>
+                <artifactId>async-http-client</artifactId>
+                <version>${async-http-client.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <!-- logback -->
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+                <scope>test</scope>
+            </dependency>
+    
+            <!-- webjars -->
+            <dependency>
+                <groupId>org.webjars</groupId>
+                <artifactId>webjars-locator</artifactId>
+                <version>${webjars-locator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.webjars</groupId>
+                <artifactId>jquery</artifactId>
+                <version>${jquery.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.webjars</groupId>
+                <artifactId>bootstrap</artifactId>
+                <version>${bootstrap.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.webjars</groupId>
+                <artifactId>momentjs</artifactId>
+                <version>${momentjs.version}</version>
+            </dependency>
+            
         </dependencies>
     </dependencyManagement>
 
@@ -153,25 +370,26 @@
     </distributionManagement>
 
     <properties>
-        <slf4j.version>1.7.5</slf4j.version>
-        <logback.version>1.0.13</logback.version>
-        <async-http-client.version>1.7.21</async-http-client.version>
-        <shrinkwrap.version>1.2.0</shrinkwrap.version>
+        <async-http-client.version>1.7.23</async-http-client.version>
+        <bootstrap.version>3.0.3</bootstrap.version>
+        <ecj.version>4.2.2</ecj.version>
+        <guava.version>14.0.1</guava.version>
+        <jackson.version>2.3.0</jackson.version>
         <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
         <javax.servlet.jsp.jstl-api.version>1.2.1</javax.servlet.jsp.jstl-api.version>
         <javax.servlet.jsp.jstl.version>1.2.2</javax.servlet.jsp.jstl.version>
-        <junit.version>4.11</junit.version>
-        <jersey.version>2.4.1</jersey.version>
-        <tomcat.version>8.0.0-RC5</tomcat.version>
-        <jackson.version>2.3.0-rc1</jackson.version>
-        <guava.version>14.0.1</guava.version>
+        <jersey.version>2.5</jersey.version>
         <joda.version>2.3</joda.version>
-        <ecj.version>4.2.2</ecj.version>
-        <webjars-locator.version>0.5</webjars-locator.version>
         <jquery.version>2.0.3-1</jquery.version>
-        <bootstrap.version>3.0.2</bootstrap.version>
+        <junit.version>4.11</junit.version>
+        <logback.version>1.0.13</logback.version>
         <momentjs.version>2.4.0</momentjs.version>
-
+        <neo.version>2.23.16</neo.version>
+        <shrinkwrap.version>1.2.0</shrinkwrap.version>
+        <slf4j.version>1.7.5</slf4j.version>
+        <tomcat.version>8.0.0-RC5</tomcat.version>
+        <webjars-locator.version>0.6</webjars-locator.version>
+        
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- http://maven.apache.org/plugins/maven-release-plugin/faq.html#credentials -->

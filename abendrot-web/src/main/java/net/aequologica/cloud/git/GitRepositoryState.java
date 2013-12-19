@@ -1,5 +1,8 @@
 package net.aequologica.cloud.git;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.Properties;
 
 public class GitRepositoryState {
@@ -18,22 +21,42 @@ public class GitRepositoryState {
     private final String commitMessageFull;     // =${git.commit.message.full}
     private final String commitMessageShort;    // =${git.commit.message.short}
     private final String commitTime;            // =${git.commit.time}
+    private final String remoteOriginUrl;    // =${git.remote.origin.url}
     // @formatter:on
+    
+    public static Properties load(String module) throws IOException {
+        Properties properties = new Properties();
+        URL url = GitRepositoryState.class.getResource("/META-INF/resources/" + module + "/git.properties");
+        if (url != null) {
+            try (InputStream inputStream = url.openStream()) {
+                properties.load(inputStream);
+            }
+        }
+        return properties;
+    }
+    
+    static private String safeToString(Object o) {
+        return o == null ? "" : o.toString();
+    }
+    public GitRepositoryState(String module) throws IOException {
+        this(load(module));
+    }
     
     public GitRepositoryState(Properties properties) {
         // @formatter:off
-        this.branch             = properties.get("git.branch"               ).toString();
-        this.describe           = properties.get("git.commit.id.describe"   ).toString();
-        this.commitId           = properties.get("git.commit.id"            ).toString();
-        this.commitIdAbbrev     = properties.get("git.commit.id.abbrev"     ).toString();
-        this.buildUserName      = properties.get("git.build.user.name"      ).toString();
-        this.buildUserEmail     = properties.get("git.build.user.email"     ).toString();
-        this.buildTime          = properties.get("git.build.time"           ).toString();
-        this.commitUserName     = properties.get("git.commit.user.name"     ).toString();
-        this.commitUserEmail    = properties.get("git.commit.user.email"    ).toString();
-        this.commitMessageShort = properties.get("git.commit.message.short" ).toString();
-        this.commitMessageFull  = properties.get("git.commit.message.full"  ).toString();
-        this.commitTime         = properties.get("git.commit.time"          ).toString();
+        this.branch             = safeToString(properties.get("git.branch"));
+        this.describe           = safeToString(properties.get("git.commit.id.describe"));
+        this.commitId           = safeToString(properties.get("git.commit.id"));
+        this.commitIdAbbrev     = safeToString(properties.get("git.commit.id.abbrev"));
+        this.buildUserName      = safeToString(properties.get("git.build.user.name"));
+        this.buildUserEmail     = safeToString(properties.get("git.build.user.email"));
+        this.buildTime          = safeToString(properties.get("git.build.time"));
+        this.commitUserName     = safeToString(properties.get("git.commit.user.name"));
+        this.commitUserEmail    = safeToString(properties.get("git.commit.user.email"));
+        this.commitMessageShort = safeToString(properties.get("git.commit.message.short"));
+        this.commitMessageFull  = safeToString(properties.get("git.commit.message.full"));
+        this.commitTime         = safeToString(properties.get("git.commit.time"));
+        this.remoteOriginUrl    = safeToString(properties.get("git.remote.origin.url"));
         // @formatter:on
     }
     
@@ -104,4 +127,9 @@ public class GitRepositoryState {
     public String getCommitTime() {
         return commitTime;
     }
+
+    public String getRemoteOrigin() {
+        return remoteOriginUrl;
+    }
+    
 }

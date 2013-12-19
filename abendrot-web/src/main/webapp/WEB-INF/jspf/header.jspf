@@ -1,7 +1,7 @@
 <%@   taglib prefix="c"   uri="http://java.sun.com/jstl/core_rt" 
 %><%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" 
 %><%! org.webjars.WebJarAssetLocator LOCATOR                      = new org.webjars.WebJarAssetLocator(); 
-%><%! int                            META_INF_RESOUCE_PATH_LENGTH = org.webjars.AssetLocator.META_INF_RESOUCE_PATH.length(); 
+%><%! int                            META_INF_RESOUCE_PATH_LENGTH = "META-INF/resources/".length(); 
 %><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport"    content="width=device-width, initial-scale=1.0">
 <meta name="description" content="SAP NetWeaver Cloud Tutorial">

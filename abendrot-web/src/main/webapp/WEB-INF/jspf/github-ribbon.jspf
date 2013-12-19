@@ -2,11 +2,7 @@
 %><%@page import="java.util.Properties"
 %><%@page import="java.io.IOException"
 %><% {
-    Properties gitProperties = new Properties();
-    
-    gitProperties.load(this.getClass().getClassLoader().getResourceAsStream("/git.properties"));
-    
-    GitRepositoryState gitRepositoryState = new GitRepositoryState(gitProperties);
+    GitRepositoryState gitRepositoryState = new GitRepositoryState("abendrot-web");
     
     if (gitRepositoryState.getCommitIdDescribe().indexOf("dirty") == -1) {
     	
