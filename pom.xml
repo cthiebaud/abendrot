@@ -11,6 +11,7 @@
     <modules>
         <module>abendrot-rest</module>
         <module>abendrot-persist</module>
+        <module>abendrot-chat</module>
         <module>abendrot-web</module>
     </modules>
     
@@ -243,6 +244,19 @@
                 <groupId>org.webjars</groupId>
                 <artifactId>momentjs</artifactId>
                 <version>${momentjs.version}</version>
+            </dependency>
+
+            <!--  atmosphere -->
+            <dependency>
+                <groupId>org.atmosphere.client</groupId>
+                <artifactId>javascript</artifactId>
+                <type>war</type>
+                <version>2.1.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.atmosphere</groupId>
+                <artifactId>atmosphere-runtime</artifactId>
+                <version>2.1.0-RC1</version>
             </dependency>
             
         </dependencies>
